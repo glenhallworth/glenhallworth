@@ -34,9 +34,9 @@ on_success:
   - git rm -rf .
   - xcopy ..\output . /E
   # EDIT your domain name or remove if not using a custom domain
-  - echo wyam.io > CNAME
+  - echo wyam.io > glenhallworth.com
   # EDIT the origin of your repository - have to reset it here because AppVeyor pulls from SSH, but GitHub won't accept SSH pushes
-  - git remote set-url origin https://github.com/Wyamio/Wyam.Web.git
+  - git remote set-url origin https://github.com/glenhallworth/glenhallworth.github.io.git
   - git add -A
   - git commit -a -m "Commit from AppVeyor"
   - git push
