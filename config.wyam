@@ -1,0 +1,8 @@
+#recipe Blog
+
+// Customize your settings and add new ones here
+Settings[Keys.Host] = "glenhallworth.com";
+Settings[BlogKeys.Title] = "Glen Hallworth";
+Settings[BlogKeys.Description] = "Welcome!";
+
+// Add any pipeline customizations here

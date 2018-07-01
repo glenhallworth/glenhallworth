@@ -1,0 +1,1 @@
+wyam --recipe Blog --theme Phantom --preview
