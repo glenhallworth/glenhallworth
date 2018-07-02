@@ -1,0 +1,217 @@
+﻿
+<!DOCTYPE html>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+
+	<head>
+		<title>Glen Hallworth - Telerik AppBuilder Alternatives</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />		
+        <link href="/assets/css/highlight.css" rel="stylesheet">
+		<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+        <link href="/assets/css/override.css" rel="stylesheet" />
+
+		<meta name="description" content="" />
+		<link type="application/rss+xml" rel="alternate" title="Glen Hallworth" href="/feed.rss" />
+				<link type="application/atom+xml" rel="alternate" title="Glen Hallworth" href="/feed.atom" />
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+		<meta name="application-name" content="Glen Hallworth" />
+		<meta name="msapplication-tooltip" content="Glen Hallworth" />
+		<meta name="msapplication-starturl" content="/" />
+
+		<meta property="og:title" content="Glen Hallworth - Telerik AppBuilder Alternatives" /> 
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://glenhallworth.com/posts/Telerik-AppBuilder-Alternatives" />
+		<!-- TODO: More social graph meta tags -->
+
+        <script src="/assets/js/highlight.pack.js"></script>   
+		
+        
+
+		
+	</head>
+
+	<body>
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<div class="inner">
+
+					<!-- Logo -->
+					<a href="/" class="logo">
+						<span class="title">Glen Hallworth</span>
+					</a>
+
+					<!-- Nav -->
+					<nav>
+						<ul>
+							<li><a href="#menu">Menu</a></li>
+						</ul>
+					</nav>
+
+				</div>
+			</header>
+
+			<!-- Menu -->
+			<nav id="menu">
+				<h2>Menu</h2>
+				<ul>
+					        <li><a href="/posts">Archive</a></li>
+        <li><a href="/tags">Tags</a></li>
+        <li><a href="/about">About Me</a></li>
+
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+    
+<header>
+    <h1>Telerik AppBuilder Alternatives</h1>
+            <p><em>Published on Thursday, December 21, 2017</em></p>
+            <ul class="actions small">
+                    <li><a role="button" href="/tags/Cordova" class="button small">Cordova</a></li>
+                    <li><a role="button" href="/tags/Ionic" class="button small">Ionic</a></li>
+                    <li><a role="button" href="/tags/Phonegap" class="button small">Phonegap</a></li>
+                    <li><a role="button" href="/tags/Teletrik-AppBuilder" class="button small">Teletrik AppBuilder</a></li>
+        </ul>     
+</header>
+
+					
+					<div id="content">
+						
+
+<p><a href="https://docs.telerik.com/platform/appbuilder/">Telerik AppBuilder</a> is being <a href="https://www.telerik.com/platform-next-level">retired on 10th May, 2018.</a> It was an easy way to compile Cordova apps for iOS and Android packages without a Mac OS machine. With the Visual Studio plugin, AppBuilder provided a low-friction way to build cross-platform apps. A new platform is required to continue creating these apps due to the impending retirement. We need a tool that allows developers to initiate a build on a windows machine and receive an iOS package in return.</p>
+<h2 id="convert-to-cordova">Convert to Cordova</h2>
+<p>Telerik AppBuilder based on <a href="https://cordova.apache.org/">Cordova</a>, the first step to moving away from AppBuilder will be converting the project into a Cordova project. There will be minimal work to move plugins and platforms over, although Cordova is strict with the <a href="https://cordova.apache.org/docs/en/latest/reference/cordova-cli/">directory structure</a>. This initial pain will make it easier moving forward if you want to trial different platforms for app build and release.</p>
+<h2 id="platforms">Platforms</h2>
+<h3 id="adobe-phonegap"><a href="https://build.phonegap.com/">Adobe Phonegap</a></h3>
+<h4 id="pros">Pros</h4>
+<ul>
+<li>The <a href="https://phonegap.com/products/#phonegap-cli-section">CLI</a> is really nice. To initiate a remote build:</li>
+</ul>
+<pre><code>phonegap remote install ios
+</code></pre>
+<ul>
+<li>The paid plan is $9.99 / month.</li>
+<li>Supports QR Codes in the command line
+<img src="https://i.imgur.com/ajpwZlO.png" width="250"></li>
+</ul>
+<h4 id="cons">Cons</h4>
+<ul>
+<li>Lackluster <a href="https://phonegap.com/products/#desktop-app-section">desktop application</a> without much functionality.</li>
+<li>The free plan is limited to 1 app.</li>
+</ul>
+<h3 id="monaca"><a href="https://monaca.io/">Monaca</a></h3>
+<h4 id="pros-1">Pros</h4>
+<ul>
+<li>Has support for <a href="https://github.com/monaca/monaca-cli">CLI</a> or <a href="https://monaca.io/localkit.html">Localkit IDE</a></li>
+<li>Can deploy to <a href="https://hockeyapp.net/">HockeyApp</a> or <a href="https://deploygate.com/?locale=en">DeployGate</a>.</li>
+<li><a href="https://monaca.io/pricing.html">$20 / month per developer</a></li>
+<li>CLI is easy to use</li>
+</ul>
+<pre><code>monaca remote build ios
+</code></pre>
+<h4 id="cons-1">Cons</h4>
+<ul>
+<li>Discontinued <a href="https://marketplace.visualstudio.com/items?itemName=MonacaandOnsenUI.MonacaforVisualStudio2015">Visual Studio 2015 plugin</a></li>
+<li>No Visual Studio 2017 plugin.</li>
+<li>Visual Studio Code extension in development but no release date.</li>
+</ul>
+<h3 id="visual-studio-team-services"><a href="https://www.visualstudio.com/team-services/">Visual Studio Team Services</a></h3>
+<h4 id="pros-2">Pros</h4>
+<ul>
+<li>Supports <a href="https://blogs.msdn.microsoft.com/devops/2017/11/16/cloud-hosted-mac-agents-for-ci-cd-pipelines/">hosted Mac OS build agents</a>
+<ul>
+<li>If hosted agents unsuitable can use <a href="https://www.macincloud.com/">MacinCloud</a> build agents or private agents on your machines</li>
+</ul>
+</li>
+<li>Generic build and release support for applications other than iOS or Android apps such as a backend service.</li>
+<li>Full software development suite: Source Control, Project Management, Build &amp; Release, Testing</li>
+<li>Free, but active development will exhaust free build minutes quickly.</li>
+</ul>
+<h4 id="cons-2">Cons</h4>
+<ul>
+<li>Need to check in to build</li>
+<li>Slow feedback loop</li>
+<li>Need to push app package to a third party for deployment</li>
+</ul>
+<h3 id="cocoon"><a href="https://cocoon.io/">Cocoon</a></h3>
+<h4 id="pros-3">Pros</h4>
+<ul>
+<li>Website easy to use with good UX</li>
+<li>Essentially free for development builds</li>
+</ul>
+<h4 id="cons-3">Cons</h4>
+<ul>
+<li>Poor deployment and automation support
+<ul>
+<li>Downloads a zip file with packages.</li>
+<li>No straight to phone option.</li>
+<li>No QR Codes.</li>
+<li>No command line tools</li>
+</ul>
+</li>
+<li>Adds a &quot;Built with Cocoon&quot; splash screen that you can remove for a one-time fee of $500</li>
+</ul>
+<h2 id="other-platforms">Other Platforms</h2>
+<h3 id="ionic"><a href="https://ionicframework.com/">Ionic</a></h3>
+<p>Ionic is good for building <a href="https://angular.io/">Angular</a> based Cordova apps with cloud-build options. It is not suitable using with existing Telerik AppBuilder app due to being tied closely to the Ionic Framework.</p>
+<h3 id="fastlane"><a href="https://fastlane.tools/">Fastlane</a></h3>
+<p>Fastlane does not support windows and is out of the scope of this article.</p>
+
+
+
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+    <section>
+        <h2>Feeds</h2>
+        <ul class="actions small vertical">
+            <li><a href="/feed.rss" class="button small"><i class="fa fa-rss"></i> RSS Feed</a></li>
+                        <li><a href="/feed.atom" class="button small"><i class="fa fa-rss"></i> Atom Feed</a></li>
+        </ul>
+    </section>
+    <section>
+    </section>
+    <ul class="copyright">
+        <li>Copyright © 2018</li>
+        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        <li><a href="https://wyam.io">Generated by Wyam</a></li>
+    </ul>
+</div>
+
+			</footer>
+
+		</div>
+		
+		
+
+		<!-- Scripts -->
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/js/skel.min.js"></script>
+		<script src="/assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="/assets/js/main.js"></script>
+
+	</body>
+
+</html>

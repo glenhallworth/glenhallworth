@@ -3,10 +3,96 @@
 	<channel>
 		<title>Glen Hallworth</title>
 		<link>https://glenhallworth.com/</link>
-		<description>Welcome!</description>
+		<description />
 		<copyright>2018</copyright>
-		<pubDate>Mon, 02 Jul 2018 01:50:14 GMT</pubDate>
-		<lastBuildDate>Mon, 02 Jul 2018 01:50:14 GMT</lastBuildDate>
+		<pubDate>Mon, 02 Jul 2018 01:54:09 GMT</pubDate>
+		<lastBuildDate>Mon, 02 Jul 2018 01:54:09 GMT</lastBuildDate>
+		<item>
+			<title>Telerik AppBuilder Alternatives</title>
+			<link>https://glenhallworth.com/posts/Telerik-AppBuilder-Alternatives</link>
+			<description>&lt;p&gt;&lt;a href="https://docs.telerik.com/platform/appbuilder/"&gt;Telerik AppBuilder&lt;/a&gt; is being &lt;a href="https://www.telerik.com/platform-next-level"&gt;retired on 10th May, 2018.&lt;/a&gt; It was an easy way to compile Cordova apps for iOS and Android packages without a Mac OS machine. With the Visual Studio plugin, AppBuilder provided a low-friction way to build cross-platform apps. A new platform is required to continue creating these apps due to the impending retirement. We need a tool that allows developers to initiate a build on a windows machine and receive an iOS package in return.&lt;/p&gt;</description>
+			<guid>https://glenhallworth.com/posts/Telerik-AppBuilder-Alternatives</guid>
+			<pubDate>Thu, 21 Dec 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;&lt;a href="https://docs.telerik.com/platform/appbuilder/"&gt;Telerik AppBuilder&lt;/a&gt; is being &lt;a href="https://www.telerik.com/platform-next-level"&gt;retired on 10th May, 2018.&lt;/a&gt; It was an easy way to compile Cordova apps for iOS and Android packages without a Mac OS machine. With the Visual Studio plugin, AppBuilder provided a low-friction way to build cross-platform apps. A new platform is required to continue creating these apps due to the impending retirement. We need a tool that allows developers to initiate a build on a windows machine and receive an iOS package in return.&lt;/p&gt;
+&lt;h2 id="convert-to-cordova"&gt;Convert to Cordova&lt;/h2&gt;
+&lt;p&gt;Telerik AppBuilder based on &lt;a href="https://cordova.apache.org/"&gt;Cordova&lt;/a&gt;, the first step to moving away from AppBuilder will be converting the project into a Cordova project. There will be minimal work to move plugins and platforms over, although Cordova is strict with the &lt;a href="https://cordova.apache.org/docs/en/latest/reference/cordova-cli/"&gt;directory structure&lt;/a&gt;. This initial pain will make it easier moving forward if you want to trial different platforms for app build and release.&lt;/p&gt;
+&lt;h2 id="platforms"&gt;Platforms&lt;/h2&gt;
+&lt;h3 id="adobe-phonegap"&gt;&lt;a href="https://build.phonegap.com/"&gt;Adobe Phonegap&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="pros"&gt;Pros&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href="https://phonegap.com/products/#phonegap-cli-section"&gt;CLI&lt;/a&gt; is really nice. To initiate a remote build:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;phonegap remote install ios
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;The paid plan is $9.99 / month.&lt;/li&gt;
+&lt;li&gt;Supports QR Codes in the command line
+&lt;img src="https://i.imgur.com/ajpwZlO.png" width="250"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="cons"&gt;Cons&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Lackluster &lt;a href="https://phonegap.com/products/#desktop-app-section"&gt;desktop application&lt;/a&gt; without much functionality.&lt;/li&gt;
+&lt;li&gt;The free plan is limited to 1 app.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="monaca"&gt;&lt;a href="https://monaca.io/"&gt;Monaca&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="pros-1"&gt;Pros&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Has support for &lt;a href="https://github.com/monaca/monaca-cli"&gt;CLI&lt;/a&gt; or &lt;a href="https://monaca.io/localkit.html"&gt;Localkit IDE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Can deploy to &lt;a href="https://hockeyapp.net/"&gt;HockeyApp&lt;/a&gt; or &lt;a href="https://deploygate.com/?locale=en"&gt;DeployGate&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://monaca.io/pricing.html"&gt;$20 / month per developer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CLI is easy to use&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;monaca remote build ios
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id="cons-1"&gt;Cons&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Discontinued &lt;a href="https://marketplace.visualstudio.com/items?itemName=MonacaandOnsenUI.MonacaforVisualStudio2015"&gt;Visual Studio 2015 plugin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;No Visual Studio 2017 plugin.&lt;/li&gt;
+&lt;li&gt;Visual Studio Code extension in development but no release date.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="visual-studio-team-services"&gt;&lt;a href="https://www.visualstudio.com/team-services/"&gt;Visual Studio Team Services&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="pros-2"&gt;Pros&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Supports &lt;a href="https://blogs.msdn.microsoft.com/devops/2017/11/16/cloud-hosted-mac-agents-for-ci-cd-pipelines/"&gt;hosted Mac OS build agents&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;If hosted agents unsuitable can use &lt;a href="https://www.macincloud.com/"&gt;MacinCloud&lt;/a&gt; build agents or private agents on your machines&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Generic build and release support for applications other than iOS or Android apps such as a backend service.&lt;/li&gt;
+&lt;li&gt;Full software development suite: Source Control, Project Management, Build &amp;amp; Release, Testing&lt;/li&gt;
+&lt;li&gt;Free, but active development will exhaust free build minutes quickly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="cons-2"&gt;Cons&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Need to check in to build&lt;/li&gt;
+&lt;li&gt;Slow feedback loop&lt;/li&gt;
+&lt;li&gt;Need to push app package to a third party for deployment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="cocoon"&gt;&lt;a href="https://cocoon.io/"&gt;Cocoon&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="pros-3"&gt;Pros&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Website easy to use with good UX&lt;/li&gt;
+&lt;li&gt;Essentially free for development builds&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="cons-3"&gt;Cons&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Poor deployment and automation support
+&lt;ul&gt;
+&lt;li&gt;Downloads a zip file with packages.&lt;/li&gt;
+&lt;li&gt;No straight to phone option.&lt;/li&gt;
+&lt;li&gt;No QR Codes.&lt;/li&gt;
+&lt;li&gt;No command line tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Adds a &amp;quot;Built with Cocoon&amp;quot; splash screen that you can remove for a one-time fee of $500&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="other-platforms"&gt;Other Platforms&lt;/h2&gt;
+&lt;h3 id="ionic"&gt;&lt;a href="https://ionicframework.com/"&gt;Ionic&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Ionic is good for building &lt;a href="https://angular.io/"&gt;Angular&lt;/a&gt; based Cordova apps with cloud-build options. It is not suitable using with existing Telerik AppBuilder app due to being tied closely to the Ionic Framework.&lt;/p&gt;
+&lt;h3 id="fastlane"&gt;&lt;a href="https://fastlane.tools/"&gt;Fastlane&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Fastlane does not support windows and is out of the scope of this article.&lt;/p&gt;
+</content:encoded>
+		</item>
 		<item>
 			<title>Retrieving Esri/ArcGIS Maps Token in Dotnet Core</title>
 			<link>https://glenhallworth.com/posts/Retrieving-EsriArcGIS-Maps-Token-in-Dotnet-Core</link>
@@ -106,50 +192,6 @@
 </content:encoded>
 		</item>
 		<item>
-			<title>How to save a webpage as PDF file using Puppeteer.js</title>
-			<link>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</link>
-			<guid>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</guid>
-			<pubDate>Fri, 06 Oct 2017 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
-
-class Webpage {
-  static async generatePDF(url) {
-    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
-    const page = await browser.newPage();
-    await page.goto(url, {
-      waitUntil: &amp;quot;networkidle&amp;quot;,
-      networkIdleTimeout: 5000
-    }); // Adjust network idle as required.
-    const pdfConfig = {
-      path: &amp;quot;url.pdf&amp;quot;, // Saves pdf to disk.
-      format: &amp;quot;A4&amp;quot;,
-      printBackground: true,
-      margin: {
-        // Word's default A4 margins
-        top: &amp;quot;2.54cm&amp;quot;,
-        bottom: &amp;quot;2.54cm&amp;quot;,
-        left: &amp;quot;2.54cm&amp;quot;,
-        right: &amp;quot;2.54cm&amp;quot;
-      }
-    };
-    await page.emulateMedia(&amp;quot;screen&amp;quot;);
-    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
-
-    await browser.close();
-
-    return pdf;
-  }
-}
-
-(async () =&amp;gt; {
-  const url =
-    &amp;quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&amp;quot;;
-  const buffer = await Webpage.generatePDF(url);
-})();
-&lt;/code&gt;&lt;/pre&gt;
-</content:encoded>
-		</item>
-		<item>
 			<title>How to save a webpage as PDF file and send via email using Puppeteer and Nodemailer.js</title>
 			<link>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-and-send-via-email-using-Puppeteer-and-Nodemailer.js</link>
 			<guid>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-and-send-via-email-using-Puppeteer-and-Nodemailer.js</guid>
@@ -232,6 +274,50 @@ class Email {
     &amp;quot;Alice in Wonderland.pdf&amp;quot;,
     buffer
   );
+})();
+&lt;/code&gt;&lt;/pre&gt;
+</content:encoded>
+		</item>
+		<item>
+			<title>How to save a webpage as PDF file using Puppeteer.js</title>
+			<link>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</link>
+			<guid>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</guid>
+			<pubDate>Fri, 06 Oct 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
+
+class Webpage {
+  static async generatePDF(url) {
+    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
+    const page = await browser.newPage();
+    await page.goto(url, {
+      waitUntil: &amp;quot;networkidle&amp;quot;,
+      networkIdleTimeout: 5000
+    }); // Adjust network idle as required.
+    const pdfConfig = {
+      path: &amp;quot;url.pdf&amp;quot;, // Saves pdf to disk.
+      format: &amp;quot;A4&amp;quot;,
+      printBackground: true,
+      margin: {
+        // Word's default A4 margins
+        top: &amp;quot;2.54cm&amp;quot;,
+        bottom: &amp;quot;2.54cm&amp;quot;,
+        left: &amp;quot;2.54cm&amp;quot;,
+        right: &amp;quot;2.54cm&amp;quot;
+      }
+    };
+    await page.emulateMedia(&amp;quot;screen&amp;quot;);
+    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
+
+    await browser.close();
+
+    return pdf;
+  }
+}
+
+(async () =&amp;gt; {
+  const url =
+    &amp;quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&amp;quot;;
+  const buffer = await Webpage.generatePDF(url);
 })();
 &lt;/code&gt;&lt;/pre&gt;
 </content:encoded>
