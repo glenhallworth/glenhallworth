@@ -1,0 +1,190 @@
+﻿
+<!DOCTYPE html>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+
+	<head>
+		<title>Glen Hallworth - Retrieving Esri/ArcGIS Maps Token in Dotnet Core</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />		
+        <link href="/assets/css/highlight.css" rel="stylesheet">
+		<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+        <link href="/assets/css/override.css" rel="stylesheet" />
+
+		<meta name="description" content="Welcome!" />
+		<link type="application/rss+xml" rel="alternate" title="Glen Hallworth" href="/feed.rss" />
+				<link type="application/atom+xml" rel="alternate" title="Glen Hallworth" href="/feed.atom" />
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+		<meta name="application-name" content="Glen Hallworth" />
+		<meta name="msapplication-tooltip" content="Glen Hallworth" />
+		<meta name="msapplication-starturl" content="/" />
+
+		<meta property="og:title" content="Glen Hallworth - Retrieving Esri/ArcGIS Maps Token in Dotnet Core" /> 
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://glenhallworth.com/posts/Retrieving-EsriArcGIS-Maps-Token-in-Dotnet-Core" />
+		<!-- TODO: More social graph meta tags -->
+
+        <script src="/assets/js/highlight.pack.js"></script>   
+		
+        
+
+		
+	</head>
+
+	<body>
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<div class="inner">
+
+					<!-- Logo -->
+					<a href="/" class="logo">
+						<span class="title">Glen Hallworth</span>
+					</a>
+
+					<!-- Nav -->
+					<nav>
+						<ul>
+							<li><a href="#menu">Menu</a></li>
+						</ul>
+					</nav>
+
+				</div>
+			</header>
+
+			<!-- Menu -->
+			<nav id="menu">
+				<h2>Menu</h2>
+				<ul>
+					        <li><a href="/posts">Archive</a></li>
+        <li><a href="/tags">Tags</a></li>
+        <li><a href="/about">About Me</a></li>
+
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+    
+<header>
+    <h1>Retrieving Esri/ArcGIS Maps Token in Dotnet Core</h1>
+            <p><em>Published on Monday, December 18, 2017</em></p>
+            <ul class="actions small">
+                    <li><a role="button" href="/tags/NET-Core" class="button small">.NET Core</a></li>
+                    <li><a role="button" href="/tags/ArcGIS" class="button small">ArcGIS</a></li>
+                    <li><a role="button" href="/tags/Esri" class="button small">Esri</a></li>
+        </ul>     
+</header>
+
+					
+					<div id="content">
+						
+
+<p><a href="http://www.esri.com/data/streetmap">Esri</a> has a premium service which requires adding a token to REST API requests for services like batch geocoding. The service has a few gotchas. The sample code is:</p>
+<pre><code class="language-csharp">    public class EsriTokenResponse
+    {
+        [JsonProperty(PropertyName = &quot;access_token&quot;)]
+        public string AccessToken { get; set; }
+        [JsonProperty(PropertyName = &quot;expires_in&quot;)]
+        public int ExpiresInMinutes { get; set; }
+    }
+
+    public class EsriClient
+    {
+        private readonly HttpClient _httpClient;
+        private readonly string tokenUrl = &quot;https://www.arcgis.com/sharing/rest/oauth2/token&quot;;
+        private readonly string clientId = &quot;add_client_id&quot;; // update
+        private readonly string clientSecret = &quot;add_client_secret&quot;; // update
+        private readonly string grantType = &quot;client_credentials&quot;;
+        private readonly int expirationInMinutes = 120;
+
+        public EsriClient(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
+        public async Task&lt;EsriTokenResponse&gt; GetToken()
+        {
+            var url =
+                $&quot;{tokenUrl}?client_id={clientId}&amp;client_secret={clientSecret}&amp;grant_type={grantType}&amp;expiration={ExpirationInMinutes}&quot;;
+            var response = await _httpClient.PostAsync(url, null);
+            var result =
+                await response.Content.ReadAsStringAsync();
+            var token = JsonConvert.DeserializeObject&lt;EsriTokenResponse&gt;(result);
+            if (string.IsNullOrWhiteSpace(token.AccessToken)) // Esri does not respect HTTP status codes and will always return 200. It puts errors in the body.
+            {
+                throw new Exception(&quot;Could not retrieve Esri Token&quot;);
+            }
+            return token;
+        }
+    }
+</code></pre>
+<h3 id="gotchas">Gotchas</h3>
+<p><a href="https://developers.arcgis.com/documentation/core-concepts/rest-api/">ArcGIS</a> has a REST-like API. It doesn't adhere strictly to REST best practices.</p>
+<p>When retrieving the token, I did not expect to put all the parameters into the query string.</p>
+<p>Error handling is more laborious than need be, it always returns HTTP 200 OK. For example, in the case of a bad request, the error details are in the body.</p>
+<pre><code class="language-javascript">{
+    &quot;error&quot;: {
+        &quot;code&quot;: 400,
+        &quot;error&quot;: &quot;invalid_client_id&quot;,
+        &quot;error_description&quot;: &quot;Invalid client_id&quot;,
+        &quot;message&quot;: &quot;Invalid client_id&quot;,
+        &quot;details&quot;: []
+    }
+}
+</code></pre>
+
+
+
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+    <section>
+        <h2>Feeds</h2>
+        <ul class="actions small vertical">
+            <li><a href="/feed.rss" class="button small"><i class="fa fa-rss"></i> RSS Feed</a></li>
+                        <li><a href="/feed.atom" class="button small"><i class="fa fa-rss"></i> Atom Feed</a></li>
+        </ul>
+    </section>
+    <section>
+    </section>
+    <ul class="copyright">
+        <li>Copyright © 2018</li>
+        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        <li><a href="https://wyam.io">Generated by Wyam</a></li>
+    </ul>
+</div>
+
+			</footer>
+
+		</div>
+		
+		
+
+		<!-- Scripts -->
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/js/skel.min.js"></script>
+		<script src="/assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="/assets/js/main.js"></script>
+
+	</body>
+
+</html>

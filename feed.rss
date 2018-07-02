@@ -5,8 +5,68 @@
 		<link>https://glenhallworth.com/</link>
 		<description>Welcome!</description>
 		<copyright>2018</copyright>
-		<pubDate>Mon, 02 Jul 2018 01:32:44 GMT</pubDate>
-		<lastBuildDate>Mon, 02 Jul 2018 01:32:44 GMT</lastBuildDate>
+		<pubDate>Mon, 02 Jul 2018 01:50:14 GMT</pubDate>
+		<lastBuildDate>Mon, 02 Jul 2018 01:50:14 GMT</lastBuildDate>
+		<item>
+			<title>Retrieving Esri/ArcGIS Maps Token in Dotnet Core</title>
+			<link>https://glenhallworth.com/posts/Retrieving-EsriArcGIS-Maps-Token-in-Dotnet-Core</link>
+			<description>&lt;p&gt;&lt;a href="http://www.esri.com/data/streetmap"&gt;Esri&lt;/a&gt; has a premium service which requires adding a token to REST API requests for services like batch geocoding. The service has a few gotchas. The sample code is:&lt;/p&gt;</description>
+			<guid>https://glenhallworth.com/posts/Retrieving-EsriArcGIS-Maps-Token-in-Dotnet-Core</guid>
+			<pubDate>Mon, 18 Dec 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;&lt;a href="http://www.esri.com/data/streetmap"&gt;Esri&lt;/a&gt; has a premium service which requires adding a token to REST API requests for services like batch geocoding. The service has a few gotchas. The sample code is:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;    public class EsriTokenResponse
+    {
+        [JsonProperty(PropertyName = &amp;quot;access_token&amp;quot;)]
+        public string AccessToken { get; set; }
+        [JsonProperty(PropertyName = &amp;quot;expires_in&amp;quot;)]
+        public int ExpiresInMinutes { get; set; }
+    }
+
+    public class EsriClient
+    {
+        private readonly HttpClient _httpClient;
+        private readonly string tokenUrl = &amp;quot;https://www.arcgis.com/sharing/rest/oauth2/token&amp;quot;;
+        private readonly string clientId = &amp;quot;add_client_id&amp;quot;; // update
+        private readonly string clientSecret = &amp;quot;add_client_secret&amp;quot;; // update
+        private readonly string grantType = &amp;quot;client_credentials&amp;quot;;
+        private readonly int expirationInMinutes = 120;
+
+        public EsriClient(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
+        public async Task&amp;lt;EsriTokenResponse&amp;gt; GetToken()
+        {
+            var url =
+                $&amp;quot;{tokenUrl}?client_id={clientId}&amp;amp;client_secret={clientSecret}&amp;amp;grant_type={grantType}&amp;amp;expiration={ExpirationInMinutes}&amp;quot;;
+            var response = await _httpClient.PostAsync(url, null);
+            var result =
+                await response.Content.ReadAsStringAsync();
+            var token = JsonConvert.DeserializeObject&amp;lt;EsriTokenResponse&amp;gt;(result);
+            if (string.IsNullOrWhiteSpace(token.AccessToken)) // Esri does not respect HTTP status codes and will always return 200. It puts errors in the body.
+            {
+                throw new Exception(&amp;quot;Could not retrieve Esri Token&amp;quot;);
+            }
+            return token;
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="gotchas"&gt;Gotchas&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://developers.arcgis.com/documentation/core-concepts/rest-api/"&gt;ArcGIS&lt;/a&gt; has a REST-like API. It doesn't adhere strictly to REST best practices.&lt;/p&gt;
+&lt;p&gt;When retrieving the token, I did not expect to put all the parameters into the query string.&lt;/p&gt;
+&lt;p&gt;Error handling is more laborious than need be, it always returns HTTP 200 OK. For example, in the case of a bad request, the error details are in the body.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-javascript"&gt;{
+    &amp;quot;error&amp;quot;: {
+        &amp;quot;code&amp;quot;: 400,
+        &amp;quot;error&amp;quot;: &amp;quot;invalid_client_id&amp;quot;,
+        &amp;quot;error_description&amp;quot;: &amp;quot;Invalid client_id&amp;quot;,
+        &amp;quot;message&amp;quot;: &amp;quot;Invalid client_id&amp;quot;,
+        &amp;quot;details&amp;quot;: []
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</content:encoded>
+		</item>
 		<item>
 			<title>Dotnet Core Templates To Hit The Ground Running</title>
 			<link>https://glenhallworth.com/posts/Dotnet-Core-Templates-To-Hit-The-Ground-Running</link>
