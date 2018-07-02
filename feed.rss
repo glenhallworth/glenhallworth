@@ -5,8 +5,91 @@
 		<link>https://glenhallworth.com/</link>
 		<description />
 		<copyright>2018</copyright>
-		<pubDate>Mon, 02 Jul 2018 01:54:09 GMT</pubDate>
-		<lastBuildDate>Mon, 02 Jul 2018 01:54:09 GMT</lastBuildDate>
+		<pubDate>Mon, 02 Jul 2018 03:22:30 GMT</pubDate>
+		<lastBuildDate>Mon, 02 Jul 2018 03:22:30 GMT</lastBuildDate>
+		<item>
+			<title>Downloading and Opening PDF File in Angular Cordova Project</title>
+			<link>https://glenhallworth.com/posts/Downloading-And-Opening-PDF-File-With-Cordova</link>
+			<description>&lt;p&gt;Rough sample code with opening a PDF file (or any file really) using Cordova.&lt;/p&gt;</description>
+			<guid>https://glenhallworth.com/posts/Downloading-And-Opening-PDF-File-With-Cordova</guid>
+			<pubDate>Sat, 27 Jan 2018 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;Rough sample code with opening a PDF file (or any file really) using Cordova.&lt;/p&gt;
+&lt;h3 id="plugins"&gt;Plugins&lt;/h3&gt;
+&lt;p&gt;This code uses plugins &lt;a href="https://github.com/pwlin/cordova-plugin-file-opener2"&gt;fileOpener2&lt;/a&gt; and &lt;a href="https://github.com/apache/cordova-plugin-file-transfer"&gt;FileTranser&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Typescript"&gt;import { Injectable } from '&amp;#64;angular/core';
+import { AuthService } from './auth.service';
+
+declare var FileTransfer: any;
+
+class CallbackToPromise&amp;lt;T&amp;gt; {
+    promise: Promise&amp;lt;T&amp;gt;;
+    doResolve: (T) =&amp;gt; void;
+    doReject: (any?) =&amp;gt; void;
+    constructor() {
+        this.promise = new Promise&amp;lt;T&amp;gt;((doResolve, doReject) =&amp;gt; {
+            this.doResolve = doResolve;
+            this.doReject = doReject;
+        });
+    }
+}
+
+&amp;#64;Injectable()
+export class DocumentService {
+  constructor(private authService: AuthService) {
+  }
+
+  downloadDocumentCordova(url: string, fileName: string): Promise&amp;lt;void&amp;gt; {
+
+    const callbackToPromise = new CallbackToPromise&amp;lt;void&amp;gt;();
+    const fileTransfer = new FileTransfer();
+    const uri = encodeURI(url);
+    const fileURL = this.replaceWhitespaceWithUnderscore(window['cordova'].file.dataDirectory + fileName);
+    console.log('Starting file download: ' + fileURL);
+    fileTransfer.download(
+      uri,
+      fileURL,
+      (entry) =&amp;gt; {
+        console.log('File download complete: ' + entry.toURL());
+        this.openDocumentCordova(entry.toURL());
+        callbackToPromise.doResolve(null);
+      },
+      (error) =&amp;gt; {
+        console.log(`Error occurred downloading file. Code: ${error.code} Source: ${error.source} Target: ${error.target}`);
+        callbackToPromise.doReject(error);
+      },
+      false,
+      {
+        headers: {
+          'Authorization': `Bearer ${this.authService.token}`
+        }
+      }
+    );
+    return callbackToPromise.promise;
+  }
+
+  private replaceWhitespaceWithUnderscore(str: string) {
+    return str.replace(/\s/g, '_', ); // iOS does not like spaces in filenames
+  }
+
+  private openDocumentCordova(file: string) {
+    window['cordova'].plugins.fileOpener2.open(
+      file,
+      'application/pdf',
+      {
+        error: (err) =&amp;gt; {
+          console.log('Error opening file. Error status: ' + err.status + ' - Error message: ' + err.message);
+        },
+        success: () =&amp;gt; {
+          console.log('File opened successfully');
+        }
+      }
+    );
+  }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+</content:encoded>
+		</item>
 		<item>
 			<title>Telerik AppBuilder Alternatives</title>
 			<link>https://glenhallworth.com/posts/Telerik-AppBuilder-Alternatives</link>

@@ -1,0 +1,213 @@
+﻿
+<!DOCTYPE html>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+
+	<head>
+		<title>Glen Hallworth - Downloading and Opening PDF File in Angular Cordova Project</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />		
+        <link href="/assets/css/highlight.css" rel="stylesheet">
+		<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+        <link href="/assets/css/override.css" rel="stylesheet" />
+
+		<meta name="description" content="" />
+		<link type="application/rss+xml" rel="alternate" title="Glen Hallworth" href="/feed.rss" />
+				<link type="application/atom+xml" rel="alternate" title="Glen Hallworth" href="/feed.atom" />
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+		<meta name="application-name" content="Glen Hallworth" />
+		<meta name="msapplication-tooltip" content="Glen Hallworth" />
+		<meta name="msapplication-starturl" content="/" />
+
+		<meta property="og:title" content="Glen Hallworth - Downloading and Opening PDF File in Angular Cordova Project" /> 
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://glenhallworth.com/posts/Downloading-And-Opening-PDF-File-With-Cordova" />
+		<!-- TODO: More social graph meta tags -->
+
+        <script src="/assets/js/highlight.pack.js"></script>   
+		
+        
+
+		
+	</head>
+
+	<body>
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<div class="inner">
+
+					<!-- Logo -->
+					<a href="/" class="logo">
+						<span class="title">Glen Hallworth</span>
+					</a>
+
+					<!-- Nav -->
+					<nav>
+						<ul>
+							<li><a href="#menu">Menu</a></li>
+						</ul>
+					</nav>
+
+				</div>
+			</header>
+
+			<!-- Menu -->
+			<nav id="menu">
+				<h2>Menu</h2>
+				<ul>
+					        <li><a href="/posts">Archive</a></li>
+        <li><a href="/tags">Tags</a></li>
+        <li><a href="/about">About Me</a></li>
+
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+    
+<header>
+    <h1>Downloading and Opening PDF File in Angular Cordova Project</h1>
+            <p><em>Published on Saturday, January 27, 2018</em></p>
+            <ul class="actions small">
+                    <li><a role="button" href="/tags/Angular" class="button small">Angular</a></li>
+                    <li><a role="button" href="/tags/Cordova" class="button small">Cordova</a></li>
+                    <li><a role="button" href="/tags/PDF" class="button small">PDF</a></li>
+        </ul>     
+</header>
+
+					
+					<div id="content">
+						
+
+<p>Rough sample code with opening a PDF file (or any file really) using Cordova.</p>
+<h3 id="plugins">Plugins</h3>
+<p>This code uses plugins <a href="https://github.com/pwlin/cordova-plugin-file-opener2">fileOpener2</a> and <a href="https://github.com/apache/cordova-plugin-file-transfer">FileTranser</a>.</p>
+<pre><code class="language-Typescript">import { Injectable } from '&#64;angular/core';
+import { AuthService } from './auth.service';
+
+declare var FileTransfer: any;
+
+class CallbackToPromise&lt;T&gt; {
+    promise: Promise&lt;T&gt;;
+    doResolve: (T) =&gt; void;
+    doReject: (any?) =&gt; void;
+    constructor() {
+        this.promise = new Promise&lt;T&gt;((doResolve, doReject) =&gt; {
+            this.doResolve = doResolve;
+            this.doReject = doReject;
+        });
+    }
+}
+
+&#64;Injectable()
+export class DocumentService {
+  constructor(private authService: AuthService) {
+  }
+
+  downloadDocumentCordova(url: string, fileName: string): Promise&lt;void&gt; {
+
+    const callbackToPromise = new CallbackToPromise&lt;void&gt;();
+    const fileTransfer = new FileTransfer();
+    const uri = encodeURI(url);
+    const fileURL = this.replaceWhitespaceWithUnderscore(window['cordova'].file.dataDirectory + fileName);
+    console.log('Starting file download: ' + fileURL);
+    fileTransfer.download(
+      uri,
+      fileURL,
+      (entry) =&gt; {
+        console.log('File download complete: ' + entry.toURL());
+        this.openDocumentCordova(entry.toURL());
+        callbackToPromise.doResolve(null);
+      },
+      (error) =&gt; {
+        console.log(`Error occurred downloading file. Code: ${error.code} Source: ${error.source} Target: ${error.target}`);
+        callbackToPromise.doReject(error);
+      },
+      false,
+      {
+        headers: {
+          'Authorization': `Bearer ${this.authService.token}`
+        }
+      }
+    );
+    return callbackToPromise.promise;
+  }
+
+  private replaceWhitespaceWithUnderscore(str: string) {
+    return str.replace(/\s/g, '_', ); // iOS does not like spaces in filenames
+  }
+
+  private openDocumentCordova(file: string) {
+    window['cordova'].plugins.fileOpener2.open(
+      file,
+      'application/pdf',
+      {
+        error: (err) =&gt; {
+          console.log('Error opening file. Error status: ' + err.status + ' - Error message: ' + err.message);
+        },
+        success: () =&gt; {
+          console.log('File opened successfully');
+        }
+      }
+    );
+  }
+}
+
+</code></pre>
+
+
+
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+    <section>
+        <h2>Feeds</h2>
+        <ul class="actions small vertical">
+            <li><a href="/feed.rss" class="button small"><i class="fa fa-rss"></i> RSS Feed</a></li>
+                        <li><a href="/feed.atom" class="button small"><i class="fa fa-rss"></i> Atom Feed</a></li>
+        </ul>
+    </section>
+    <section>
+    </section>
+    <ul class="copyright">
+        <li>Copyright © 2018</li>
+        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        <li><a href="https://wyam.io">Generated by Wyam</a></li>
+    </ul>
+</div>
+
+			</footer>
+
+		</div>
+		
+		
+
+		<!-- Scripts -->
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/js/skel.min.js"></script>
+		<script src="/assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="/assets/js/main.js"></script>
+
+	</body>
+
+</html>
