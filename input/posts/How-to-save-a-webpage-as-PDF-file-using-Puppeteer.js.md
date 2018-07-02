@@ -1,5 +1,5 @@
 Title: How to save a webpage as PDF file using Puppeteer.js
-Published: 6/10/2017
+Published: 10/6/2017
 Tags: ["Puppeteer.js", "PDF", "Browser", "Headless"]
 
 ---
