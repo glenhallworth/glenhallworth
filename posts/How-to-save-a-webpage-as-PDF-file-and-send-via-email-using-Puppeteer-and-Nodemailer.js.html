@@ -1,0 +1,221 @@
+﻿
+<!DOCTYPE html>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+
+	<head>
+		<title>Glen Hallworth - How to save a webpage as PDF file and send via email using Puppeteer and Nodemailer.js</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />		
+        <link href="/assets/css/highlight.css" rel="stylesheet">
+		<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+        <link href="/assets/css/override.css" rel="stylesheet" />
+
+		<meta name="description" content="Welcome!" />
+		<link type="application/rss+xml" rel="alternate" title="Glen Hallworth" href="/feed.rss" />
+				<link type="application/atom+xml" rel="alternate" title="Glen Hallworth" href="/feed.atom" />
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+		<meta name="application-name" content="Glen Hallworth" />
+		<meta name="msapplication-tooltip" content="Glen Hallworth" />
+		<meta name="msapplication-starturl" content="/" />
+
+		<meta property="og:title" content="Glen Hallworth - How to save a webpage as PDF file and send via email using Puppeteer and Nodemailer.js" /> 
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-and-send-via-email-using-Puppeteer-and-Nodemailer.js" />
+		<!-- TODO: More social graph meta tags -->
+
+        <script src="/assets/js/highlight.pack.js"></script>   
+		
+        
+
+		
+	</head>
+
+	<body>
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<div class="inner">
+
+					<!-- Logo -->
+					<a href="/" class="logo">
+						<span class="title">Glen Hallworth</span>
+					</a>
+
+					<!-- Nav -->
+					<nav>
+						<ul>
+							<li><a href="#menu">Menu</a></li>
+						</ul>
+					</nav>
+
+				</div>
+			</header>
+
+			<!-- Menu -->
+			<nav id="menu">
+				<h2>Menu</h2>
+				<ul>
+					        <li><a href="/posts">Archive</a></li>
+        <li><a href="/tags">Tags</a></li>
+        <li><a href="/about">About Me</a></li>
+
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+    
+<header>
+    <h1>How to save a webpage as PDF file and send via email using Puppeteer and Nodemailer.js</h1>
+            <p><em>Published on Saturday, June 10, 2017</em></p>
+            <ul class="actions small">
+                    <li><a role="button" href="/tags/Browser" class="button small">Browser</a></li>
+                    <li><a role="button" href="/tags/Email" class="button small">Email</a></li>
+                    <li><a role="button" href="/tags/Headless" class="button small">Headless</a></li>
+                    <li><a role="button" href="/tags/Nodemailer" class="button small">Nodemailer</a></li>
+                    <li><a role="button" href="/tags/PDF" class="button small">PDF</a></li>
+                    <li><a role="button" href="/tags/Puppeteerjs" class="button small">Puppeteer.js</a></li>
+        </ul>     
+</header>
+
+					
+					<div id="content">
+						
+
+<pre><code class="language-javascript">const puppeteer = require(&quot;puppeteer&quot;);
+const nodemailer = require(&quot;nodemailer&quot;);
+
+class Webpage {
+  static async generatePDF(url) {
+    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
+    const page = await browser.newPage();
+    await page.goto(url, {
+      waitUntil: &quot;networkidle&quot;,
+      networkIdleTimeout: 5000
+    }); // Adjust network idle as required.
+    const pdfConfig = {
+      format: &quot;A4&quot;,
+      printBackground: true,
+      margin: {
+        // Word's default A4 margins
+        top: &quot;2.54cm&quot;,
+        bottom: &quot;2.54cm&quot;,
+        left: &quot;2.54cm&quot;,
+        right: &quot;2.54cm&quot;
+      }
+    };
+    await page.emulateMedia(&quot;screen&quot;);
+    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
+
+    await browser.close();
+
+    return pdf;
+  }
+}
+
+class Email {
+  static sendEmail(to, subject, text, filename, fileContent) {
+    const transporter = nodemailer.createTransport({
+      host: &quot;smtp.office365.com&quot;,
+      port: 587,
+      secureConnection: true, // Used for Office 365
+      tls: { ciphers: &quot;SSLv3&quot; }, // Used for Office 365
+      auth: {
+        user: &quot;user&quot;, // Update username
+        pass: &quot;pass&quot; // Update password
+      }
+    });
+
+    const mailOptions = {
+      from: &quot;from&#64;email.com&quot;, // Update from email
+      to: to,
+      subject: subject,
+      text: text,
+      attachments: [
+        {
+          filename: filename,
+          content: fileContent
+        }
+      ]
+    };
+
+    transporter.sendMail(mailOptions, (error, info) =&gt; {
+      if (error) {
+        return console.log(error);
+      }
+
+      console.log(&quot;Message sent: %s&quot;, info.messageId);
+    });
+  }
+}
+
+(async () =&gt; {
+  const url =
+    &quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&quot;;
+  const buffer = await Webpage.generatePDF(url);
+  Email.sendEmail(
+    &quot;to&#64;email.com&quot;, // Update to email
+    &quot;Alice in Wonderland&quot;,
+    &quot;I thought you might enjoy this book!&quot;,
+    &quot;Alice in Wonderland.pdf&quot;,
+    buffer
+  );
+})();
+</code></pre>
+
+
+
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+    <section>
+        <h2>Feeds</h2>
+        <ul class="actions small vertical">
+            <li><a href="/feed.rss" class="button small"><i class="fa fa-rss"></i> RSS Feed</a></li>
+                        <li><a href="/feed.atom" class="button small"><i class="fa fa-rss"></i> Atom Feed</a></li>
+        </ul>
+    </section>
+    <section>
+    </section>
+    <ul class="copyright">
+        <li>Copyright © 2018</li>
+        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        <li><a href="https://wyam.io">Generated by Wyam</a></li>
+    </ul>
+</div>
+
+			</footer>
+
+		</div>
+		
+		
+
+		<!-- Scripts -->
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/js/skel.min.js"></script>
+		<script src="/assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="/assets/js/main.js"></script>
+
+	</body>
+
+</html>
