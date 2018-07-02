@@ -4,8 +4,52 @@
 	<id>https://glenhallworth.com/</id>
 	<title>Glen Hallworth</title>
 	<rights>2018</rights>
-	<updated>2018-07-02T00:07:30Z</updated>
+	<updated>2018-07-02T00:41:02Z</updated>
 	<subtitle>Welcome!</subtitle>
+	<entry>
+		<link href="https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js" />
+		<id>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</id>
+		<title>How to save a webpage as PDF file using Puppeteer.js</title>
+		<updated>2017-06-10T00:00:00Z</updated>
+		<content>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
+
+class Webpage {
+  static async generatePDF(url) {
+    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
+    const page = await browser.newPage();
+    await page.goto(url, {
+      waitUntil: &amp;quot;networkidle&amp;quot;,
+      networkIdleTimeout: 5000
+    }); // Adjust network idle as required.
+    const pdfConfig = {
+      path: &amp;quot;url.pdf&amp;quot;, // Saves pdf to disk.
+      format: &amp;quot;A4&amp;quot;,
+      printBackground: true,
+      margin: {
+        // Word's default A4 margins
+        top: &amp;quot;2.54cm&amp;quot;,
+        bottom: &amp;quot;2.54cm&amp;quot;,
+        left: &amp;quot;2.54cm&amp;quot;,
+        right: &amp;quot;2.54cm&amp;quot;
+      }
+    };
+    await page.emulateMedia(&amp;quot;screen&amp;quot;);
+    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
+
+    await browser.close();
+
+    return pdf;
+  }
+}
+
+(async () =&amp;gt; {
+  const url =
+    &amp;quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&amp;quot;;
+  const buffer = await Webpage.generatePDF(url);
+})();
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/first-post" />
 		<id>https://glenhallworth.com/posts/first-post</id>
