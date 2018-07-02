@@ -3,3 +3,5 @@ _site
 .jekyll-metadata
 output/
 config.wyam.packages.xml
+config.wyam.dll
+config.wyam.hash
