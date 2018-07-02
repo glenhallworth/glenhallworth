@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<link rel="self" href="http://glenhallworth.com/" />
-	<id>http://glenhallworth.com/</id>
+	<link rel="self" href="https://glenhallworth.com/" />
+	<id>https://glenhallworth.com/</id>
 	<title>Glen Hallworth</title>
 	<rights>2018</rights>
-	<updated>2018-07-02T00:00:21Z</updated>
+	<updated>2018-07-02T00:07:30Z</updated>
 	<subtitle>Welcome!</subtitle>
 	<entry>
-		<link href="http://glenhallworth.com/posts/first-post" />
-		<id>http://glenhallworth.com/posts/first-post</id>
+		<link href="https://glenhallworth.com/posts/first-post" />
+		<id>https://glenhallworth.com/posts/first-post</id>
 		<title>First Post</title>
 		<updated>2016-01-01T00:00:00Z</updated>
 		<content>&lt;p&gt;This is my first post!&lt;/p&gt;
