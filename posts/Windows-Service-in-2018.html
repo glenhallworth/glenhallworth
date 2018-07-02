@@ -1,0 +1,251 @@
+﻿
+<!DOCTYPE html>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+
+	<head>
+		<title>Glen Hallworth - Windows Service in 2018</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />		
+        <link href="/assets/css/highlight.css" rel="stylesheet">
+		<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+        <link href="/assets/css/override.css" rel="stylesheet" />
+
+		<meta name="description" content="" />
+		<link type="application/rss+xml" rel="alternate" title="Glen Hallworth" href="/feed.rss" />
+				<link type="application/atom+xml" rel="alternate" title="Glen Hallworth" href="/feed.atom" />
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+		<meta name="application-name" content="Glen Hallworth" />
+		<meta name="msapplication-tooltip" content="Glen Hallworth" />
+		<meta name="msapplication-starturl" content="/" />
+
+		<meta property="og:title" content="Glen Hallworth - Windows Service in 2018" /> 
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://glenhallworth.com/posts/Windows-Service-in-2018" />
+		<!-- TODO: More social graph meta tags -->
+
+        <script src="/assets/js/highlight.pack.js"></script>   
+		
+        
+
+		
+	</head>
+
+	<body>
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<div class="inner">
+
+					<!-- Logo -->
+					<a href="/" class="logo">
+						<span class="title">Glen Hallworth</span>
+					</a>
+
+					<!-- Nav -->
+					<nav>
+						<ul>
+							<li><a href="#menu">Menu</a></li>
+						</ul>
+					</nav>
+
+				</div>
+			</header>
+
+			<!-- Menu -->
+			<nav id="menu">
+				<h2>Menu</h2>
+				<ul>
+					        <li><a href="/posts">Archive</a></li>
+        <li><a href="/tags">Tags</a></li>
+        <li><a href="/about">About Me</a></li>
+
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+    
+<header>
+    <h1>Windows Service in 2018</h1>
+            <p><em>Published on Monday, July 2, 2018</em></p>
+            <ul class="actions small">
+                    <li><a role="button" href="/tags/NET" class="button small">.NET</a></li>
+                    <li><a role="button" href="/tags/NET-Core" class="button small">.NET Core</a></li>
+                    <li><a role="button" href="/tags/FluentScheduler" class="button small">FluentScheduler</a></li>
+                    <li><a role="button" href="/tags/Polly" class="button small">Polly</a></li>
+                    <li><a role="button" href="/tags/Topshelf" class="button small">Topshelf</a></li>
+                    <li><a role="button" href="/tags/Windows-Service" class="button small">Windows Service</a></li>
+        </ul>     
+</header>
+
+					
+					<div id="content">
+						
+
+<h1 id="windows-service-in-2018">Windows Service in 2018</h1>
+<p>Most people don't write Windows services anymore. We have the cloud. You can write WebJobs or Functions instead. However in the rare case you have to, say a client with an on-premise server room because their internet connection is awful and a need for background jobs, then this is how I did it.</p>
+<p><a href="http://topshelf-project.com/">Topshelf</a> - To manage the windows service and simplify development.</p>
+<p><a href="https://github.com/fluentscheduler/FluentScheduler">FluentScheduler</a> - To schedule jobs.</p>
+<p><a href="http://www.thepollyproject.org/">Polly</a> - To add resilience and fault handling.</p>
+<p><a href="https://autofac.org/">Autofac</a> - To glue everything together with dependency injection.</p>
+<p><a href="https://serilog.net/">Serilog</a> and <a href="https://getseq.net/">Seq</a> - For logging and debugging.</p>
+<p><a href="https://github.com/glenhallworth/WindowsService">TLDR: Show me the code</a></p>
+<h2 id="topshelf">Topshelf</h2>
+<p>Topshelf makes developing Windows services easy. You develop a console app which you can install as a Windows service. By making testing in development as simple as running a console app, you significantly reduce the feedback loop and ease of development.</p>
+<p>The one caveat is it doesn't support .NET Core yet. There is a develop branch with support. I wouldn't run critical production apps off of it yet. Nevertheless, it should be simple to switch once it does by upgrading the Nuget package and changing the target framework from full framework to .NET Core.</p>
+<h2 id="fluentscheduler">FluentScheduler</h2>
+<p>I've avoided creating multiple windows services (and thereby many deployment artefacts) by using FluentScheduler.</p>
+<p>You create a job by implementing the IJob interface. Here's a simple job:</p>
+<pre><code class="language-csharp">    public class TimerJob : IJob
+    {
+        public void Execute()
+        {
+            var timer = new System.Timers.Timer(1000) { AutoReset = true };
+            timer.Elapsed += (sender, eventArgs) =&gt; Console.WriteLine(&quot;It is {0} and all is well&quot;, DateTime.Now);
+            timer.Start();;
+        }
+    }
+</code></pre>
+<p>You then registry the job by inheriting from Registry class:</p>
+<pre><code class="language-csharp"> class TimerRegistry : Registry
+    {
+        public TimerRegistry(TimerJob job, AppConfig appConfig)
+        {
+            if (appConfig.RunTimerJob)
+            {
+                Schedule(job).WithName(job.GetType().FullName).ToRunNow();
+            }
+        }
+    }
+</code></pre>
+<p>The above job runs when the service starts. You can configure when the job runs with a fluent builder. Here's a job that runs every day at 4 AM.</p>
+<pre><code class="language-csharp">Schedule(job).WithName(job.GetType().FullName).ToRunEvery(1).Days().At(4, 0);
+</code></pre>
+<p>I'm using one registry class per job to keep it clean and separated.</p>
+<h2 id="polly">Polly</h2>
+<p>In the real world, errors happen, HTTP calls fail, and you want to handle that. Polly adds a level of resilience allowing retry strategies if failures occur.</p>
+<pre><code class="language-csharp">private async Task ExecuteAsync()
+        {
+            var policyResult = await Policy
+                .Handle&lt;Exception&gt;()
+                .RetryAsync(3)
+                .ExecuteAndCaptureAsync(async () =&gt;
+                {
+                    _logger.Information(&quot;Attempting to retrieve&quot;);
+                    return await DoThing();
+                });
+
+            if (policyResult.Outcome == OutcomeType.Failure)
+            {
+                _logger.Error(policyResult.FinalException, &quot;Could not retrieve status&quot;);
+                return;
+            }
+
+            var response = policyResult.Result;
+            _logger.Information($&quot;Status is {response}&quot;);
+        }
+</code></pre>
+<h2 id="autofac">Autofac</h2>
+<p>I've chosen Autofac for dependency injection. You could use any DI framework. Using assembly scanning I registry all the Jobs and Registries.</p>
+<pre><code class="language-csharp">            builder.RegisterAssemblyTypes(TheBackgroundWorker.Assembly)
+                .Where(t =&gt; t.IsAssignableTo&lt;IJob&gt;()).AsSelf();
+
+            builder.RegisterAssemblyTypes(TheBackgroundWorker.Assembly)
+                .Where(t =&gt; t.IsSubclassOf(typeof(Registry))).As&lt;Registry&gt;();
+</code></pre>
+<p>The registry objects injected into BackgroundWorkers which configure FluentScheduler's JobManager.</p>
+<pre><code class="language-csharp"> public class BackgroundWorkers
+    {
+        private readonly IEnumerable&lt;Registry&gt; _registries;
+
+        public BackgroundWorkers(IEnumerable&lt;Registry&gt; registries, ILogger logger)
+        {
+            _registries = registries;
+            JobManager.JobStart += info =&gt; logger.Information($&quot;Scheduled job {info.Name} started&quot;);
+            JobManager.JobEnd += info =&gt; logger.Information($&quot;Scheduled job {info.Name} finished&quot;);
+            JobManager.JobException += info =&gt;
+                logger.Error(info.Exception, $&quot;An error occurred on scheduled job {info.Name}&quot;);
+        }
+
+        public void Start()
+        {
+            JobManager.Initialize(_registries.ToArray());
+        }
+
+        public void Stop()
+        {
+            JobManager.Stop();
+        }
+    }
+</code></pre>
+<p>Finally BackgroundWorkers in called by Topshelf when the service is started and stopped.</p>
+<pre><code class="language-csharp">		   var backgroundWorkers = container.Resolve&lt;BackgroundWorkers&gt;();
+            var rc = HostFactory.Run(x =&gt;
+            {
+                x.Service&lt;BackgroundWorkers&gt;(s =&gt;
+                {
+                    s.ConstructUsing(name =&gt; backgroundWorkers);
+                    s.WhenStarted(tc =&gt; tc.Start());
+                    s.WhenStopped(tc =&gt; tc.Stop());
+                });
+            });
+</code></pre>
+<h2 id="summary">Summary</h2>
+<p>I have a Windows service that is easy to develop, easy to deploy and easy to add additional jobs to which can be scheduled as required and can be resilient to faults. It is an easy upgrade to .NET Core once Topshelf releases .NET Core version (you can try the preview now). All the sample code which ties all these excellent packages together found at <a href="https://github.com/glenhallworth/WindowsService.">https://github.com/glenhallworth/WindowsService.</a></p>
+
+
+
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+    <section>
+        <h2>Feeds</h2>
+        <ul class="actions small vertical">
+            <li><a href="/feed.rss" class="button small"><i class="fa fa-rss"></i> RSS Feed</a></li>
+                        <li><a href="/feed.atom" class="button small"><i class="fa fa-rss"></i> Atom Feed</a></li>
+        </ul>
+    </section>
+    <section>
+    </section>
+    <ul class="copyright">
+        <li>Copyright © 2018</li>
+        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        <li><a href="https://wyam.io">Generated by Wyam</a></li>
+    </ul>
+</div>
+
+			</footer>
+
+		</div>
+		
+		
+
+		<!-- Scripts -->
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/js/skel.min.js"></script>
+		<script src="/assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="/assets/js/main.js"></script>
+
+	</body>
+
+</html>

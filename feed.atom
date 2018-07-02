@@ -4,7 +4,125 @@
 	<id>https://glenhallworth.com/</id>
 	<title>Glen Hallworth</title>
 	<rights>2018</rights>
-	<updated>2018-07-02T03:22:30Z</updated>
+	<updated>2018-07-02T22:05:17Z</updated>
+	<entry>
+		<link href="https://glenhallworth.com/posts/Windows-Service-in-2018" />
+		<id>https://glenhallworth.com/posts/Windows-Service-in-2018</id>
+		<title>Windows Service in 2018</title>
+		<updated>2018-07-02T00:00:00Z</updated>
+		<content>&lt;h1 id="windows-service-in-2018"&gt;Windows Service in 2018&lt;/h1&gt;
+&lt;p&gt;Most people don't write Windows services anymore. We have the cloud. You can write WebJobs or Functions instead. However in the rare case you have to, say a client with an on-premise server room because their internet connection is awful and a need for background jobs, then this is how I did it.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://topshelf-project.com/"&gt;Topshelf&lt;/a&gt; - To manage the windows service and simplify development.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/fluentscheduler/FluentScheduler"&gt;FluentScheduler&lt;/a&gt; - To schedule jobs.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.thepollyproject.org/"&gt;Polly&lt;/a&gt; - To add resilience and fault handling.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://autofac.org/"&gt;Autofac&lt;/a&gt; - To glue everything together with dependency injection.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://serilog.net/"&gt;Serilog&lt;/a&gt; and &lt;a href="https://getseq.net/"&gt;Seq&lt;/a&gt; - For logging and debugging.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/glenhallworth/WindowsService"&gt;TLDR: Show me the code&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="topshelf"&gt;Topshelf&lt;/h2&gt;
+&lt;p&gt;Topshelf makes developing Windows services easy. You develop a console app which you can install as a Windows service. By making testing in development as simple as running a console app, you significantly reduce the feedback loop and ease of development.&lt;/p&gt;
+&lt;p&gt;The one caveat is it doesn't support .NET Core yet. There is a develop branch with support. I wouldn't run critical production apps off of it yet. Nevertheless, it should be simple to switch once it does by upgrading the Nuget package and changing the target framework from full framework to .NET Core.&lt;/p&gt;
+&lt;h2 id="fluentscheduler"&gt;FluentScheduler&lt;/h2&gt;
+&lt;p&gt;I've avoided creating multiple windows services (and thereby many deployment artefacts) by using FluentScheduler.&lt;/p&gt;
+&lt;p&gt;You create a job by implementing the IJob interface. Here's a simple job:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;    public class TimerJob : IJob
+    {
+        public void Execute()
+        {
+            var timer = new System.Timers.Timer(1000) { AutoReset = true };
+            timer.Elapsed += (sender, eventArgs) =&amp;gt; Console.WriteLine(&amp;quot;It is {0} and all is well&amp;quot;, DateTime.Now);
+            timer.Start();;
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You then registry the job by inheriting from Registry class:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt; class TimerRegistry : Registry
+    {
+        public TimerRegistry(TimerJob job, AppConfig appConfig)
+        {
+            if (appConfig.RunTimerJob)
+            {
+                Schedule(job).WithName(job.GetType().FullName).ToRunNow();
+            }
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The above job runs when the service starts. You can configure when the job runs with a fluent builder. Here's a job that runs every day at 4 AM.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;Schedule(job).WithName(job.GetType().FullName).ToRunEvery(1).Days().At(4, 0);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I'm using one registry class per job to keep it clean and separated.&lt;/p&gt;
+&lt;h2 id="polly"&gt;Polly&lt;/h2&gt;
+&lt;p&gt;In the real world, errors happen, HTTP calls fail, and you want to handle that. Polly adds a level of resilience allowing retry strategies if failures occur.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;private async Task ExecuteAsync()
+        {
+            var policyResult = await Policy
+                .Handle&amp;lt;Exception&amp;gt;()
+                .RetryAsync(3)
+                .ExecuteAndCaptureAsync(async () =&amp;gt;
+                {
+                    _logger.Information(&amp;quot;Attempting to retrieve&amp;quot;);
+                    return await DoThing();
+                });
+
+            if (policyResult.Outcome == OutcomeType.Failure)
+            {
+                _logger.Error(policyResult.FinalException, &amp;quot;Could not retrieve status&amp;quot;);
+                return;
+            }
+
+            var response = policyResult.Result;
+            _logger.Information($&amp;quot;Status is {response}&amp;quot;);
+        }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="autofac"&gt;Autofac&lt;/h2&gt;
+&lt;p&gt;I've chosen Autofac for dependency injection. You could use any DI framework. Using assembly scanning I registry all the Jobs and Registries.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;            builder.RegisterAssemblyTypes(TheBackgroundWorker.Assembly)
+                .Where(t =&amp;gt; t.IsAssignableTo&amp;lt;IJob&amp;gt;()).AsSelf();
+
+            builder.RegisterAssemblyTypes(TheBackgroundWorker.Assembly)
+                .Where(t =&amp;gt; t.IsSubclassOf(typeof(Registry))).As&amp;lt;Registry&amp;gt;();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The registry objects injected into BackgroundWorkers which configure FluentScheduler's JobManager.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt; public class BackgroundWorkers
+    {
+        private readonly IEnumerable&amp;lt;Registry&amp;gt; _registries;
+
+        public BackgroundWorkers(IEnumerable&amp;lt;Registry&amp;gt; registries, ILogger logger)
+        {
+            _registries = registries;
+            JobManager.JobStart += info =&amp;gt; logger.Information($&amp;quot;Scheduled job {info.Name} started&amp;quot;);
+            JobManager.JobEnd += info =&amp;gt; logger.Information($&amp;quot;Scheduled job {info.Name} finished&amp;quot;);
+            JobManager.JobException += info =&amp;gt;
+                logger.Error(info.Exception, $&amp;quot;An error occurred on scheduled job {info.Name}&amp;quot;);
+        }
+
+        public void Start()
+        {
+            JobManager.Initialize(_registries.ToArray());
+        }
+
+        public void Stop()
+        {
+            JobManager.Stop();
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally BackgroundWorkers in called by Topshelf when the service is started and stopped.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;		   var backgroundWorkers = container.Resolve&amp;lt;BackgroundWorkers&amp;gt;();
+            var rc = HostFactory.Run(x =&amp;gt;
+            {
+                x.Service&amp;lt;BackgroundWorkers&amp;gt;(s =&amp;gt;
+                {
+                    s.ConstructUsing(name =&amp;gt; backgroundWorkers);
+                    s.WhenStarted(tc =&amp;gt; tc.Start());
+                    s.WhenStopped(tc =&amp;gt; tc.Stop());
+                });
+            });
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
+&lt;p&gt;I have a Windows service that is easy to develop, easy to deploy and easy to add additional jobs to which can be scheduled as required and can be resilient to faults. It is an easy upgrade to .NET Core once Topshelf releases .NET Core version (you can try the preview now). All the sample code which ties all these excellent packages together found at &lt;a href="https://github.com/glenhallworth/WindowsService."&gt;https://github.com/glenhallworth/WindowsService.&lt;/a&gt;&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;Most people don't write Windows services anymore. We have the cloud. You can write WebJobs or Functions instead. However in the rare case you have to, say a client with an on-premise server room because their internet connection is awful and a need for background jobs, then this is how I did it.&lt;/p&gt;</summary>
+	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/Downloading-And-Opening-PDF-File-With-Cordova" />
 		<id>https://glenhallworth.com/posts/Downloading-And-Opening-PDF-File-With-Cordova</id>
