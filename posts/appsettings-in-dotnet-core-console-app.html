@@ -8,7 +8,7 @@
 <html lang="en">
 
 	<head>
-		<title>Glen Hallworth - Archive</title>
+		<title>Glen Hallworth - appsettings.json in .NET Core Console Apps</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />		
         <link href="/assets/css/highlight.css" rel="stylesheet">
@@ -28,9 +28,9 @@
 		<meta name="msapplication-tooltip" content="Glen Hallworth" />
 		<meta name="msapplication-starturl" content="/" />
 
-		<meta property="og:title" content="Glen Hallworth - Archive" /> 
+		<meta property="og:title" content="Glen Hallworth - appsettings.json in .NET Core Console Apps" /> 
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://glenhallworth.com/posts" />
+		<meta property="og:url" content="https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app" />
 		<!-- TODO: More social graph meta tags -->
 
         <script src="/assets/js/highlight.pack.js"></script>   
@@ -77,74 +77,79 @@
 			<!-- Main -->
 			<div id="main">
 				<div class="inner">
-<h1>Archive</h1>  
+
+    
+<header>
+    <h1>appsettings.json in .NET Core Console Apps</h1>
+            <p><em>Published on Tuesday, July 3, 2018</em></p>
+            <ul class="actions small">
+                    <li><a role="button" href="/tags/NET-Core" class="button small">.NET Core</a></li>
+                    <li><a role="button" href="/tags/appsettingsjson" class="button small">appsettings.json</a></li>
+                    <li><a role="button" href="/tags/Configuration" class="button small">Configuration</a></li>
+                    <li><a role="button" href="/tags/Console" class="button small">Console</a></li>
+        </ul>     
+</header>
+
 					
 					<div id="content">
 						
-        <h1>2018</h1>
-        <hr />
-        <div>
-            <a href="/posts/appsettings-in-dotnet-core-console-app">
-                <h2>appsettings.json in .NET Core Console Apps</h2>
-            </a>
-            <p><em>Posted on Tuesday, July 3, 2018</em></p>      
-        </div>   
-        <div>
-            <a href="/posts/Home-Automation-Lighting">
-                <h2>Home Automation - Lighting</h2>
-            </a>
-            <p><em>Posted on Tuesday, July 3, 2018</em></p>      
-        </div>   
-        <div>
-            <a href="/posts/Windows-Service-in-2018">
-                <h2>Windows Service in 2018</h2>
-            </a>
-            <p><em>Posted on Monday, July 2, 2018</em></p>      
-        </div>   
-        <div>
-            <a href="/posts/Downloading-And-Opening-PDF-File-With-Cordova">
-                <h2>Downloading and Opening PDF File in Angular Cordova Project</h2>
-            </a>
-            <p><em>Posted on Saturday, January 27, 2018</em></p>      
-        </div>   
-        <h1>2017</h1>
-        <hr />
-        <div>
-            <a href="/posts/Telerik-AppBuilder-Alternatives">
-                <h2>Telerik AppBuilder Alternatives</h2>
-            </a>
-            <p><em>Posted on Thursday, December 21, 2017</em></p>      
-        </div>   
-        <div>
-            <a href="/posts/Retrieving-EsriArcGIS-Maps-Token-in-Dotnet-Core">
-                <h2>Retrieving Esri/ArcGIS Maps Token in Dotnet Core</h2>
-            </a>
-            <p><em>Posted on Monday, December 18, 2017</em></p>      
-        </div>   
-        <div>
-            <a href="/posts/Dotnet-Core-Templates-To-Hit-The-Ground-Running">
-                <h2>Dotnet Core Templates To Hit The Ground Running</h2>
-            </a>
-            <p><em>Posted on Friday, November 17, 2017</em></p>      
-        </div>   
-        <div>
-            <a href="/posts/How-to-save-a-webpage-as-PDF-file-and-send-via-email-using-Puppeteer-and-Nodemailer.js">
-                <h2>How to save a webpage as PDF file and send via email using Puppeteer and Nodemailer.js</h2>
-            </a>
-            <p><em>Posted on Friday, October 6, 2017</em></p>      
-        </div>   
-        <div>
-            <a href="/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js">
-                <h2>How to save a webpage as PDF file using Puppeteer.js</h2>
-            </a>
-            <p><em>Posted on Friday, October 6, 2017</em></p>      
-        </div>   
-    <ul class="pager">
-        <li class="previous">                
-        </li>
-        <li class="next">
-        </li>
-    </ul>
+
+<p>When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.</p>
+<pre><code class="language-json">{
+  &quot;AppConfig&quot;: {
+    &quot;DatabaseConnectionString&quot;:
+      &quot;Data source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Dev;Integrated Security=True&quot;
+  }
+}
+</code></pre>
+<p>It would be nice to bind this to a concrete class.</p>
+<pre><code class="language-csharp">    class AppConfig
+    {
+        public string DatabaseConnectionString { get; set; }
+    }
+</code></pre>
+<ol>
+<li><p>Install NuGet packages</p>
+<ul>
+<li>Microsoft.Extensions.Configuration</li>
+<li>Microsoft.Extensions.Configuration.Binder</li>
+<li>Microsoft.Extensions.Configuration.Json</li>
+</ul>
+</li>
+<li><p>Add an extension method to IConfiguration</p>
+<pre><code class="language-csharp">public static class ConfigurationExtensions
+    {
+        public static T ParseAs&lt;T&gt;(this IConfiguration configuration, string path)
+            where T : new()
+        {
+            var result = new T();
+            configuration.GetSection(path).Bind(result);
+            return result;
+        }
+    }
+</code></pre>
+</li>
+<li><p>Use the configuration in your program</p>
+<pre><code class="language-csharp">    class Program
+    {
+        static void Main(string[] args)
+        {
+            var configuration = GetStandardConfigurationBuilder();
+            var appConfig = configuration.ParseAs&lt;AppConfig&gt;(&quot;AppConfig&quot;);
+            Console.WriteLine(appConfig.DatabaseConnectionString);
+        }
+
+        internal static IConfiguration GetStandardConfigurationBuilder()
+        {
+            return new ConfigurationBuilder()
+                .AddJsonFile(&quot;appsettings.json&quot;).Build();
+        }
+    }
+</code></pre>
+</li>
+</ol>
+
+
 
 					</div>
 				</div>

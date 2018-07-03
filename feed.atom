@@ -4,7 +4,147 @@
 	<id>https://glenhallworth.com/</id>
 	<title>Glen Hallworth</title>
 	<rights>2018</rights>
-	<updated>2018-07-02T23:44:01Z</updated>
+	<updated>2018-07-03T06:45:43Z</updated>
+	<entry>
+		<link href="https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app" />
+		<id>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</id>
+		<title>appsettings.json in .NET Core Console Apps</title>
+		<updated>2018-07-03T00:00:00Z</updated>
+		<content>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-json"&gt;{
+  &amp;quot;AppConfig&amp;quot;: {
+    &amp;quot;DatabaseConnectionString&amp;quot;:
+      &amp;quot;Data source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Dev;Integrated Security=True&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It would be nice to bind this to a concrete class.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;    class AppConfig
+    {
+        public string DatabaseConnectionString { get; set; }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Install NuGet packages&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration&lt;/li&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration.Binder&lt;/li&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration.Json&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add an extension method to IConfiguration&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;public static class ConfigurationExtensions
+    {
+        public static T ParseAs&amp;lt;T&amp;gt;(this IConfiguration configuration, string path)
+            where T : new()
+        {
+            var result = new T();
+            configuration.GetSection(path).Bind(result);
+            return result;
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use the configuration in your program&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;    class Program
+    {
+        static void Main(string[] args)
+        {
+            var configuration = GetStandardConfigurationBuilder();
+            var appConfig = configuration.ParseAs&amp;lt;AppConfig&amp;gt;(&amp;quot;AppConfig&amp;quot;);
+            Console.WriteLine(appConfig.DatabaseConnectionString);
+        }
+
+        internal static IConfiguration GetStandardConfigurationBuilder()
+        {
+            return new ConfigurationBuilder()
+                .AddJsonFile(&amp;quot;appsettings.json&amp;quot;).Build();
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+		<summary>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<link href="https://glenhallworth.com/posts/Home-Automation-Lighting" />
+		<id>https://glenhallworth.com/posts/Home-Automation-Lighting</id>
+		<title>Home Automation - Lighting</title>
+		<updated>2018-07-03T00:00:00Z</updated>
+		<content>&lt;p&gt;Lighting is a practical first step into the area of home automation. I went with &lt;a href="https://www2.meethue.com/en-us"&gt;Philips Hue&lt;/a&gt; for two main reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It's been around for a while, first released in 2012 and currently on the third generation.&lt;/li&gt;
+&lt;li&gt;It has a lot of third party integration and includes a REST API to program if need be.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="setup"&gt;Setup&lt;/h2&gt;
+&lt;p&gt;Setup is simple. Plug in the Philips Hue Bridge. I put mine next to my WiFi router. Screw out your old light bulbs and replace with Philips Hue bulbs. Download the app on your phone, register and setup the lights.&lt;/p&gt;
+&lt;p&gt;In about an hour, I could now turn my lights on or off, adjust the brightness or colour anywhere in the world from my phone.&lt;/p&gt;
+&lt;p&gt;I put the colour bulb in the lounge room, where I spend most of my time at home. I put white bulbs in the bedroom, hallway and dining room. Due to the expense of the bulbs, I limited it to areas I frequent. The guest bedroom does not need a smart light bulb, nor the toilet. The kitchen light requires three light bulbs. It is left on when we are home at night and turned off when we go to bed. As these other bulbs fail, they will be replaced with a smart bulb.&lt;/p&gt;
+&lt;h2 id="the-problem"&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;To turn lights on and off from my phone, the light switch always had to be on. If I used the light switch to turn off the lights, I could not turn on my smart lights remotely and I had a boondoggle. This required&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;My phone to be within reach at all times&lt;/li&gt;
+&lt;li&gt;My phone to have battery power&lt;/li&gt;
+&lt;li&gt;I'm the only one who uses the lights (unless I go through the process of setting it up on their phone)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Philips Hue has a dimmer switch you can buy to help with this problem. I didn't want to use it. I wanted to be smarter with my lights beyond having a remote control.&lt;/p&gt;
+&lt;h2 id="google-home"&gt;Google Home&lt;/h2&gt;
+&lt;p&gt;I bought a &lt;a href="https://store.google.com/product/google_home"&gt;Google Home&lt;/a&gt; for the living area and Google Home Mini for the bedroom. I chose Google Homes' as I already had an Android phone and a Chromecast.&lt;/p&gt;
+&lt;p&gt;It was simple to setup, using Google Home to connect to Philips Hue lights. I could now turn my lights on or off with voice commands.&lt;/p&gt;
+&lt;p&gt;&amp;quot;Hey Google turn on lights&amp;quot; - Turns on all lights.&lt;/p&gt;
+&lt;p&gt;&amp;quot;Hey Google turn off light in the bedroom&amp;quot; - Turns the bedroom light off.&lt;/p&gt;
+&lt;p&gt;&amp;quot;Hey Google make the lounge room light blue&amp;quot; - Changes the lounge room light to blue.&lt;/p&gt;
+&lt;p&gt;I was no longer relying on my phone to control my lighting. Other people or guests in the house could control the lights. Some commands are easier via voice. Changing the colour is easier saying the colour than finding the right colour in the Philips Hue App. It's fun to yell at inanimate objects and have magic occur.&lt;/p&gt;
+&lt;h3 id="other-uses"&gt;Other Uses&lt;/h3&gt;
+&lt;p&gt;I soon discovered there were few other devices I had which I could control from Google Home.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://www.spotify.com/au/"&gt;Spotify&lt;/a&gt;&lt;/strong&gt; - Google Home is a speaker, I connected it to my Spotify account. It is the most straightforward music player I've had.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://store.google.com/product/chromecast_2015"&gt;Google Chromecast&lt;/a&gt;&lt;/strong&gt; - The primary use is for pausing and playing shows I'm currently streaming. &amp;quot;Hey Google play Stranger Things on Netflix&amp;quot; is a cool command though.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://www.fetchtv.com.au/"&gt;Fetch TV&lt;/a&gt;&lt;/strong&gt; - This came with my internet connection. It's handy to record shows, and pause/rewind live television. With Google Home it's easy to change the channel if you've lost your remote control.&lt;/p&gt;
+&lt;h2 id="pranks-and-issues"&gt;Pranks and Issues&lt;/h2&gt;
+&lt;p&gt;There were unintended consequences to new technology. My girlfriend soon figured out you could tell the lounge room speaker to play music on the bedroom speaker while I was sleeping. Similarly, if she is watching Netflix too loud, I can stop it from the bedroom.&lt;/p&gt;
+&lt;p&gt;If you don't have a family Spotify account, the music you are listening to work is stopped.&lt;/p&gt;
+&lt;p&gt;When Google Home had an &lt;a href="https://techcrunch.com/2018/06/27/google-home-and-chromecast-are-down-affecting-users-worldwide/"&gt;outage&lt;/a&gt;, I went back to using my light switch.&lt;/p&gt;
+&lt;h2 id="cost"&gt;Cost&lt;/h2&gt;
+&lt;p&gt;I've summarised the expenses to set this up below. Other items (Spotify, Chromecast, Fetch TV) I already had and have excluded. All prices are in Australian Dollars.&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Item&lt;/th&gt;
+&lt;th&gt;Price&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Philips Hue Starter Kit (comes with 2 white bulbs)&lt;/td&gt;
+&lt;td&gt;$143.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Philips Hue Colour Bulb&lt;/td&gt;
+&lt;td&gt;$81.39&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Philips Hue White Ambiance Bulb&lt;/td&gt;
+&lt;td&gt;$49.95&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Google Home&lt;/td&gt;
+&lt;td&gt;$139.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Google Home Mini&lt;/td&gt;
+&lt;td&gt;$49.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;$462.34&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Happy automating!&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;Lighting is a practical first step into the area of home automation. I went with &lt;a href="https://www2.meethue.com/en-us"&gt;Philips Hue&lt;/a&gt; for two main reasons:&lt;/p&gt;</summary>
+	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/Windows-Service-in-2018" />
 		<id>https://glenhallworth.com/posts/Windows-Service-in-2018</id>
