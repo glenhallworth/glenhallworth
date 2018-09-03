@@ -1,0 +1,177 @@
+﻿
+<!DOCTYPE html>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+
+	<head>
+		<title>Glen Hallworth - How To Automate Your Code Nazi</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />		
+        <link href="/assets/css/highlight.css" rel="stylesheet">
+		<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+        <link href="/assets/css/override.css" rel="stylesheet" />
+
+		<meta name="description" content="" />
+		<link type="application/rss+xml" rel="alternate" title="Glen Hallworth" href="/feed.rss" />
+				<link type="application/atom+xml" rel="alternate" title="Glen Hallworth" href="/feed.atom" />
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+		<meta name="application-name" content="Glen Hallworth" />
+		<meta name="msapplication-tooltip" content="Glen Hallworth" />
+		<meta name="msapplication-starturl" content="/" />
+
+		<meta property="og:title" content="Glen Hallworth - How To Automate Your Code Nazi" /> 
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://glenhallworth.com/posts/How-To-Automate-Your-Code-Nazi" />
+		<!-- TODO: More social graph meta tags -->
+
+        <script src="/assets/js/highlight.pack.js"></script>   
+		
+        
+
+		
+	</head>
+
+	<body>
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<div class="inner">
+
+					<!-- Logo -->
+					<a href="/" class="logo">
+						<span class="title">Glen Hallworth</span>
+					</a>
+
+					<!-- Nav -->
+					<nav>
+						<ul>
+							<li><a href="#menu">Menu</a></li>
+						</ul>
+					</nav>
+
+				</div>
+			</header>
+
+			<!-- Menu -->
+			<nav id="menu">
+				<h2>Menu</h2>
+				<ul>
+					        <li><a href="/posts">Archive</a></li>
+        <li><a href="/tags">Tags</a></li>
+        <li><a href="/about">About</a></li>
+
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+    
+<header>
+    <h1>How To Automate Your Code Nazi</h1>
+            <p><em>Published on Monday, September 3, 2018</em></p>
+            <ul class="actions small">
+                    <li><a role="button" href="/tags/Conventional" class="button small">Conventional</a></li>
+                    <li><a role="button" href="/tags/Testing" class="button small">Testing</a></li>
+        </ul>     
+</header>
+
+					
+					<div id="content">
+						
+
+<p>Do you have a colleague who doesn't follow your naming convention?</p>
+<p>Are you sick of pointing out obvious mistakes in pull requests?</p>
+<p>Did you forget to put [Authorize] attribute on the controller and left a security hole in your application?</p>
+<p>Never fear, there is a solution to this problem. You can use convention tests to enforce rules automating your inner code Nazi.</p>
+<h3 id="the-problem">The Problem</h3>
+<p>The project was using a variety of collection types in DTO properties. It was a real mix bag, including IEnumerable, ICollection and Arrays. There were some concerns the team had.</p>
+<ul>
+<li>The lack of consistency, you had to look at what the return type was. Also when writing new queries, the developers had to think about what type they would use.</li>
+<li>The immutability of data structures.</li>
+<li>Concerns about lazy evaluation and desire to guarantee to consumers the collection had been iterated. <a id="fnref:1" href="#fn:1" class="footnote-ref"><sup>1</sup></a></li>
+</ul>
+<p>The team decided to use IReadOnlyCollection everywhere we needed a collection.</p>
+<h3 id="the-solution">The Solution</h3>
+<p><a href="https://github.com/andrewabest/Conventional">Conventional</a> is a library to help writing convention tests. It includes a lot of common scenarios. You can also write your own, which we will do here.</p>
+<p>To create a convention specification, inherit from ConventionSpecification and override IsSatisfiedBy method.</p>
+<p>This code relies heavily on reflection to examine the underlying types to determine whether the property is a collection and that collection is using IReadOnlyCollection.</p>
+<script src="https://gist.github.com/glenhallworth/583bc0f55ac159b2daeaf91586b6447e.js"></script>
+<p>The project used <a href="https://github.com/jbogard/MediatR">MediatR</a> for all commands and queries. Meaning all queries implement IRequest&lt;&gt; interface. With assembly scanning it is easy to find all these queries.</p>
+<script src="https://gist.github.com/glenhallworth/9ba8e7d7d28068522540daed1f9b1f7a.js"></script>
+<p>What this code does is</p>
+<ol>
+<li>Find all the return types of queries - that is the <em>T</em> in IRequest<T></li>
+<li>Get all the property types of <em>T</em> recursively.</li>
+<li>Ensure these types conform to the convention specification DtosMustUseIReadOnlyCollectionForEnumerablesConventionSpecification</li>
+</ol>
+<h3 id="wrap-up">Wrap Up</h3>
+<p>By writing a convention test, we solved the problem we had. We also</p>
+<ul>
+<li>Made it easy to refactor by finding all the places that weren't using IReadOnlyCollection</li>
+<li>Guaranteed we couldn't accidentally reintroduce the problem by having a convention test as part of our test suite</li>
+</ul>
+<p>Convention tests are a great way to prevent mistakes and to ensure greater consistency in your codebase. Plus that inner code Nazi will be less annoying to your team.</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://blogs.msdn.microsoft.com/ericwhite/2006/10/04/lazy-evaluation-and-in-contrast-eager-evaluation/">https://blogs.msdn.microsoft.com/ericwhite/2006/10/04/lazy-evaluation-and-in-contrast-eager-evaluation/</a><a href="#fnref:1" class="footnote-back-ref">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+    <section>
+        <h2>Feeds</h2>
+        <ul class="actions small vertical">
+            <li><a href="/feed.rss" class="button small"><i class="fa fa-rss"></i> RSS Feed</a></li>
+                        <li><a href="/feed.atom" class="button small"><i class="fa fa-rss"></i> Atom Feed</a></li>
+        </ul>
+    </section>
+    <section>
+    </section>
+    <ul class="copyright">
+        <li>Copyright © 2018</li>
+        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        <li><a href="https://wyam.io">Generated by Wyam</a></li>
+    </ul>
+</div>
+
+			</footer>
+
+		</div>
+		
+		
+
+		<!-- Scripts -->
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/js/skel.min.js"></script>
+		<script src="/assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="/assets/js/main.js"></script>
+
+	</body>
+
+</html>
