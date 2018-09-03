@@ -1,3 +1,3 @@
-## Title: About Me
+## About Me
 
 Software Developer in Brisbane, Australia.

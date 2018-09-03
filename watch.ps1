@@ -1,1 +1,1 @@
-wyam --recipe Blog --theme Phantom --preview --watch
+wyam --preview --watch

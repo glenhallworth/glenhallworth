@@ -1,5 +1,5 @@
 #recipe Blog
-#theme Phantom
+#theme Trophy
 
 System.Globalization.CultureInfo.DefaultThreadCurrentCulture
     = System.Globalization.CultureInfo.CreateSpecificCulture("en-US");
@@ -8,6 +8,6 @@ System.Globalization.CultureInfo.DefaultThreadCurrentCulture
 Settings[Keys.Host] = "glenhallworth.com";
 Settings[Keys.LinksUseHttps] = true;
 Settings[BlogKeys.Title] = "Glen Hallworth";
-Settings[BlogKeys.Description] = "";
+Settings[BlogKeys.Description] = "Glen Hallworth";
 
 // Add any pipeline customizations here
