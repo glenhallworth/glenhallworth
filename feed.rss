@@ -3,10 +3,10 @@
 	<channel>
 		<title>Glen Hallworth</title>
 		<link>https://glenhallworth.com/</link>
-		<description />
+		<description>Glen Hallworth</description>
 		<copyright>2018</copyright>
-		<pubDate>Mon, 03 Sep 2018 05:03:57 GMT</pubDate>
-		<lastBuildDate>Mon, 03 Sep 2018 05:03:57 GMT</lastBuildDate>
+		<pubDate>Mon, 03 Sep 2018 05:17:05 GMT</pubDate>
+		<lastBuildDate>Mon, 03 Sep 2018 05:17:05 GMT</lastBuildDate>
 		<item>
 			<title>How To Automate Your Code Nazi</title>
 			<link>https://glenhallworth.com/posts/How-To-Automate-Your-Code-Nazi</link>
@@ -53,68 +53,6 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-</content:encoded>
-		</item>
-		<item>
-			<title>appsettings.json in .NET Core Console Apps</title>
-			<link>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</link>
-			<description>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;</description>
-			<guid>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</guid>
-			<pubDate>Tue, 03 Jul 2018 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-json"&gt;{
-  &amp;quot;AppConfig&amp;quot;: {
-    &amp;quot;DatabaseConnectionString&amp;quot;:
-      &amp;quot;Data source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Dev;Integrated Security=True&amp;quot;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It would be nice to bind this to a concrete class.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-csharp"&gt;    class AppConfig
-    {
-        public string DatabaseConnectionString { get; set; }
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Install NuGet packages&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Microsoft.Extensions.Configuration&lt;/li&gt;
-&lt;li&gt;Microsoft.Extensions.Configuration.Binder&lt;/li&gt;
-&lt;li&gt;Microsoft.Extensions.Configuration.Json&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Add an extension method to IConfiguration&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-csharp"&gt;public static class ConfigurationExtensions
-    {
-        public static T ParseAs&amp;lt;T&amp;gt;(this IConfiguration configuration, string path)
-            where T : new()
-        {
-            var result = new T();
-            configuration.GetSection(path).Bind(result);
-            return result;
-        }
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Use the configuration in your program&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-csharp"&gt;    class Program
-    {
-        static void Main(string[] args)
-        {
-            var configuration = GetStandardConfigurationBuilder();
-            var appConfig = configuration.ParseAs&amp;lt;AppConfig&amp;gt;(&amp;quot;AppConfig&amp;quot;);
-            Console.WriteLine(appConfig.DatabaseConnectionString);
-        }
-
-        internal static IConfiguration GetStandardConfigurationBuilder()
-        {
-            return new ConfigurationBuilder()
-                .AddJsonFile(&amp;quot;appsettings.json&amp;quot;).Build();
-        }
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
 </content:encoded>
 		</item>
 		<item>
@@ -193,6 +131,68 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;Happy automating!&lt;/p&gt;
+</content:encoded>
+		</item>
+		<item>
+			<title>appsettings.json in .NET Core Console Apps</title>
+			<link>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</link>
+			<description>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;</description>
+			<guid>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</guid>
+			<pubDate>Tue, 03 Jul 2018 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-json"&gt;{
+  &amp;quot;AppConfig&amp;quot;: {
+    &amp;quot;DatabaseConnectionString&amp;quot;:
+      &amp;quot;Data source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Dev;Integrated Security=True&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It would be nice to bind this to a concrete class.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;    class AppConfig
+    {
+        public string DatabaseConnectionString { get; set; }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Install NuGet packages&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration&lt;/li&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration.Binder&lt;/li&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration.Json&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add an extension method to IConfiguration&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;public static class ConfigurationExtensions
+    {
+        public static T ParseAs&amp;lt;T&amp;gt;(this IConfiguration configuration, string path)
+            where T : new()
+        {
+            var result = new T();
+            configuration.GetSection(path).Bind(result);
+            return result;
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use the configuration in your program&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;    class Program
+    {
+        static void Main(string[] args)
+        {
+            var configuration = GetStandardConfigurationBuilder();
+            var appConfig = configuration.ParseAs&amp;lt;AppConfig&amp;gt;(&amp;quot;AppConfig&amp;quot;);
+            Console.WriteLine(appConfig.DatabaseConnectionString);
+        }
+
+        internal static IConfiguration GetStandardConfigurationBuilder()
+        {
+            return new ConfigurationBuilder()
+                .AddJsonFile(&amp;quot;appsettings.json&amp;quot;).Build();
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 </content:encoded>
 		</item>
 		<item>
