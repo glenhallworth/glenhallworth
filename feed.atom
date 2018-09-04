@@ -4,7 +4,7 @@
 	<id>https://glenhallworth.com/</id>
 	<title>Glen Hallworth</title>
 	<rights>2018</rights>
-	<updated>2018-09-04T04:01:45Z</updated>
+	<updated>2018-09-04T04:12:32Z</updated>
 	<subtitle>Glen Hallworth</subtitle>
 	<entry>
 		<link href="https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free" />
@@ -20,7 +20,7 @@
 &lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
 &lt;li&gt;Save (dat money)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src="..%5Cimages%5Csavedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</summary>
 	</entry>
