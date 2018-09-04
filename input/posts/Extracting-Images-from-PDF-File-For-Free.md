@@ -13,4 +13,4 @@ Had this problem a while back when I needed a logo SVG in a PDF brand guidelines
 5. Edit -> Resize Page to Select or Shift + Ctrl + R
 6. Save (dat money)
 
-<iframe src="https://giphy.com/embed/l46CijCOWkVwVNqq4" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/lildicky-lil-dicky-save-dat-money-that-l46CijCOWkVwVNqq4">via GIPHY</a></p>
+![savedatmoney](..\images\savedatmoney.gif)
