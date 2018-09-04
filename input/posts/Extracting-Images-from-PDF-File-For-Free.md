@@ -13,4 +13,4 @@ Had this problem a while back when I needed a logo SVG in a PDF brand guidelines
 5. Edit -> Resize Page to Select or Shift + Ctrl + R
 6. Save (dat money)
 
-![savedatmoney](..\images\savedatmoney.gif)
+![savedatmoney](images/savedatmoney.gif)
