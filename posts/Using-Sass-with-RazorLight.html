@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Glen Hallworth - Extracting Images from PDF File For Free</title>
+  <title>Glen Hallworth - Using Sass with RazorLight</title>
   <meta name="description" content="Glen Hallworth" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    
 
@@ -26,9 +26,9 @@
   <meta name="msapplication-tooltip" content="Glen Hallworth" />
   <meta name="msapplication-starturl" content="/" />
 
-  <meta property="og:title" content="Glen Hallworth - Extracting Images from PDF File For Free" />
+  <meta property="og:title" content="Glen Hallworth - Using Sass with RazorLight" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free" />
+  <meta property="og:url" content="https://glenhallworth.com/posts/Using-Sass-with-RazorLight" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,37 +62,56 @@
     <figure class="absolute-bg mast__img" style="background-image: url('/assets/images/background.jpg');"></figure>
     <div class="mast__container">
       <span><time datetime="YYYY-09-DD">Tuesday, September 4, 2018</time></span>
-       <h1>Extracting Images from PDF File For Free</h1>   
+       <h1>Using Sass with RazorLight</h1>   
               <span>
-                    <a class="nav--white" href="/tags/Extract">Extract</a>
-,                    <a class="nav--white" href="/tags/Free">Free</a>
-,                    <a class="nav--white" href="/tags/Image">Image</a>
-,                    <a class="nav--white" href="/tags/Inkscape">Inkscape</a>
-,                    <a class="nav--white" href="/tags/JPEG">JPEG</a>
-,                    <a class="nav--white" href="/tags/PDF">PDF</a>
-,                    <a class="nav--white" href="/tags/PNG">PNG</a>
-,                    <a class="nav--white" href="/tags/SVG">SVG</a>
+                    <a class="nav--white" href="/tags/Razor">Razor</a>
+,                    <a class="nav--white" href="/tags/RazorLight">RazorLight</a>
+,                    <a class="nav--white" href="/tags/Sass">Sass</a>
+,                    <a class="nav--white" href="/tags/Web-Compiler">Web Compiler</a>
         </span>
     </div>
   </header>
   <section class="section-padding bg-grey">
     <div class="post">
-      <p>Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.</p>
-<ol>
-<li>Install <a href="https://inkscape.org">Inkscape</a></li>
-<li>Open the PDF file and select the page the image is on</li>
-<li>Select the image and copy</li>
-<li>Open a new Inkscape page, paste the image</li>
-<li>Edit -&gt; Resize Page to Select or Shift + Ctrl + R</li>
-<li>Save (dat money)</li>
-</ol>
-<p><img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /></p>
+      <h1 id="using-sass-with-razorlight">Using Sass with RazorLight</h1>
+<p>I've been using <a href="https://github.com/toddams/RazorLight">RazorLight</a> to generate HTML for PDF reports. It works pretty well supporting .NET Standard 2.0.</p>
+<p>One of the problems I had was styling these reports. I did not want to just use CSS, I wanted to use <a href="https://sass-lang.com/">Sass</a>.</p>
+<h3 id="transpiling-sass-to-css">Transpiling Sass to CSS</h3>
+<p>I don't have that many reports and they do not change very often. I decided to use Visual Studio extension <a href="https://marketplace.visualstudio.com/items?itemName=MadsKristensen.WebCompiler">Web Compiler</a>.</p>
+<ul>
+<li>I did not want to add this to the build pipeline</li>
+<li>I don't mind checking in the CSS files</li>
+<li>I don't mind embedding the CSS files</li>
+<li>I can always change it later. Be pragmatic.</li>
+</ul>
+<p>I setup the web compiler to compile on save. I also made the CSS output files an embedded resource.</p>
+<h3 id="project-structure">Project Structure</h3>
+<p>This is how I structured my project.</p>
+<p><img src="images/Using-Sass-with-RazorLight/projectstructure.PNG" class="img-fluid" alt="" /></p>
+<p>I have a <em>Templates</em> folder which contains all the templates (*.cshtml files) and stylesheets under <em>Styles</em> folder (*.css and *.scss files).</p>
+<p><em>TheTemplates.cs</em> is a helper class to make it easy to get a reference to assembly.</p>
+<script src="https://gist.github.com/glenhallworth/d88c655790489ccb7907858ce6346491.js"></script>
+<h3 id="getting-the-css">Getting the CSS</h3>
+<p>By using reflection we can read the embedded CSS file as a string.</p>
+<script src="https://gist.github.com/glenhallworth/fe62f24452a9cd842926883b9f42fe30.js"></script>
+<p>This returns the CSS wrapped &lt;style&gt; tag for use in the RazorLight template.</p>
+<h3 id="embedding-the-stylesheet">Embedding the stylesheet</h3>
+<p>Finally we can add the stylesheet to our template Report.cshtml using Raw method.</p>
+<script src="https://gist.github.com/glenhallworth/c16b9c2bfc2a7a660202d85685280355.js"></script>
  
     </div>
           
   </section>
 
 </article>
+ <section class="next">
+    <a class="next__link" href="/posts/Extracting-Images-from-PDF-File-For-Free" style="background-image: url('/assets/images/background.jpg');">
+      <div class="next__container">
+        <span>Read Next</span>
+        <h2>Extracting Images from PDF File For Free</h2>
+      </div> 
+    </a>
+  </section>
 
 <footer class="section-padding--sm footer">
   <span>

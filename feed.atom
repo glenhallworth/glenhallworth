@@ -4,8 +4,41 @@
 	<id>https://glenhallworth.com/</id>
 	<title>Glen Hallworth</title>
 	<rights>2018</rights>
-	<updated>2018-09-04T04:12:32Z</updated>
+	<updated>2018-09-04T06:28:16Z</updated>
 	<subtitle>Glen Hallworth</subtitle>
+	<entry>
+		<link href="https://glenhallworth.com/posts/Using-Sass-with-RazorLight" />
+		<id>https://glenhallworth.com/posts/Using-Sass-with-RazorLight</id>
+		<title>Using Sass with RazorLight</title>
+		<updated>2018-09-04T00:00:00Z</updated>
+		<content>&lt;h1 id="using-sass-with-razorlight"&gt;Using Sass with RazorLight&lt;/h1&gt;
+&lt;p&gt;I've been using &lt;a href="https://github.com/toddams/RazorLight"&gt;RazorLight&lt;/a&gt; to generate HTML for PDF reports. It works pretty well supporting .NET Standard 2.0.&lt;/p&gt;
+&lt;p&gt;One of the problems I had was styling these reports. I did not want to just use CSS, I wanted to use &lt;a href="https://sass-lang.com/"&gt;Sass&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="transpiling-sass-to-css"&gt;Transpiling Sass to CSS&lt;/h3&gt;
+&lt;p&gt;I don't have that many reports and they do not change very often. I decided to use Visual Studio extension &lt;a href="https://marketplace.visualstudio.com/items?itemName=MadsKristensen.WebCompiler"&gt;Web Compiler&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I did not want to add this to the build pipeline&lt;/li&gt;
+&lt;li&gt;I don't mind checking in the CSS files&lt;/li&gt;
+&lt;li&gt;I don't mind embedding the CSS files&lt;/li&gt;
+&lt;li&gt;I can always change it later. Be pragmatic.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I setup the web compiler to compile on save. I also made the CSS output files an embedded resource.&lt;/p&gt;
+&lt;h3 id="project-structure"&gt;Project Structure&lt;/h3&gt;
+&lt;p&gt;This is how I structured my project.&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/Using-Sass-with-RazorLight/projectstructure.PNG" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;I have a &lt;em&gt;Templates&lt;/em&gt; folder which contains all the templates (*.cshtml files) and stylesheets under &lt;em&gt;Styles&lt;/em&gt; folder (*.css and *.scss files).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;TheTemplates.cs&lt;/em&gt; is a helper class to make it easy to get a reference to assembly.&lt;/p&gt;
+&lt;script src="https://gist.github.com/glenhallworth/d88c655790489ccb7907858ce6346491.js"&gt;&lt;/script&gt;
+&lt;h3 id="getting-the-css"&gt;Getting the CSS&lt;/h3&gt;
+&lt;p&gt;By using reflection we can read the embedded CSS file as a string.&lt;/p&gt;
+&lt;script src="https://gist.github.com/glenhallworth/fe62f24452a9cd842926883b9f42fe30.js"&gt;&lt;/script&gt;
+&lt;p&gt;This returns the CSS wrapped &amp;lt;style&amp;gt; tag for use in the RazorLight template.&lt;/p&gt;
+&lt;h3 id="embedding-the-stylesheet"&gt;Embedding the stylesheet&lt;/h3&gt;
+&lt;p&gt;Finally we can add the stylesheet to our template Report.cshtml using Raw method.&lt;/p&gt;
+&lt;script src="https://gist.github.com/glenhallworth/c16b9c2bfc2a7a660202d85685280355.js"&gt;&lt;/script&gt;
+</content>
+		<summary>&lt;p&gt;I've been using &lt;a href="https://github.com/toddams/RazorLight"&gt;RazorLight&lt;/a&gt; to generate HTML for PDF reports. It works pretty well supporting .NET Standard 2.0.&lt;/p&gt;</summary>
+	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free" />
 		<id>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</id>
@@ -20,7 +53,7 @@
 &lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
 &lt;li&gt;Save (dat money)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src="images/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</summary>
 	</entry>
