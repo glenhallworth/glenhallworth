@@ -5,8 +5,56 @@
 		<link>https://glenhallworth.com/</link>
 		<description>Glen Hallworth</description>
 		<copyright>2018</copyright>
-		<pubDate>Tue, 04 Sep 2018 06:28:16 GMT</pubDate>
-		<lastBuildDate>Tue, 04 Sep 2018 06:28:16 GMT</lastBuildDate>
+		<pubDate>Sat, 29 Sep 2018 11:49:38 GMT</pubDate>
+		<lastBuildDate>Sat, 29 Sep 2018 11:49:38 GMT</lastBuildDate>
+		<item>
+			<title>From the Trenches - 5 Lessons of a Successful Project</title>
+			<link>https://glenhallworth.com/posts/From-The-Trenches-5-Lessions-of-a-Successful-Project</link>
+			<description>&lt;p&gt;I have been working on building an enterprise application to replace Access databases, Excel and much paper. The organisation is well entrenched in their processes, using this system for several years. They had outgrown their current systems, limiting their ability to innovate and join the digital revolution. I joined after a previous team had tried and failed to replace the system, costing the company money in the process. These are just five lessons that helped us succeed.&lt;/p&gt;</description>
+			<guid>https://glenhallworth.com/posts/From-The-Trenches-5-Lessions-of-a-Successful-Project</guid>
+			<pubDate>Sat, 29 Sep 2018 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;I have been working on building an enterprise application to replace Access databases, Excel and much paper. The organisation is well entrenched in their processes, using this system for several years. They had outgrown their current systems, limiting their ability to innovate and join the digital revolution. I joined after a previous team had tried and failed to replace the system, costing the company money in the process. These are just five lessons that helped us succeed.&lt;/p&gt;
+&lt;h2 id="coaching-agile"&gt;Coaching Agile&lt;/h2&gt;
+&lt;p&gt;It is easy to forget after years of being agile in software development that most organisations and most departments outside of I.T. are not familiar with agile practices. It takes time to learn. There are new ideas and ceremonies to understand. Given this is a large project with multiple subdomains and product owners, within addition several stakeholders there were quite a few people to bring along to the journey.&lt;/p&gt;
+&lt;p&gt;During the development, when adding further subdomains into the project we were essentially starting over the agile journey with new stakeholders and product owners. The whole project we've been starting from zero, it's been important to challenge our assumptions constantly and educate our colleagues in our way of working. Coming in after a failed project, coaching agile to stakeholders has increased their confidence in us and further ensures the success of the project.&lt;/p&gt;
+&lt;h2 id="get-the-architecture-right"&gt;Get the Architecture Right&lt;/h2&gt;
+&lt;p&gt;In a complex enterprise system of this size and project length the ability to change and to reason overtime is required to deliver and adapt. From the start, we've implemented Domain-Driven Design to inform our model and tame complexity in the monolith. We've also used CQRS to separate our writes and reads, simplifying our software.&lt;/p&gt;
+&lt;p&gt;The right architecture flows throughout the whole project. It allows you to understand how the domain works, to add new features quickly and test your code effectively. Preventing the system from going to spaghetti expands the useful lifespan of the application. It allows you to iterate towards an application fit for purpose.&lt;/p&gt;
+&lt;h2 id="just-enough-testing"&gt;Just Enough Testing&lt;/h2&gt;
+&lt;p&gt;In the long run, adequate testing saves time, preventing defects and reducing risk making changes. There are many different types of testing and testing strategies. We decided to maximise the bang for our buck using two kinds of testing.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Integration Testing&lt;/strong&gt; - Performing subcutaneous tests by calling the API, executing a command, saving to the database and verifying the results through calling the API, running a query and reading the database provides a good level of confidence the system works. Using the system to test the system limits the number of tests you need to write to ensure correctness.&lt;/p&gt;
+&lt;p&gt;There are tradeoffs to integration testing. They are typically slower than unit tests. However, with the right architecture and picking the most valuable slice of application to test you prevent significant problems in your application.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Convention Testing&lt;/strong&gt; - Enforcing agreed upon standards across the project and preventing developers from making mistakes. Convention tests address specific types of &lt;a href="/How-To-Automate-Your-Code-Nazi"&gt;issues&lt;/a&gt; traditional testing does not pick up. They provide enormous value for little effort in writing testing your whole code base for problems.&lt;/p&gt;
+&lt;p&gt;These were not the only types of testing we performed. The critical idea was focusing on tests that maximised value for minimal effort.&lt;/p&gt;
+&lt;h2 id="be-pragmatic"&gt;Be Pragmatic&lt;/h2&gt;
+&lt;p&gt;In all projects, including large projects such as this one, you need to make pragmatic decisions. There are competing stories, bugs and technical debt to pay down to prioritise. You need to take a practical approach and be pragmatic to the priorities.&lt;/p&gt;
+&lt;p&gt;Although the vast majority of choices we made with third-party libraries were correct, we made mistakes. The forms library worked well 90% of the time. It did not have great integration with our language choice and in specific scenarios performance was terrible. Midway through the project the maintainers deprecated the library and started a new library. It is significant work to replace the library, but that would be a distraction, the library still works, we can work around the 10% of issues. We are making pragmatic decision to take on technical debt and focus on what is more important.&lt;/p&gt;
+&lt;h2 id="deliver"&gt;Deliver&lt;/h2&gt;
+&lt;p&gt;Building trust with organisation and stakeholders was necessary, we were coming in after a failed project. We were agile. They were a traditional organisation. It was reasonable for them to be sceptical of us. To achieve the goals of the project and overcome trust chasm we delivered.&lt;/p&gt;
+&lt;p&gt;We built a minimum-viable product, we had users, using the software in production as soon as we could.&lt;/p&gt;
+&lt;p&gt;We frequently deployed, without breaking changes, often. Soon after demonstrating features, our users could use them, in production, for real.&lt;/p&gt;
+&lt;p&gt;When we received feedback, we took it on board, investigated the underlying problem and came up with a solution. If it did not work, we iterated until we found a suitable solution.&lt;/p&gt;
+&lt;p&gt;Over time we gained the trust of the organisation by delivering. It is satisfying to have someone in the organisation to sell the project to their colleagues, to explain the benefits without being prompted. Delivery is achieving success.&lt;/p&gt;
+</content:encoded>
+		</item>
+		<item>
+			<title>Extracting Images from PDF File For Free</title>
+			<link>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</link>
+			<description>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</description>
+			<guid>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</guid>
+			<pubDate>Tue, 04 Sep 2018 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
+&lt;li&gt;Select the image and copy&lt;/li&gt;
+&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
+&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
+&lt;li&gt;Save (dat money)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
+</content:encoded>
+		</item>
 		<item>
 			<title>Using Sass with RazorLight</title>
 			<link>https://glenhallworth.com/posts/Using-Sass-with-RazorLight</link>
@@ -38,24 +86,6 @@
 &lt;h3 id="embedding-the-stylesheet"&gt;Embedding the stylesheet&lt;/h3&gt;
 &lt;p&gt;Finally we can add the stylesheet to our template Report.cshtml using Raw method.&lt;/p&gt;
 &lt;script src="https://gist.github.com/glenhallworth/c16b9c2bfc2a7a660202d85685280355.js"&gt;&lt;/script&gt;
-</content:encoded>
-		</item>
-		<item>
-			<title>Extracting Images from PDF File For Free</title>
-			<link>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</link>
-			<description>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</description>
-			<guid>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</guid>
-			<pubDate>Tue, 04 Sep 2018 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
-&lt;li&gt;Select the image and copy&lt;/li&gt;
-&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
-&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
-&lt;li&gt;Save (dat money)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
 </content:encoded>
 		</item>
 		<item>
@@ -632,6 +662,50 @@ export class DocumentService {
 </content:encoded>
 		</item>
 		<item>
+			<title>How to save a webpage as PDF file using Puppeteer.js</title>
+			<link>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</link>
+			<guid>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</guid>
+			<pubDate>Fri, 06 Oct 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
+
+class Webpage {
+  static async generatePDF(url) {
+    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
+    const page = await browser.newPage();
+    await page.goto(url, {
+      waitUntil: &amp;quot;networkidle&amp;quot;,
+      networkIdleTimeout: 5000
+    }); // Adjust network idle as required.
+    const pdfConfig = {
+      path: &amp;quot;url.pdf&amp;quot;, // Saves pdf to disk.
+      format: &amp;quot;A4&amp;quot;,
+      printBackground: true,
+      margin: {
+        // Word's default A4 margins
+        top: &amp;quot;2.54cm&amp;quot;,
+        bottom: &amp;quot;2.54cm&amp;quot;,
+        left: &amp;quot;2.54cm&amp;quot;,
+        right: &amp;quot;2.54cm&amp;quot;
+      }
+    };
+    await page.emulateMedia(&amp;quot;screen&amp;quot;);
+    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
+
+    await browser.close();
+
+    return pdf;
+  }
+}
+
+(async () =&amp;gt; {
+  const url =
+    &amp;quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&amp;quot;;
+  const buffer = await Webpage.generatePDF(url);
+})();
+&lt;/code&gt;&lt;/pre&gt;
+</content:encoded>
+		</item>
+		<item>
 			<title>How to save a webpage as PDF file and send via email using Puppeteer and Nodemailer.js</title>
 			<link>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-and-send-via-email-using-Puppeteer-and-Nodemailer.js</link>
 			<guid>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-and-send-via-email-using-Puppeteer-and-Nodemailer.js</guid>
@@ -714,50 +788,6 @@ class Email {
     &amp;quot;Alice in Wonderland.pdf&amp;quot;,
     buffer
   );
-})();
-&lt;/code&gt;&lt;/pre&gt;
-</content:encoded>
-		</item>
-		<item>
-			<title>How to save a webpage as PDF file using Puppeteer.js</title>
-			<link>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</link>
-			<guid>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</guid>
-			<pubDate>Fri, 06 Oct 2017 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
-
-class Webpage {
-  static async generatePDF(url) {
-    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
-    const page = await browser.newPage();
-    await page.goto(url, {
-      waitUntil: &amp;quot;networkidle&amp;quot;,
-      networkIdleTimeout: 5000
-    }); // Adjust network idle as required.
-    const pdfConfig = {
-      path: &amp;quot;url.pdf&amp;quot;, // Saves pdf to disk.
-      format: &amp;quot;A4&amp;quot;,
-      printBackground: true,
-      margin: {
-        // Word's default A4 margins
-        top: &amp;quot;2.54cm&amp;quot;,
-        bottom: &amp;quot;2.54cm&amp;quot;,
-        left: &amp;quot;2.54cm&amp;quot;,
-        right: &amp;quot;2.54cm&amp;quot;
-      }
-    };
-    await page.emulateMedia(&amp;quot;screen&amp;quot;);
-    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
-
-    await browser.close();
-
-    return pdf;
-  }
-}
-
-(async () =&amp;gt; {
-  const url =
-    &amp;quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&amp;quot;;
-  const buffer = await Webpage.generatePDF(url);
 })();
 &lt;/code&gt;&lt;/pre&gt;
 </content:encoded>

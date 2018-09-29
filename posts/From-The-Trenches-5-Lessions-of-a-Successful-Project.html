@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Glen Hallworth - From the Trenches - 5 Lessons of a Successful Project</title>
+  <meta name="description" content="Glen Hallworth" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+
+    <link type="application/rss+xml" rel="alternate" title="Glen Hallworth" href="/feed.rss" />
+      <link type="application/atom+xml" rel="alternate" title="Glen Hallworth" href="/feed.atom" />
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Lora|Space+Mono:700">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link href="/assets/css/main.css" rel="stylesheet" />
+  <link href="/assets/css/custom.css" rel="stylesheet" />
+
+  <meta name="application-name" content="Glen Hallworth" />
+  <meta name="msapplication-tooltip" content="Glen Hallworth" />
+  <meta name="msapplication-starturl" content="/" />
+
+  <meta property="og:title" content="Glen Hallworth - From the Trenches - 5 Lessons of a Successful Project" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://glenhallworth.com/posts/From-The-Trenches-5-Lessions-of-a-Successful-Project" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/js/html5shiv.js"></script>
+      <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+ 
+
+  <body>
+    <div class="sidenav">
+  <a class="closebtn"><i class="fa fa-times"></i></a>
+  <h2><a class="" href="/"><span>Glen Hallworth</span></a></h2>
+                <a class="" href="/about"><span>About</span></a>
+</div>
+<a class="nav openbtn">
+      <i class="fa fa-bars fa-2x"></i>
+    </a>
+    
+    
+    <main role="main" class="🏆">
+
+      <article>
+
+  <header class="section-padding--lg mast rellax" data-rellax-speed="-4">
+    <a class="nav nav--white" href="/">
+      <i class="fa fa-lg fa-arrow-left"></i>
+      <span>Back to Posts</span>
+    </a>
+    <figure class="absolute-bg mast__img" style="background-image: url('/assets/images/background.jpg');"></figure>
+    <div class="mast__container">
+      <span><time datetime="YYYY-09-DD">Saturday, September 29, 2018</time></span>
+       <h1>From the Trenches - 5 Lessons of a Successful Project</h1>   
+              <span>
+                    <a class="nav--white" href="/tags/Agile">Agile</a>
+,                    <a class="nav--white" href="/tags/Delivery">Delivery</a>
+,                    <a class="nav--white" href="/tags/Projects">Projects</a>
+        </span>
+    </div>
+  </header>
+  <section class="section-padding bg-grey">
+    <div class="post">
+      <p>I have been working on building an enterprise application to replace Access databases, Excel and much paper. The organisation is well entrenched in their processes, using this system for several years. They had outgrown their current systems, limiting their ability to innovate and join the digital revolution. I joined after a previous team had tried and failed to replace the system, costing the company money in the process. These are just five lessons that helped us succeed.</p>
+<h2 id="coaching-agile">Coaching Agile</h2>
+<p>It is easy to forget after years of being agile in software development that most organisations and most departments outside of I.T. are not familiar with agile practices. It takes time to learn. There are new ideas and ceremonies to understand. Given this is a large project with multiple subdomains and product owners, within addition several stakeholders there were quite a few people to bring along to the journey.</p>
+<p>During the development, when adding further subdomains into the project we were essentially starting over the agile journey with new stakeholders and product owners. The whole project we've been starting from zero, it's been important to challenge our assumptions constantly and educate our colleagues in our way of working. Coming in after a failed project, coaching agile to stakeholders has increased their confidence in us and further ensures the success of the project.</p>
+<h2 id="get-the-architecture-right">Get the Architecture Right</h2>
+<p>In a complex enterprise system of this size and project length the ability to change and to reason overtime is required to deliver and adapt. From the start, we've implemented Domain-Driven Design to inform our model and tame complexity in the monolith. We've also used CQRS to separate our writes and reads, simplifying our software.</p>
+<p>The right architecture flows throughout the whole project. It allows you to understand how the domain works, to add new features quickly and test your code effectively. Preventing the system from going to spaghetti expands the useful lifespan of the application. It allows you to iterate towards an application fit for purpose.</p>
+<h2 id="just-enough-testing">Just Enough Testing</h2>
+<p>In the long run, adequate testing saves time, preventing defects and reducing risk making changes. There are many different types of testing and testing strategies. We decided to maximise the bang for our buck using two kinds of testing.</p>
+<p><strong>Integration Testing</strong> - Performing subcutaneous tests by calling the API, executing a command, saving to the database and verifying the results through calling the API, running a query and reading the database provides a good level of confidence the system works. Using the system to test the system limits the number of tests you need to write to ensure correctness.</p>
+<p>There are tradeoffs to integration testing. They are typically slower than unit tests. However, with the right architecture and picking the most valuable slice of application to test you prevent significant problems in your application.</p>
+<p><strong>Convention Testing</strong> - Enforcing agreed upon standards across the project and preventing developers from making mistakes. Convention tests address specific types of <a href="/How-To-Automate-Your-Code-Nazi">issues</a> traditional testing does not pick up. They provide enormous value for little effort in writing testing your whole code base for problems.</p>
+<p>These were not the only types of testing we performed. The critical idea was focusing on tests that maximised value for minimal effort.</p>
+<h2 id="be-pragmatic">Be Pragmatic</h2>
+<p>In all projects, including large projects such as this one, you need to make pragmatic decisions. There are competing stories, bugs and technical debt to pay down to prioritise. You need to take a practical approach and be pragmatic to the priorities.</p>
+<p>Although the vast majority of choices we made with third-party libraries were correct, we made mistakes. The forms library worked well 90% of the time. It did not have great integration with our language choice and in specific scenarios performance was terrible. Midway through the project the maintainers deprecated the library and started a new library. It is significant work to replace the library, but that would be a distraction, the library still works, we can work around the 10% of issues. We are making pragmatic decision to take on technical debt and focus on what is more important.</p>
+<h2 id="deliver">Deliver</h2>
+<p>Building trust with organisation and stakeholders was necessary, we were coming in after a failed project. We were agile. They were a traditional organisation. It was reasonable for them to be sceptical of us. To achieve the goals of the project and overcome trust chasm we delivered.</p>
+<p>We built a minimum-viable product, we had users, using the software in production as soon as we could.</p>
+<p>We frequently deployed, without breaking changes, often. Soon after demonstrating features, our users could use them, in production, for real.</p>
+<p>When we received feedback, we took it on board, investigated the underlying problem and came up with a solution. If it did not work, we iterated until we found a suitable solution.</p>
+<p>Over time we gained the trust of the organisation by delivering. It is satisfying to have someone in the organisation to sell the project to their colleagues, to explain the benefits without being prompted. Delivery is achieving success.</p>
+ 
+    </div>
+          
+  </section>
+
+</article>
+
+<footer class="section-padding--sm footer">
+  <span>
+  </span>
+  <ul class="footer__social">
+    <li><a class="fa fa-lg fa-rss" href="/feed.rss" target="_blank"></a></li>
+  </ul>
+</footer>
+
+
+    </main>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script type="text/javascript" src="/assets/js/app.js"></script>
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+ 
+
+  </body>
+</html>
+
