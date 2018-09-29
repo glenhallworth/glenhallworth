@@ -1,4 +1,4 @@
-Title: From the Trenches: 5 Lessons of a Successful Project
+Title: From the Trenches - 5 Lessons of a Successful Project
 Published: 9/29/2018
 Tags: ["Projects", "Agile", "Delivery"]
 
