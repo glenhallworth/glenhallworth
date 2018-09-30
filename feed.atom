@@ -4,7 +4,7 @@
 	<id>https://glenhallworth.com/</id>
 	<title>Glen Hallworth</title>
 	<rights>2018</rights>
-	<updated>2018-09-29T11:49:38Z</updated>
+	<updated>2018-09-30T01:52:35Z</updated>
 	<subtitle>Glen Hallworth</subtitle>
 	<entry>
 		<link href="https://glenhallworth.com/posts/From-The-Trenches-5-Lessions-of-a-Successful-Project" />
@@ -16,7 +16,7 @@
 &lt;p&gt;It is easy to forget after years of being agile in software development that most organisations and most departments outside of I.T. are not familiar with agile practices. It takes time to learn. There are new ideas and ceremonies to understand. Given this is a large project with multiple subdomains and product owners, within addition several stakeholders there were quite a few people to bring along to the journey.&lt;/p&gt;
 &lt;p&gt;During the development, when adding further subdomains into the project we were essentially starting over the agile journey with new stakeholders and product owners. The whole project we've been starting from zero, it's been important to challenge our assumptions constantly and educate our colleagues in our way of working. Coming in after a failed project, coaching agile to stakeholders has increased their confidence in us and further ensures the success of the project.&lt;/p&gt;
 &lt;h2 id="get-the-architecture-right"&gt;Get the Architecture Right&lt;/h2&gt;
-&lt;p&gt;In a complex enterprise system of this size and project length the ability to change and to reason overtime is required to deliver and adapt. From the start, we've implemented Domain-Driven Design to inform our model and tame complexity in the monolith. We've also used CQRS to separate our writes and reads, simplifying our software.&lt;/p&gt;
+&lt;p&gt;In a complex enterprise system of this size and project length the ability to change and to reason overtime is required to deliver and adapt. From the start, we've implemented &lt;a href="http://dddcommunity.org/learning-ddd/what_is_ddd/"&gt;Domain-Driven Design&lt;/a&gt; to inform our model and tame complexity in the monolith. We've also used &lt;a href="https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs"&gt;CQRS&lt;/a&gt; to separate our writes and reads, simplifying our software.&lt;/p&gt;
 &lt;p&gt;The right architecture flows throughout the whole project. It allows you to understand how the domain works, to add new features quickly and test your code effectively. Preventing the system from going to spaghetti expands the useful lifespan of the application. It allows you to iterate towards an application fit for purpose.&lt;/p&gt;
 &lt;h2 id="just-enough-testing"&gt;Just Enough Testing&lt;/h2&gt;
 &lt;p&gt;In the long run, adequate testing saves time, preventing defects and reducing risk making changes. There are many different types of testing and testing strategies. We decided to maximise the bang for our buck using two kinds of testing.&lt;/p&gt;
@@ -35,24 +35,6 @@
 &lt;p&gt;Over time we gained the trust of the organisation by delivering. It is satisfying to have someone in the organisation to sell the project to their colleagues, to explain the benefits without being prompted. Delivery is achieving success.&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;I have been working on building an enterprise application to replace Access databases, Excel and much paper. The organisation is well entrenched in their processes, using this system for several years. They had outgrown their current systems, limiting their ability to innovate and join the digital revolution. I joined after a previous team had tried and failed to replace the system, costing the company money in the process. These are just five lessons that helped us succeed.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<link href="https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free" />
-		<id>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</id>
-		<title>Extracting Images from PDF File For Free</title>
-		<updated>2018-09-04T00:00:00Z</updated>
-		<content>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
-&lt;li&gt;Select the image and copy&lt;/li&gt;
-&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
-&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
-&lt;li&gt;Save (dat money)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/Using-Sass-with-RazorLight" />
@@ -86,6 +68,24 @@
 &lt;script src="https://gist.github.com/glenhallworth/c16b9c2bfc2a7a660202d85685280355.js"&gt;&lt;/script&gt;
 </content>
 		<summary>&lt;p&gt;I've been using &lt;a href="https://github.com/toddams/RazorLight"&gt;RazorLight&lt;/a&gt; to generate HTML for PDF reports. It works pretty well supporting .NET Standard 2.0.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<link href="https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free" />
+		<id>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</id>
+		<title>Extracting Images from PDF File For Free</title>
+		<updated>2018-09-04T00:00:00Z</updated>
+		<content>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
+&lt;li&gt;Select the image and copy&lt;/li&gt;
+&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
+&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
+&lt;li&gt;Save (dat money)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/How-To-Automate-Your-Code-Nazi" />
@@ -661,50 +661,6 @@ export class DocumentService {
 		<summary>&lt;p&gt;The problem with starting a new project is there is a lot of boilerplate work to get started. You need to setup project structure, source control, build and release pipelines, dependency injection and logging before you write a line of business code. Dotnet Core 2.0 supports custom templates meaningless boilerplate code to hit the ground running.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js" />
-		<id>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</id>
-		<title>How to save a webpage as PDF file using Puppeteer.js</title>
-		<updated>2017-10-06T00:00:00Z</updated>
-		<content>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
-
-class Webpage {
-  static async generatePDF(url) {
-    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
-    const page = await browser.newPage();
-    await page.goto(url, {
-      waitUntil: &amp;quot;networkidle&amp;quot;,
-      networkIdleTimeout: 5000
-    }); // Adjust network idle as required.
-    const pdfConfig = {
-      path: &amp;quot;url.pdf&amp;quot;, // Saves pdf to disk.
-      format: &amp;quot;A4&amp;quot;,
-      printBackground: true,
-      margin: {
-        // Word's default A4 margins
-        top: &amp;quot;2.54cm&amp;quot;,
-        bottom: &amp;quot;2.54cm&amp;quot;,
-        left: &amp;quot;2.54cm&amp;quot;,
-        right: &amp;quot;2.54cm&amp;quot;
-      }
-    };
-    await page.emulateMedia(&amp;quot;screen&amp;quot;);
-    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
-
-    await browser.close();
-
-    return pdf;
-  }
-}
-
-(async () =&amp;gt; {
-  const url =
-    &amp;quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&amp;quot;;
-  const buffer = await Webpage.generatePDF(url);
-})();
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-	</entry>
-	<entry>
 		<link href="https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-and-send-via-email-using-Puppeteer-and-Nodemailer.js" />
 		<id>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-and-send-via-email-using-Puppeteer-and-Nodemailer.js</id>
 		<title>How to save a webpage as PDF file and send via email using Puppeteer and Nodemailer.js</title>
@@ -787,6 +743,50 @@ class Email {
     &amp;quot;Alice in Wonderland.pdf&amp;quot;,
     buffer
   );
+})();
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+	<entry>
+		<link href="https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js" />
+		<id>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</id>
+		<title>How to save a webpage as PDF file using Puppeteer.js</title>
+		<updated>2017-10-06T00:00:00Z</updated>
+		<content>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
+
+class Webpage {
+  static async generatePDF(url) {
+    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
+    const page = await browser.newPage();
+    await page.goto(url, {
+      waitUntil: &amp;quot;networkidle&amp;quot;,
+      networkIdleTimeout: 5000
+    }); // Adjust network idle as required.
+    const pdfConfig = {
+      path: &amp;quot;url.pdf&amp;quot;, // Saves pdf to disk.
+      format: &amp;quot;A4&amp;quot;,
+      printBackground: true,
+      margin: {
+        // Word's default A4 margins
+        top: &amp;quot;2.54cm&amp;quot;,
+        bottom: &amp;quot;2.54cm&amp;quot;,
+        left: &amp;quot;2.54cm&amp;quot;,
+        right: &amp;quot;2.54cm&amp;quot;
+      }
+    };
+    await page.emulateMedia(&amp;quot;screen&amp;quot;);
+    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
+
+    await browser.close();
+
+    return pdf;
+  }
+}
+
+(async () =&amp;gt; {
+  const url =
+    &amp;quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&amp;quot;;
+  const buffer = await Webpage.generatePDF(url);
 })();
 &lt;/code&gt;&lt;/pre&gt;
 </content>
