@@ -14,7 +14,7 @@ During the development, when adding further subdomains into the project we were 
 
 ## Get the Architecture Right
 
-In a complex enterprise system of this size and project length the ability to change and to reason overtime is required to deliver and adapt. From the start, we've implemented Domain-Driven Design to inform our model and tame complexity in the monolith. We've also used CQRS to separate our writes and reads, simplifying our software. 
+In a complex enterprise system of this size and project length the ability to change and to reason overtime is required to deliver and adapt. From the start, we've implemented [Domain-Driven Design](http://dddcommunity.org/learning-ddd/what_is_ddd/) to inform our model and tame complexity in the monolith. We've also used [CQRS](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs) to separate our writes and reads, simplifying our software. 
 
 The right architecture flows throughout the whole project. It allows you to understand how the domain works, to add new features quickly and test your code effectively. Preventing the system from going to spaghetti expands the useful lifespan of the application. It allows you to iterate towards an application fit for purpose. 
 
