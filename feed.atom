@@ -4,7 +4,7 @@
 	<id>https://glenhallworth.com/</id>
 	<title>Glen Hallworth</title>
 	<rights>2018</rights>
-	<updated>2018-09-30T07:11:00Z</updated>
+	<updated>2018-09-30T07:26:59Z</updated>
 	<subtitle>Glen Hallworth</subtitle>
 	<entry>
 		<link href="https://glenhallworth.com/posts/From-The-Trenches-5-Lessions-of-a-Successful-Project" />
@@ -136,6 +136,68 @@
 		<summary>&lt;p&gt;Do you have a colleague who doesn't follow your naming convention?&lt;/p&gt;</summary>
 	</entry>
 	<entry>
+		<link href="https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app" />
+		<id>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</id>
+		<title>appsettings.json in .NET Core Console Apps</title>
+		<updated>2018-07-03T00:00:00Z</updated>
+		<content>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-json"&gt;{
+  &amp;quot;AppConfig&amp;quot;: {
+    &amp;quot;DatabaseConnectionString&amp;quot;:
+      &amp;quot;Data source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Dev;Integrated Security=True&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It would be nice to bind this to a concrete class.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;    class AppConfig
+    {
+        public string DatabaseConnectionString { get; set; }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Install NuGet packages&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration&lt;/li&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration.Binder&lt;/li&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration.Json&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add an extension method to IConfiguration&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;public static class ConfigurationExtensions
+    {
+        public static T ParseAs&amp;lt;T&amp;gt;(this IConfiguration configuration, string path)
+            where T : new()
+        {
+            var result = new T();
+            configuration.GetSection(path).Bind(result);
+            return result;
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use the configuration in your program&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;    class Program
+    {
+        static void Main(string[] args)
+        {
+            var configuration = GetStandardConfigurationBuilder();
+            var appConfig = configuration.ParseAs&amp;lt;AppConfig&amp;gt;(&amp;quot;AppConfig&amp;quot;);
+            Console.WriteLine(appConfig.DatabaseConnectionString);
+        }
+
+        internal static IConfiguration GetStandardConfigurationBuilder()
+        {
+            return new ConfigurationBuilder()
+                .AddJsonFile(&amp;quot;appsettings.json&amp;quot;).Build();
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+		<summary>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
 		<link href="https://glenhallworth.com/posts/Home-Automation-Lighting" />
 		<id>https://glenhallworth.com/posts/Home-Automation-Lighting</id>
 		<title>Home Automation - Lighting</title>
@@ -212,68 +274,6 @@
 &lt;p&gt;Happy automating!&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;Lighting is a practical first step into the area of home automation. I went with &lt;a href="https://www2.meethue.com/en-us"&gt;Philips Hue&lt;/a&gt; for two main reasons:&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<link href="https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app" />
-		<id>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</id>
-		<title>appsettings.json in .NET Core Console Apps</title>
-		<updated>2018-07-03T00:00:00Z</updated>
-		<content>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-json"&gt;{
-  &amp;quot;AppConfig&amp;quot;: {
-    &amp;quot;DatabaseConnectionString&amp;quot;:
-      &amp;quot;Data source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Dev;Integrated Security=True&amp;quot;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It would be nice to bind this to a concrete class.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-csharp"&gt;    class AppConfig
-    {
-        public string DatabaseConnectionString { get; set; }
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Install NuGet packages&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Microsoft.Extensions.Configuration&lt;/li&gt;
-&lt;li&gt;Microsoft.Extensions.Configuration.Binder&lt;/li&gt;
-&lt;li&gt;Microsoft.Extensions.Configuration.Json&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Add an extension method to IConfiguration&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-csharp"&gt;public static class ConfigurationExtensions
-    {
-        public static T ParseAs&amp;lt;T&amp;gt;(this IConfiguration configuration, string path)
-            where T : new()
-        {
-            var result = new T();
-            configuration.GetSection(path).Bind(result);
-            return result;
-        }
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Use the configuration in your program&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-csharp"&gt;    class Program
-    {
-        static void Main(string[] args)
-        {
-            var configuration = GetStandardConfigurationBuilder();
-            var appConfig = configuration.ParseAs&amp;lt;AppConfig&amp;gt;(&amp;quot;AppConfig&amp;quot;);
-            Console.WriteLine(appConfig.DatabaseConnectionString);
-        }
-
-        internal static IConfiguration GetStandardConfigurationBuilder()
-        {
-            return new ConfigurationBuilder()
-                .AddJsonFile(&amp;quot;appsettings.json&amp;quot;).Build();
-        }
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-		<summary>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/Windows-Service-in-2018" />
