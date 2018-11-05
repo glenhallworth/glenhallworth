@@ -4,8 +4,30 @@
 	<id>https://glenhallworth.com/</id>
 	<title>Glen Hallworth</title>
 	<rights>2018</rights>
-	<updated>2018-09-30T07:26:59Z</updated>
+	<updated>2018-11-05T05:04:53Z</updated>
 	<subtitle>Glen Hallworth</subtitle>
+	<entry>
+		<link href="https://glenhallworth.com/posts/Using-Audiobooks-to-Keep-Up-on-That-Reading-List" />
+		<id>https://glenhallworth.com/posts/Using-Audiobooks-to-Keep-Up-on-That-Reading-List</id>
+		<title>Using Audiobooks to Keep Up on That Reading List</title>
+		<updated>2018-11-05T00:00:00Z</updated>
+		<content>&lt;h1 id="using-audiobooks-to-keep-up-on-that-reading-list"&gt;Using Audiobooks to Keep Up on That Reading List&lt;/h1&gt;
+&lt;p&gt;This year I switched from commuting to work on a train to driving to work. When I was catching the train, I had up 90 minutes to read per day 5 days to a week. Although my commute was shortened driving, I lost this &amp;quot;captive&amp;quot; time which allowed me to read frequently and often.&lt;/p&gt;
+&lt;p&gt;I started using audiobooks. I could not read while driving, but I could listen to someone read to me. You'll find there are many activities you do when you have free brain cycles to learn. Personally, I have seen my comprehension has not suffered, there is &lt;a href="https://www.thecut.com/2016/08/listening-to-a-book-instead-of-reading-isnt-cheating.html"&gt;evidence&lt;/a&gt; to support this.&lt;/p&gt;
+&lt;h2 id="getting-audiobooks"&gt;Getting Audiobooks&lt;/h2&gt;
+&lt;p&gt;Audiobooks being inherently digital, I have found there is no desire to collect them. I doubt I would want to listen to them again such as music nor is there a desire to refer to them like a physical book.&lt;/p&gt;
+&lt;h3 id="where-is-netflixspotify"&gt;Where Is Netflix/Spotify?&lt;/h3&gt;
+&lt;p&gt;Unfortunately, there isn't much choice in the audiobook subscription market which makes it easy to binge listen to audiobooks. Sites like &lt;a href="https://audible.com"&gt;audible.com&lt;/a&gt; give you credit per month to use and a discount on other audiobooks in their catalogue. &lt;a href="https://www.scribd.com"&gt;scribd.com&lt;/a&gt; is a notable exception with an all you can eat model.&lt;/p&gt;
+&lt;h3 id="free-as-in-beer"&gt;Free As In Beer&lt;/h3&gt;
+&lt;p&gt;Thankfully there are many free resources available. For books in the public domain, many sites cater to making this information accessible such as &lt;a href="https://librivox.org"&gt;librivox.org&lt;/a&gt;, &lt;a href="https://www.learnoutloud.com/Free-Audio-Video"&gt;learnoutloud.com&lt;/a&gt; and &lt;a href="https://archive.org/details/audio_bookspoetry"&gt;Internet Archive&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The most valuable resource though has been my city's library. &lt;a href="https://library.brisbane.qld.gov.au/client/en_AU/eLibCat/?rm=AUDIOBOOKS0%7C%7C%7C1%7C%7C%7C0%7C%7C%7Ctrue"&gt;Brisbane Library&lt;/a&gt; grants access to several audiobook providers, usually via a phone app. The disadvantage is you will sometimes have to put the book on hold and wait your turn to access. It is also a library, so you have a limited timeframe to listen to the book.&lt;/p&gt;
+&lt;h2 id="playing-audiobooks"&gt;Playing Audiobooks&lt;/h2&gt;
+&lt;p&gt;If the audiobook isn't from one of the apps, I've been using &lt;a href="https://play.google.com/store/apps/details?id=ak.alizandro.smartaudiobookplayer&amp;amp;hl=en_AU"&gt;Smart Audiobook Player&lt;/a&gt; on my phone. The full version is free for the first 30 days. Afterwards, it has reduced functionality. It does not contain ads. It has never had an issue with playing any of the audiobooks I've thrown at it. If I receive a phone call, it stops and resumes where I was when I hang up. The full version is only $2.89, it's such a great app you want to buy it.&lt;/p&gt;
+&lt;p&gt;As my phone is my player, I have it always available. At my desk, noise cancelling bluetooth headphones are a great way to block out the noise and concentrate on your work while listening to an audiobook. While driving my phone is connected to my car stereo, and I listen to a book instead of the radio.&lt;/p&gt;
+&lt;p&gt;Happy &lt;del&gt;Reading&lt;/del&gt; Listening!&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;This year I switched from commuting to work on a train to driving to work. When I was catching the train, I had up 90 minutes to read per day 5 days to a week. Although my commute was shortened driving, I lost this "captive" time which allowed me to read frequently and often.&lt;/p&gt;</summary>
+	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/From-The-Trenches-5-Lessions-of-a-Successful-Project" />
 		<id>https://glenhallworth.com/posts/From-The-Trenches-5-Lessions-of-a-Successful-Project</id>
@@ -35,24 +57,6 @@
 &lt;p&gt;Over time we gained the trust of the organisation by delivering. It is satisfying to have someone in the organisation to sell the project to their colleagues, to explain the benefits without being prompted. Delivery is achieving success.&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;I have been working on building an enterprise application to replace Access databases, Excel and much paper. The organisation is well entrenched in their processes, using this system for several years. They had outgrown their current systems, limiting their ability to innovate and join the digital revolution. I joined after a previous team had tried and failed to replace the system, costing the company money in the process. These are just five lessons that helped us succeed.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<link href="https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free" />
-		<id>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</id>
-		<title>Extracting Images from PDF File For Free</title>
-		<updated>2018-09-04T00:00:00Z</updated>
-		<content>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
-&lt;li&gt;Select the image and copy&lt;/li&gt;
-&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
-&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
-&lt;li&gt;Save (dat money)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/Using-Sass-with-RazorLight" />
@@ -86,6 +90,24 @@
 &lt;script src="https://gist.github.com/glenhallworth/c16b9c2bfc2a7a660202d85685280355.js"&gt;&lt;/script&gt;
 </content>
 		<summary>&lt;p&gt;I've been using &lt;a href="https://github.com/toddams/RazorLight"&gt;RazorLight&lt;/a&gt; to generate HTML for PDF reports. It works pretty well supporting .NET Standard 2.0.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<link href="https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free" />
+		<id>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</id>
+		<title>Extracting Images from PDF File For Free</title>
+		<updated>2018-09-04T00:00:00Z</updated>
+		<content>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
+&lt;li&gt;Select the image and copy&lt;/li&gt;
+&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
+&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
+&lt;li&gt;Save (dat money)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/How-To-Automate-Your-Code-Nazi" />
