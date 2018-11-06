@@ -4,14 +4,15 @@
 	<id>https://glenhallworth.com/</id>
 	<title>Glen Hallworth</title>
 	<rights>2018</rights>
-	<updated>2018-11-06T03:31:48Z</updated>
+	<updated>2018-11-06T03:44:32Z</updated>
 	<subtitle>Glen Hallworth</subtitle>
 	<entry>
 		<link href="https://glenhallworth.com/posts/react-ecosystem-is-a-minefield" />
 		<id>https://glenhallworth.com/posts/react-ecosystem-is-a-minefield</id>
 		<title>React Ecosystem is a Minefield</title>
 		<updated>2018-11-06T00:00:00Z</updated>
-		<content>&lt;p&gt;This year I have been working on a React project. React as a single page application technology is simple.&lt;/p&gt;
+		<content>&lt;p&gt;This year I have been working on a React project. I've been enjoying it. I can't help feel that it should be easier to use. It's like a minefield.&lt;/p&gt;
+&lt;p&gt;React as a single page application technology is simple.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;It's just javascript, including JSX&lt;/li&gt;
 &lt;li&gt;Focuses narrowly on the UI layer&lt;/li&gt;
@@ -52,7 +53,7 @@
 &lt;/blockquote&gt;
 &lt;p&gt;It is not easy to build a large, complex single page application in React. It's hard to know if you've made the right choices. Making the wrong ones is easy. There is a lot to consider when building a React-based application. I wish it were safer. It's dangerous in this ecosystem.&lt;/p&gt;
 </content>
-		<summary>&lt;p&gt;This year I have been working on a React project. React as a single page application technology is simple.&lt;/p&gt;</summary>
+		<summary>&lt;p&gt;This year I have been working on a React project. I've been enjoying it. I can't help feel that it should be easier to use. It's like a minefield.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/Using-Audiobooks-to-Keep-Up-on-That-Reading-List" />
@@ -107,24 +108,6 @@
 		<summary>&lt;p&gt;I have been working on building an enterprise application to replace Access databases, Excel and much paper. The organisation is well entrenched in their processes, using this system for several years. They had outgrown their current systems, limiting their ability to innovate and join the digital revolution. I joined after a previous team had tried and failed to replace the system, costing the company money in the process. These are just five lessons that helped us succeed.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free" />
-		<id>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</id>
-		<title>Extracting Images from PDF File For Free</title>
-		<updated>2018-09-04T00:00:00Z</updated>
-		<content>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
-&lt;li&gt;Select the image and copy&lt;/li&gt;
-&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
-&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
-&lt;li&gt;Save (dat money)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
 		<link href="https://glenhallworth.com/posts/Using-Sass-with-RazorLight" />
 		<id>https://glenhallworth.com/posts/Using-Sass-with-RazorLight</id>
 		<title>Using Sass with RazorLight</title>
@@ -156,6 +139,24 @@
 &lt;script src="https://gist.github.com/glenhallworth/c16b9c2bfc2a7a660202d85685280355.js"&gt;&lt;/script&gt;
 </content>
 		<summary>&lt;p&gt;I've been using &lt;a href="https://github.com/toddams/RazorLight"&gt;RazorLight&lt;/a&gt; to generate HTML for PDF reports. It works pretty well supporting .NET Standard 2.0.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<link href="https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free" />
+		<id>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</id>
+		<title>Extracting Images from PDF File For Free</title>
+		<updated>2018-09-04T00:00:00Z</updated>
+		<content>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
+&lt;li&gt;Select the image and copy&lt;/li&gt;
+&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
+&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
+&lt;li&gt;Save (dat money)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/How-To-Automate-Your-Code-Nazi" />
