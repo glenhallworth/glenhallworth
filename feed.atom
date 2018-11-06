@@ -4,8 +4,56 @@
 	<id>https://glenhallworth.com/</id>
 	<title>Glen Hallworth</title>
 	<rights>2018</rights>
-	<updated>2018-11-05T05:04:53Z</updated>
+	<updated>2018-11-06T03:31:48Z</updated>
 	<subtitle>Glen Hallworth</subtitle>
+	<entry>
+		<link href="https://glenhallworth.com/posts/react-ecosystem-is-a-minefield" />
+		<id>https://glenhallworth.com/posts/react-ecosystem-is-a-minefield</id>
+		<title>React Ecosystem is a Minefield</title>
+		<updated>2018-11-06T00:00:00Z</updated>
+		<content>&lt;p&gt;This year I have been working on a React project. React as a single page application technology is simple.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It's just javascript, including JSX&lt;/li&gt;
+&lt;li&gt;Focuses narrowly on the UI layer&lt;/li&gt;
+&lt;li&gt;External changes come from props, internal changes from state&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;React is a niche library for building user interfaces. It's good at that, and it's an enjoyable development experience. React encourages you to treat the UI as the rest of your code because it is just javascript. However you don't get batteries included. Single page applications are not just the UI, they usually also involve&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AJAX&lt;/li&gt;
+&lt;li&gt;Forms and validation&lt;/li&gt;
+&lt;li&gt;Authentication&lt;/li&gt;
+&lt;li&gt;Routing and navigation&lt;/li&gt;
+&lt;li&gt;And more...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;React makes it hard to fall into the &lt;a href="https://blog.codinghorror.com/falling-into-the-pit-of-success/"&gt;Pit of Success&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote class="blockquote"&gt;
+&lt;p&gt;The Pit of Success: in stark contrast to a summit, a peak, or a journey across a desert to find victory through many trials and surprises, we want our customers to simply fall into winning practices by using our platform and frameworks. To the extent that we make it easy to get into trouble we fail.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you require routing in your application, React offers a &lt;a href="https://reactjs.org/community/routing.html"&gt;page with links to 10 different libraries&lt;/a&gt;. If you contrast this to Angular, it &lt;a href="https://angular.io/guide/router"&gt;links to one&lt;/a&gt;, with documentation, examples and supported by the Angular team.&lt;/p&gt;
+&lt;p&gt;The result is adding basic functionality into your React app is a mountain climb finding the right library for the job. There's quite a lot of work that goes into evaluating libraries.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When was the last release? How often are new versions released?&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Bus_factor"&gt;Bus factor&lt;/a&gt; - How many contributors. Does a major company support it.&lt;/li&gt;
+&lt;li&gt;Documentation&lt;/li&gt;
+&lt;li&gt;Examples&lt;/li&gt;
+&lt;li&gt;If I have a problem, question or need help can I get it? Github issues? StackOverflow? Blog posts?&lt;/li&gt;
+&lt;li&gt;Tests - I don't want regressions on new versions.&lt;/li&gt;
+&lt;li&gt;Downloads on NPM&lt;/li&gt;
+&lt;li&gt;Github stars&lt;/li&gt;
+&lt;li&gt;Does it support Typescript - Written in typescript, typings included in projects, typings from definitely typed or no support at all?&lt;/li&gt;
+&lt;li&gt;Spiking out a prototype&lt;/li&gt;
+&lt;li&gt;And does it solve the problem...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You finally choose a library. It solves your problem. Months go by, and you update it occasionally, there's a breaking change you fix. Perhaps it is not as performant as you would like. Perhaps you open Github one day and see this&lt;/p&gt;
+&lt;p&gt;&lt;img src="image/React-Ecosystem-is-a-Minefield/deprecated.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;You curse. Make a mental note of technical debt to pay down. Think of &lt;a href="http://retrospectivewiki.org/index.php?title=The_Prime_Directive"&gt;The Prime Directive&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote class="blockquote"&gt;
+&lt;p&gt;Regardless of what we discover, we understand and truly believe that everyone did the best job they could, given what they knew at the time, their skills and abilities, the resources available, and the situation at hand.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It is not easy to build a large, complex single page application in React. It's hard to know if you've made the right choices. Making the wrong ones is easy. There is a lot to consider when building a React-based application. I wish it were safer. It's dangerous in this ecosystem.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;This year I have been working on a React project. React as a single page application technology is simple.&lt;/p&gt;</summary>
+	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/Using-Audiobooks-to-Keep-Up-on-That-Reading-List" />
 		<id>https://glenhallworth.com/posts/Using-Audiobooks-to-Keep-Up-on-That-Reading-List</id>
@@ -59,6 +107,24 @@
 		<summary>&lt;p&gt;I have been working on building an enterprise application to replace Access databases, Excel and much paper. The organisation is well entrenched in their processes, using this system for several years. They had outgrown their current systems, limiting their ability to innovate and join the digital revolution. I joined after a previous team had tried and failed to replace the system, costing the company money in the process. These are just five lessons that helped us succeed.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
+		<link href="https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free" />
+		<id>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</id>
+		<title>Extracting Images from PDF File For Free</title>
+		<updated>2018-09-04T00:00:00Z</updated>
+		<content>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
+&lt;li&gt;Select the image and copy&lt;/li&gt;
+&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
+&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
+&lt;li&gt;Save (dat money)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
 		<link href="https://glenhallworth.com/posts/Using-Sass-with-RazorLight" />
 		<id>https://glenhallworth.com/posts/Using-Sass-with-RazorLight</id>
 		<title>Using Sass with RazorLight</title>
@@ -90,24 +156,6 @@
 &lt;script src="https://gist.github.com/glenhallworth/c16b9c2bfc2a7a660202d85685280355.js"&gt;&lt;/script&gt;
 </content>
 		<summary>&lt;p&gt;I've been using &lt;a href="https://github.com/toddams/RazorLight"&gt;RazorLight&lt;/a&gt; to generate HTML for PDF reports. It works pretty well supporting .NET Standard 2.0.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<link href="https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free" />
-		<id>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</id>
-		<title>Extracting Images from PDF File For Free</title>
-		<updated>2018-09-04T00:00:00Z</updated>
-		<content>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
-&lt;li&gt;Select the image and copy&lt;/li&gt;
-&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
-&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
-&lt;li&gt;Save (dat money)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/How-To-Automate-Your-Code-Nazi" />
@@ -156,68 +204,6 @@
 &lt;/div&gt;
 </content>
 		<summary>&lt;p&gt;Do you have a colleague who doesn't follow your naming convention?&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<link href="https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app" />
-		<id>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</id>
-		<title>appsettings.json in .NET Core Console Apps</title>
-		<updated>2018-07-03T00:00:00Z</updated>
-		<content>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-json"&gt;{
-  &amp;quot;AppConfig&amp;quot;: {
-    &amp;quot;DatabaseConnectionString&amp;quot;:
-      &amp;quot;Data source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Dev;Integrated Security=True&amp;quot;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It would be nice to bind this to a concrete class.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-csharp"&gt;    class AppConfig
-    {
-        public string DatabaseConnectionString { get; set; }
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Install NuGet packages&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Microsoft.Extensions.Configuration&lt;/li&gt;
-&lt;li&gt;Microsoft.Extensions.Configuration.Binder&lt;/li&gt;
-&lt;li&gt;Microsoft.Extensions.Configuration.Json&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Add an extension method to IConfiguration&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-csharp"&gt;public static class ConfigurationExtensions
-    {
-        public static T ParseAs&amp;lt;T&amp;gt;(this IConfiguration configuration, string path)
-            where T : new()
-        {
-            var result = new T();
-            configuration.GetSection(path).Bind(result);
-            return result;
-        }
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Use the configuration in your program&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-csharp"&gt;    class Program
-    {
-        static void Main(string[] args)
-        {
-            var configuration = GetStandardConfigurationBuilder();
-            var appConfig = configuration.ParseAs&amp;lt;AppConfig&amp;gt;(&amp;quot;AppConfig&amp;quot;);
-            Console.WriteLine(appConfig.DatabaseConnectionString);
-        }
-
-        internal static IConfiguration GetStandardConfigurationBuilder()
-        {
-            return new ConfigurationBuilder()
-                .AddJsonFile(&amp;quot;appsettings.json&amp;quot;).Build();
-        }
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-		<summary>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/Home-Automation-Lighting" />
@@ -296,6 +282,68 @@
 &lt;p&gt;Happy automating!&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;Lighting is a practical first step into the area of home automation. I went with &lt;a href="https://www2.meethue.com/en-us"&gt;Philips Hue&lt;/a&gt; for two main reasons:&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<link href="https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app" />
+		<id>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</id>
+		<title>appsettings.json in .NET Core Console Apps</title>
+		<updated>2018-07-03T00:00:00Z</updated>
+		<content>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-json"&gt;{
+  &amp;quot;AppConfig&amp;quot;: {
+    &amp;quot;DatabaseConnectionString&amp;quot;:
+      &amp;quot;Data source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Dev;Integrated Security=True&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It would be nice to bind this to a concrete class.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;    class AppConfig
+    {
+        public string DatabaseConnectionString { get; set; }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Install NuGet packages&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration&lt;/li&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration.Binder&lt;/li&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration.Json&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add an extension method to IConfiguration&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;public static class ConfigurationExtensions
+    {
+        public static T ParseAs&amp;lt;T&amp;gt;(this IConfiguration configuration, string path)
+            where T : new()
+        {
+            var result = new T();
+            configuration.GetSection(path).Bind(result);
+            return result;
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use the configuration in your program&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;    class Program
+    {
+        static void Main(string[] args)
+        {
+            var configuration = GetStandardConfigurationBuilder();
+            var appConfig = configuration.ParseAs&amp;lt;AppConfig&amp;gt;(&amp;quot;AppConfig&amp;quot;);
+            Console.WriteLine(appConfig.DatabaseConnectionString);
+        }
+
+        internal static IConfiguration GetStandardConfigurationBuilder()
+        {
+            return new ConfigurationBuilder()
+                .AddJsonFile(&amp;quot;appsettings.json&amp;quot;).Build();
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+		<summary>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
 		<link href="https://glenhallworth.com/posts/Windows-Service-in-2018" />
@@ -683,50 +731,6 @@ export class DocumentService {
 		<summary>&lt;p&gt;The problem with starting a new project is there is a lot of boilerplate work to get started. You need to setup project structure, source control, build and release pipelines, dependency injection and logging before you write a line of business code. Dotnet Core 2.0 supports custom templates meaningless boilerplate code to hit the ground running.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js" />
-		<id>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</id>
-		<title>How to save a webpage as PDF file using Puppeteer.js</title>
-		<updated>2017-10-06T00:00:00Z</updated>
-		<content>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
-
-class Webpage {
-  static async generatePDF(url) {
-    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
-    const page = await browser.newPage();
-    await page.goto(url, {
-      waitUntil: &amp;quot;networkidle&amp;quot;,
-      networkIdleTimeout: 5000
-    }); // Adjust network idle as required.
-    const pdfConfig = {
-      path: &amp;quot;url.pdf&amp;quot;, // Saves pdf to disk.
-      format: &amp;quot;A4&amp;quot;,
-      printBackground: true,
-      margin: {
-        // Word's default A4 margins
-        top: &amp;quot;2.54cm&amp;quot;,
-        bottom: &amp;quot;2.54cm&amp;quot;,
-        left: &amp;quot;2.54cm&amp;quot;,
-        right: &amp;quot;2.54cm&amp;quot;
-      }
-    };
-    await page.emulateMedia(&amp;quot;screen&amp;quot;);
-    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
-
-    await browser.close();
-
-    return pdf;
-  }
-}
-
-(async () =&amp;gt; {
-  const url =
-    &amp;quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&amp;quot;;
-  const buffer = await Webpage.generatePDF(url);
-})();
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-	</entry>
-	<entry>
 		<link href="https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-and-send-via-email-using-Puppeteer-and-Nodemailer.js" />
 		<id>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-and-send-via-email-using-Puppeteer-and-Nodemailer.js</id>
 		<title>How to save a webpage as PDF file and send via email using Puppeteer and Nodemailer.js</title>
@@ -809,6 +813,50 @@ class Email {
     &amp;quot;Alice in Wonderland.pdf&amp;quot;,
     buffer
   );
+})();
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+	<entry>
+		<link href="https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js" />
+		<id>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</id>
+		<title>How to save a webpage as PDF file using Puppeteer.js</title>
+		<updated>2017-10-06T00:00:00Z</updated>
+		<content>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
+
+class Webpage {
+  static async generatePDF(url) {
+    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
+    const page = await browser.newPage();
+    await page.goto(url, {
+      waitUntil: &amp;quot;networkidle&amp;quot;,
+      networkIdleTimeout: 5000
+    }); // Adjust network idle as required.
+    const pdfConfig = {
+      path: &amp;quot;url.pdf&amp;quot;, // Saves pdf to disk.
+      format: &amp;quot;A4&amp;quot;,
+      printBackground: true,
+      margin: {
+        // Word's default A4 margins
+        top: &amp;quot;2.54cm&amp;quot;,
+        bottom: &amp;quot;2.54cm&amp;quot;,
+        left: &amp;quot;2.54cm&amp;quot;,
+        right: &amp;quot;2.54cm&amp;quot;
+      }
+    };
+    await page.emulateMedia(&amp;quot;screen&amp;quot;);
+    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
+
+    await browser.close();
+
+    return pdf;
+  }
+}
+
+(async () =&amp;gt; {
+  const url =
+    &amp;quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&amp;quot;;
+  const buffer = await Webpage.generatePDF(url);
 })();
 &lt;/code&gt;&lt;/pre&gt;
 </content>

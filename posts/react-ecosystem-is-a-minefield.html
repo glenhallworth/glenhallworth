@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Glen Hallworth - React Ecosystem is a Minefield</title>
+  <meta name="description" content="Glen Hallworth" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+
+    <link type="application/rss+xml" rel="alternate" title="Glen Hallworth" href="/feed.rss" />
+      <link type="application/atom+xml" rel="alternate" title="Glen Hallworth" href="/feed.atom" />
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Lora|Space+Mono:700">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link href="/assets/css/main.css" rel="stylesheet" />
+  <link href="/assets/css/custom.css" rel="stylesheet" />
+
+  <meta name="application-name" content="Glen Hallworth" />
+  <meta name="msapplication-tooltip" content="Glen Hallworth" />
+  <meta name="msapplication-starturl" content="/" />
+
+  <meta property="og:title" content="Glen Hallworth - React Ecosystem is a Minefield" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://glenhallworth.com/posts/react-ecosystem-is-a-minefield" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/js/html5shiv.js"></script>
+      <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-43156917-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-43156917-6');
+</script>
+</head> 
+
+  <body>
+    <div class="sidenav">
+  <a class="closebtn"><i class="fa fa-times"></i></a>
+  <h2><a class="" href="/"><span>Glen Hallworth</span></a></h2>
+                <a class="" href="/about"><span>About</span></a>
+</div>
+<a class="nav openbtn">
+      <i class="fa fa-bars fa-2x"></i>
+    </a>
+    
+    
+    <main role="main" class="🏆">
+
+      <article>
+
+  <header class="section-padding--lg mast rellax" data-rellax-speed="-4">
+    <a class="nav nav--white" href="/">
+      <i class="fa fa-lg fa-arrow-left"></i>
+      <span>Back to Posts</span>
+    </a>
+    <figure class="absolute-bg mast__img" style="background-image: url('/assets/images/background.jpg');"></figure>
+    <div class="mast__container">
+      <span><time datetime="YYYY-11-DD">Tuesday, November 6, 2018</time></span>
+       <h1>React Ecosystem is a Minefield</h1>   
+              <span>
+                    <a class="nav--white" href="/tags/Javascript">Javascript</a>
+,                    <a class="nav--white" href="/tags/React">React</a>
+,                    <a class="nav--white" href="/tags/Single-Page-Application">Single Page Application</a>
+,                    <a class="nav--white" href="/tags/SPA">SPA</a>
+        </span>
+    </div>
+  </header>
+  <section class="section-padding bg-grey">
+    <div class="post">
+      <p>This year I have been working on a React project. React as a single page application technology is simple.</p>
+<ul>
+<li>It's just javascript, including JSX</li>
+<li>Focuses narrowly on the UI layer</li>
+<li>External changes come from props, internal changes from state</li>
+</ul>
+<p>React is a niche library for building user interfaces. It's good at that, and it's an enjoyable development experience. React encourages you to treat the UI as the rest of your code because it is just javascript. However you don't get batteries included. Single page applications are not just the UI, they usually also involve</p>
+<ul>
+<li>AJAX</li>
+<li>Forms and validation</li>
+<li>Authentication</li>
+<li>Routing and navigation</li>
+<li>And more...</li>
+</ul>
+<p><strong>React makes it hard to fall into the <a href="https://blog.codinghorror.com/falling-into-the-pit-of-success/">Pit of Success</a>.</strong></p>
+<blockquote class="blockquote">
+<p>The Pit of Success: in stark contrast to a summit, a peak, or a journey across a desert to find victory through many trials and surprises, we want our customers to simply fall into winning practices by using our platform and frameworks. To the extent that we make it easy to get into trouble we fail.</p>
+</blockquote>
+<p>If you require routing in your application, React offers a <a href="https://reactjs.org/community/routing.html">page with links to 10 different libraries</a>. If you contrast this to Angular, it <a href="https://angular.io/guide/router">links to one</a>, with documentation, examples and supported by the Angular team.</p>
+<p>The result is adding basic functionality into your React app is a mountain climb finding the right library for the job. There's quite a lot of work that goes into evaluating libraries.</p>
+<ul>
+<li>When was the last release? How often are new versions released?</li>
+<li><a href="https://en.wikipedia.org/wiki/Bus_factor">Bus factor</a> - How many contributors. Does a major company support it.</li>
+<li>Documentation</li>
+<li>Examples</li>
+<li>If I have a problem, question or need help can I get it? Github issues? StackOverflow? Blog posts?</li>
+<li>Tests - I don't want regressions on new versions.</li>
+<li>Downloads on NPM</li>
+<li>Github stars</li>
+<li>Does it support Typescript - Written in typescript, typings included in projects, typings from definitely typed or no support at all?</li>
+<li>Spiking out a prototype</li>
+<li>And does it solve the problem...</li>
+</ul>
+<p>You finally choose a library. It solves your problem. Months go by, and you update it occasionally, there's a breaking change you fix. Perhaps it is not as performant as you would like. Perhaps you open Github one day and see this</p>
+<p><img src="image/React-Ecosystem-is-a-Minefield/deprecated.png" class="img-fluid" alt="" /></p>
+<p>You curse. Make a mental note of technical debt to pay down. Think of <a href="http://retrospectivewiki.org/index.php?title=The_Prime_Directive">The Prime Directive</a></p>
+<blockquote class="blockquote">
+<p>Regardless of what we discover, we understand and truly believe that everyone did the best job they could, given what they knew at the time, their skills and abilities, the resources available, and the situation at hand.</p>
+</blockquote>
+<p>It is not easy to build a large, complex single page application in React. It's hard to know if you've made the right choices. Making the wrong ones is easy. There is a lot to consider when building a React-based application. I wish it were safer. It's dangerous in this ecosystem.</p>
+ 
+    </div>
+          
+  </section>
+
+</article>
+
+<footer class="section-padding--sm footer">
+  <span>
+  </span>
+  <ul class="footer__social">
+    <li><a class="fa fa-lg fa-rss" href="/feed.rss" target="_blank"></a></li>
+  </ul>
+</footer>
+
+
+    </main>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script type="text/javascript" src="/assets/js/app.js"></script>
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+ 
+
+  </body>
+</html>
+
