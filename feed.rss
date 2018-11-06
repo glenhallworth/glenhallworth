@@ -5,8 +5,8 @@
 		<link>https://glenhallworth.com/</link>
 		<description>Glen Hallworth</description>
 		<copyright>2018</copyright>
-		<pubDate>Tue, 06 Nov 2018 03:44:32 GMT</pubDate>
-		<lastBuildDate>Tue, 06 Nov 2018 03:44:32 GMT</lastBuildDate>
+		<pubDate>Tue, 06 Nov 2018 03:45:54 GMT</pubDate>
+		<lastBuildDate>Tue, 06 Nov 2018 03:45:54 GMT</lastBuildDate>
 		<item>
 			<title>React Ecosystem is a Minefield</title>
 			<link>https://glenhallworth.com/posts/react-ecosystem-is-a-minefield</link>
@@ -48,7 +48,7 @@
 &lt;li&gt;And does it solve the problem...&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;You finally choose a library. It solves your problem. Months go by, and you update it occasionally, there's a breaking change you fix. Perhaps it is not as performant as you would like. Perhaps you open Github one day and see this&lt;/p&gt;
-&lt;p&gt;&lt;img src="image/React-Ecosystem-is-a-Minefield/deprecated.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/React-Ecosystem-is-a-Minefield/deprecated.png" class="img-fluid" alt="" /&gt;&lt;/p&gt;
 &lt;p&gt;You curse. Make a mental note of technical debt to pay down. Think of &lt;a href="http://retrospectivewiki.org/index.php?title=The_Prime_Directive"&gt;The Prime Directive&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote class="blockquote"&gt;
 &lt;p&gt;Regardless of what we discover, we understand and truly believe that everyone did the best job they could, given what they knew at the time, their skills and abilities, the resources available, and the situation at hand.&lt;/p&gt;
@@ -109,6 +109,24 @@
 </content:encoded>
 		</item>
 		<item>
+			<title>Extracting Images from PDF File For Free</title>
+			<link>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</link>
+			<description>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</description>
+			<guid>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</guid>
+			<pubDate>Tue, 04 Sep 2018 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
+&lt;li&gt;Select the image and copy&lt;/li&gt;
+&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
+&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
+&lt;li&gt;Save (dat money)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
+</content:encoded>
+		</item>
+		<item>
 			<title>Using Sass with RazorLight</title>
 			<link>https://glenhallworth.com/posts/Using-Sass-with-RazorLight</link>
 			<description>&lt;p&gt;I've been using &lt;a href="https://github.com/toddams/RazorLight"&gt;RazorLight&lt;/a&gt; to generate HTML for PDF reports. It works pretty well supporting .NET Standard 2.0.&lt;/p&gt;</description>
@@ -139,24 +157,6 @@
 &lt;h3 id="embedding-the-stylesheet"&gt;Embedding the stylesheet&lt;/h3&gt;
 &lt;p&gt;Finally we can add the stylesheet to our template Report.cshtml using Raw method.&lt;/p&gt;
 &lt;script src="https://gist.github.com/glenhallworth/c16b9c2bfc2a7a660202d85685280355.js"&gt;&lt;/script&gt;
-</content:encoded>
-		</item>
-		<item>
-			<title>Extracting Images from PDF File For Free</title>
-			<link>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</link>
-			<description>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</description>
-			<guid>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</guid>
-			<pubDate>Tue, 04 Sep 2018 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
-&lt;li&gt;Select the image and copy&lt;/li&gt;
-&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
-&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
-&lt;li&gt;Save (dat money)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
 </content:encoded>
 		</item>
 		<item>
@@ -205,6 +205,68 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
+</content:encoded>
+		</item>
+		<item>
+			<title>appsettings.json in .NET Core Console Apps</title>
+			<link>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</link>
+			<description>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;</description>
+			<guid>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</guid>
+			<pubDate>Tue, 03 Jul 2018 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-json"&gt;{
+  &amp;quot;AppConfig&amp;quot;: {
+    &amp;quot;DatabaseConnectionString&amp;quot;:
+      &amp;quot;Data source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Dev;Integrated Security=True&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It would be nice to bind this to a concrete class.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;    class AppConfig
+    {
+        public string DatabaseConnectionString { get; set; }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Install NuGet packages&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration&lt;/li&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration.Binder&lt;/li&gt;
+&lt;li&gt;Microsoft.Extensions.Configuration.Json&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add an extension method to IConfiguration&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;public static class ConfigurationExtensions
+    {
+        public static T ParseAs&amp;lt;T&amp;gt;(this IConfiguration configuration, string path)
+            where T : new()
+        {
+            var result = new T();
+            configuration.GetSection(path).Bind(result);
+            return result;
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use the configuration in your program&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;    class Program
+    {
+        static void Main(string[] args)
+        {
+            var configuration = GetStandardConfigurationBuilder();
+            var appConfig = configuration.ParseAs&amp;lt;AppConfig&amp;gt;(&amp;quot;AppConfig&amp;quot;);
+            Console.WriteLine(appConfig.DatabaseConnectionString);
+        }
+
+        internal static IConfiguration GetStandardConfigurationBuilder()
+        {
+            return new ConfigurationBuilder()
+                .AddJsonFile(&amp;quot;appsettings.json&amp;quot;).Build();
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 </content:encoded>
 		</item>
 		<item>
@@ -283,68 +345,6 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;Happy automating!&lt;/p&gt;
-</content:encoded>
-		</item>
-		<item>
-			<title>appsettings.json in .NET Core Console Apps</title>
-			<link>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</link>
-			<description>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;</description>
-			<guid>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</guid>
-			<pubDate>Tue, 03 Jul 2018 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-json"&gt;{
-  &amp;quot;AppConfig&amp;quot;: {
-    &amp;quot;DatabaseConnectionString&amp;quot;:
-      &amp;quot;Data source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Dev;Integrated Security=True&amp;quot;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It would be nice to bind this to a concrete class.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-csharp"&gt;    class AppConfig
-    {
-        public string DatabaseConnectionString { get; set; }
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Install NuGet packages&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Microsoft.Extensions.Configuration&lt;/li&gt;
-&lt;li&gt;Microsoft.Extensions.Configuration.Binder&lt;/li&gt;
-&lt;li&gt;Microsoft.Extensions.Configuration.Json&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Add an extension method to IConfiguration&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-csharp"&gt;public static class ConfigurationExtensions
-    {
-        public static T ParseAs&amp;lt;T&amp;gt;(this IConfiguration configuration, string path)
-            where T : new()
-        {
-            var result = new T();
-            configuration.GetSection(path).Bind(result);
-            return result;
-        }
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Use the configuration in your program&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-csharp"&gt;    class Program
-    {
-        static void Main(string[] args)
-        {
-            var configuration = GetStandardConfigurationBuilder();
-            var appConfig = configuration.ParseAs&amp;lt;AppConfig&amp;gt;(&amp;quot;AppConfig&amp;quot;);
-            Console.WriteLine(appConfig.DatabaseConnectionString);
-        }
-
-        internal static IConfiguration GetStandardConfigurationBuilder()
-        {
-            return new ConfigurationBuilder()
-                .AddJsonFile(&amp;quot;appsettings.json&amp;quot;).Build();
-        }
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
 </content:encoded>
 		</item>
 		<item>
