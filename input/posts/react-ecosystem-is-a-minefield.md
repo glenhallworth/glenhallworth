@@ -42,7 +42,7 @@ The result is adding basic functionality into your React app is a mountain climb
 
 You finally choose a library. It solves your problem. Months go by, and you update it occasionally, there's a breaking change you fix. Perhaps it is not as performant as you would like. Perhaps you open Github one day and see this
 
-![](image/React-Ecosystem-is-a-Minefield/deprecated.png)
+![](images/React-Ecosystem-is-a-Minefield/deprecated.png)
 
 You curse. Make a mental note of technical debt to pay down. Think of [The Prime Directive](http://retrospectivewiki.org/index.php?title=The_Prime_Directive)
 
