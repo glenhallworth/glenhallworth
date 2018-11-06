@@ -4,7 +4,9 @@ Tags: ["React", "Single Page Application", "SPA", "Javascript"]
 
 ---
 
-This year I have been working on a React project. React as a single page application technology is simple. 
+This year I have been working on a React project. I've been enjoying it. I can't help feel that it should be easier to use. It's like a minefield. 
+
+React as a single page application technology is simple. 
 
 - It's just javascript, including JSX
 - Focuses narrowly on the UI layer
