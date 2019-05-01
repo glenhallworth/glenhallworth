@@ -4,9 +4,34 @@
 		<title>Glen Hallworth</title>
 		<link>https://glenhallworth.com/</link>
 		<description>Glen Hallworth</description>
-		<copyright>2018</copyright>
-		<pubDate>Tue, 06 Nov 2018 03:45:54 GMT</pubDate>
-		<lastBuildDate>Tue, 06 Nov 2018 03:45:54 GMT</lastBuildDate>
+		<copyright>2019</copyright>
+		<pubDate>Wed, 01 May 2019 11:30:58 GMT</pubDate>
+		<lastBuildDate>Wed, 01 May 2019 11:30:58 GMT</lastBuildDate>
+		<item>
+			<title>Natural Sort Order In Javascript</title>
+			<link>https://glenhallworth.com/posts/Natural-Sort-Order-In-Javascript</link>
+			<description>&lt;p&gt;&lt;a href="https://blog.codinghorror.com/sorting-for-humans-natural-sort-order/"&gt;Natural sort order&lt;/a&gt; is the order humans want data in. Standard string sorting is often a poor user experience.&lt;/p&gt;</description>
+			<guid>https://glenhallworth.com/posts/Natural-Sort-Order-In-Javascript</guid>
+			<pubDate>Wed, 01 May 2019 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;&lt;a href="https://blog.codinghorror.com/sorting-for-humans-natural-sort-order/"&gt;Natural sort order&lt;/a&gt; is the order humans want data in. Standard string sorting is often a poor user experience.&lt;/p&gt;
+&lt;p&gt;Take an array.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-javascript"&gt;[&amp;quot;2&amp;quot;, &amp;quot;100&amp;quot;, &amp;quot;10&amp;quot;, &amp;quot;20&amp;quot;, &amp;quot;20 SC&amp;quot;, &amp;quot;1&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Standard string sorting will result in this order.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-javascript"&gt;[&amp;quot;1&amp;quot;, &amp;quot;10&amp;quot;, &amp;quot;100&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;20&amp;quot;, &amp;quot;20 SC&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We don't want &amp;quot;100&amp;quot; to come before &amp;quot;2&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Thankfully it's easy to sort arrays in Javascript with natural sort order using &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare"&gt;localeCompare&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-javascript"&gt;const arr = [&amp;quot;2&amp;quot;, &amp;quot;100&amp;quot;, &amp;quot;10&amp;quot;, &amp;quot;20&amp;quot;, &amp;quot;20 SC&amp;quot;, &amp;quot;1&amp;quot;];
+arr.sort((a, b) =&amp;gt; {
+  return a.localeCompare(b, undefined, { numeric: true });
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This results in an array in this order.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-javascript"&gt;[&amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;10&amp;quot;, &amp;quot;20&amp;quot;, &amp;quot;20 SC&amp;quot;, &amp;quot;100&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+</content:encoded>
+		</item>
 		<item>
 			<title>React Ecosystem is a Minefield</title>
 			<link>https://glenhallworth.com/posts/react-ecosystem-is-a-minefield</link>
@@ -109,24 +134,6 @@
 </content:encoded>
 		</item>
 		<item>
-			<title>Extracting Images from PDF File For Free</title>
-			<link>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</link>
-			<description>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</description>
-			<guid>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</guid>
-			<pubDate>Tue, 04 Sep 2018 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
-&lt;li&gt;Select the image and copy&lt;/li&gt;
-&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
-&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
-&lt;li&gt;Save (dat money)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
-</content:encoded>
-		</item>
-		<item>
 			<title>Using Sass with RazorLight</title>
 			<link>https://glenhallworth.com/posts/Using-Sass-with-RazorLight</link>
 			<description>&lt;p&gt;I've been using &lt;a href="https://github.com/toddams/RazorLight"&gt;RazorLight&lt;/a&gt; to generate HTML for PDF reports. It works pretty well supporting .NET Standard 2.0.&lt;/p&gt;</description>
@@ -157,6 +164,24 @@
 &lt;h3 id="embedding-the-stylesheet"&gt;Embedding the stylesheet&lt;/h3&gt;
 &lt;p&gt;Finally we can add the stylesheet to our template Report.cshtml using Raw method.&lt;/p&gt;
 &lt;script src="https://gist.github.com/glenhallworth/c16b9c2bfc2a7a660202d85685280355.js"&gt;&lt;/script&gt;
+</content:encoded>
+		</item>
+		<item>
+			<title>Extracting Images from PDF File For Free</title>
+			<link>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</link>
+			<description>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</description>
+			<guid>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</guid>
+			<pubDate>Tue, 04 Sep 2018 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
+&lt;li&gt;Select the image and copy&lt;/li&gt;
+&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
+&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
+&lt;li&gt;Save (dat money)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
 </content:encoded>
 		</item>
 		<item>
@@ -462,7 +487,7 @@
             });
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
-&lt;p&gt;I have a Windows service that is easy to develop, easy to deploy and easy to add additional jobs to which can be scheduled as required and can be resilient to faults. It is an easy upgrade to .NET Core once Topshelf releases .NET Core version (you can try the preview now). All the sample code which ties all these excellent packages together found at &lt;a href="https://github.com/glenhallworth/WindowsService."&gt;https://github.com/glenhallworth/WindowsService.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I have a Windows service that is easy to develop, easy to deploy and easy to add additional jobs to which can be scheduled as required and can be resilient to faults. It is an easy upgrade to .NET Core once Topshelf releases .NET Core version (you can try the preview now). All the sample code which ties all these excellent packages together found at &lt;a href="https://github.com/glenhallworth/WindowsService"&gt;https://github.com/glenhallworth/WindowsService&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
 		</item>
 		<item>
@@ -701,7 +726,7 @@ export class DocumentService {
 			<guid>https://glenhallworth.com/posts/Dotnet-Core-Templates-To-Hit-The-Ground-Running</guid>
 			<pubDate>Fri, 17 Nov 2017 00:00:00 GMT</pubDate>
 			<content:encoded>&lt;p&gt;The problem with starting a new project is there is a lot of boilerplate work to get started. You need to setup project structure, source control, build and release pipelines, dependency injection and logging before you write a line of business code. Dotnet Core 2.0 supports custom templates meaningless boilerplate code to hit the ground running.&lt;/p&gt;
-&lt;p&gt;To test creating custom templates I built one for a common app type - C# Web API backend for a single page application. It can be found &lt;a href="https://github.com/glenhallworth/WebApiWithSpa."&gt;https://github.com/glenhallworth/WebApiWithSpa.&lt;/a&gt; I've made it generic including several libraries setup how I like and have left the flexible pieces to be added; such as authentication.&lt;/p&gt;
+&lt;p&gt;To test creating custom templates I built one for a common app type - C# Web API backend for a single page application. It can be found &lt;a href="https://github.com/glenhallworth/WebApiWithSpa"&gt;https://github.com/glenhallworth/WebApiWithSpa&lt;/a&gt;. I've made it generic including several libraries setup how I like and have left the flexible pieces to be added; such as authentication.&lt;/p&gt;
 &lt;p&gt;The templates are distributed using NuGet so it's incredibly easy to use. To get the above template up and running its just two commands:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Install the template from NuGet: dotnet new -i WebApiWithSpa.Template.CSharp&lt;/li&gt;
@@ -730,6 +755,50 @@ export class DocumentService {
 &lt;/ul&gt;
 &lt;p&gt;Furthermore, you can add optional content to the template to support toggling features on or off. As a future enhancement, I'll add optional authentication setup.&lt;/p&gt;
 &lt;p&gt;If you create several .NET projects every year you should consider using templates to save yourself time lowering the barrier to beginning a new project. Incredibly useful if you or your company has a standard project structure and preferred toolset. Not only will you make your project setup quicker because it's so easy to share with other people can benefit from your template.&lt;/p&gt;
+</content:encoded>
+		</item>
+		<item>
+			<title>How to save a webpage as PDF file using Puppeteer.js</title>
+			<link>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</link>
+			<guid>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</guid>
+			<pubDate>Fri, 06 Oct 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
+
+class Webpage {
+  static async generatePDF(url) {
+    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
+    const page = await browser.newPage();
+    await page.goto(url, {
+      waitUntil: &amp;quot;networkidle&amp;quot;,
+      networkIdleTimeout: 5000
+    }); // Adjust network idle as required.
+    const pdfConfig = {
+      path: &amp;quot;url.pdf&amp;quot;, // Saves pdf to disk.
+      format: &amp;quot;A4&amp;quot;,
+      printBackground: true,
+      margin: {
+        // Word's default A4 margins
+        top: &amp;quot;2.54cm&amp;quot;,
+        bottom: &amp;quot;2.54cm&amp;quot;,
+        left: &amp;quot;2.54cm&amp;quot;,
+        right: &amp;quot;2.54cm&amp;quot;
+      }
+    };
+    await page.emulateMedia(&amp;quot;screen&amp;quot;);
+    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
+
+    await browser.close();
+
+    return pdf;
+  }
+}
+
+(async () =&amp;gt; {
+  const url =
+    &amp;quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&amp;quot;;
+  const buffer = await Webpage.generatePDF(url);
+})();
+&lt;/code&gt;&lt;/pre&gt;
 </content:encoded>
 		</item>
 		<item>
@@ -815,50 +884,6 @@ class Email {
     &amp;quot;Alice in Wonderland.pdf&amp;quot;,
     buffer
   );
-})();
-&lt;/code&gt;&lt;/pre&gt;
-</content:encoded>
-		</item>
-		<item>
-			<title>How to save a webpage as PDF file using Puppeteer.js</title>
-			<link>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</link>
-			<guid>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</guid>
-			<pubDate>Fri, 06 Oct 2017 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
-
-class Webpage {
-  static async generatePDF(url) {
-    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
-    const page = await browser.newPage();
-    await page.goto(url, {
-      waitUntil: &amp;quot;networkidle&amp;quot;,
-      networkIdleTimeout: 5000
-    }); // Adjust network idle as required.
-    const pdfConfig = {
-      path: &amp;quot;url.pdf&amp;quot;, // Saves pdf to disk.
-      format: &amp;quot;A4&amp;quot;,
-      printBackground: true,
-      margin: {
-        // Word's default A4 margins
-        top: &amp;quot;2.54cm&amp;quot;,
-        bottom: &amp;quot;2.54cm&amp;quot;,
-        left: &amp;quot;2.54cm&amp;quot;,
-        right: &amp;quot;2.54cm&amp;quot;
-      }
-    };
-    await page.emulateMedia(&amp;quot;screen&amp;quot;);
-    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
-
-    await browser.close();
-
-    return pdf;
-  }
-}
-
-(async () =&amp;gt; {
-  const url =
-    &amp;quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&amp;quot;;
-  const buffer = await Webpage.generatePDF(url);
 })();
 &lt;/code&gt;&lt;/pre&gt;
 </content:encoded>

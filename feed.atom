@@ -1,15 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<link rel="self" href="https://glenhallworth.com/" />
 	<id>https://glenhallworth.com/</id>
 	<title>Glen Hallworth</title>
-	<rights>2018</rights>
-	<updated>2018-11-06T03:45:54Z</updated>
+	<link rel="self" href="https://glenhallworth.com/" />
+	<rights>2019</rights>
+	<updated>2019-05-01T11:30:58Z</updated>
 	<subtitle>Glen Hallworth</subtitle>
 	<entry>
-		<link href="https://glenhallworth.com/posts/react-ecosystem-is-a-minefield" />
+		<id>https://glenhallworth.com/posts/Natural-Sort-Order-In-Javascript</id>
+		<title>Natural Sort Order In Javascript</title>
+		<link href="https://glenhallworth.com/posts/Natural-Sort-Order-In-Javascript" />
+		<updated>2019-05-01T00:00:00Z</updated>
+		<content>&lt;p&gt;&lt;a href="https://blog.codinghorror.com/sorting-for-humans-natural-sort-order/"&gt;Natural sort order&lt;/a&gt; is the order humans want data in. Standard string sorting is often a poor user experience.&lt;/p&gt;
+&lt;p&gt;Take an array.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-javascript"&gt;[&amp;quot;2&amp;quot;, &amp;quot;100&amp;quot;, &amp;quot;10&amp;quot;, &amp;quot;20&amp;quot;, &amp;quot;20 SC&amp;quot;, &amp;quot;1&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Standard string sorting will result in this order.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-javascript"&gt;[&amp;quot;1&amp;quot;, &amp;quot;10&amp;quot;, &amp;quot;100&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;20&amp;quot;, &amp;quot;20 SC&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We don't want &amp;quot;100&amp;quot; to come before &amp;quot;2&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Thankfully it's easy to sort arrays in Javascript with natural sort order using &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare"&gt;localeCompare&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-javascript"&gt;const arr = [&amp;quot;2&amp;quot;, &amp;quot;100&amp;quot;, &amp;quot;10&amp;quot;, &amp;quot;20&amp;quot;, &amp;quot;20 SC&amp;quot;, &amp;quot;1&amp;quot;];
+arr.sort((a, b) =&amp;gt; {
+  return a.localeCompare(b, undefined, { numeric: true });
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This results in an array in this order.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-javascript"&gt;[&amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;10&amp;quot;, &amp;quot;20&amp;quot;, &amp;quot;20 SC&amp;quot;, &amp;quot;100&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+		<summary>&lt;p&gt;&lt;a href="https://blog.codinghorror.com/sorting-for-humans-natural-sort-order/"&gt;Natural sort order&lt;/a&gt; is the order humans want data in. Standard string sorting is often a poor user experience.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
 		<id>https://glenhallworth.com/posts/react-ecosystem-is-a-minefield</id>
 		<title>React Ecosystem is a Minefield</title>
+		<link href="https://glenhallworth.com/posts/react-ecosystem-is-a-minefield" />
 		<updated>2018-11-06T00:00:00Z</updated>
 		<content>&lt;p&gt;This year I have been working on a React project. I've been enjoying it. I can't help feel that it should be easier to use. It's like a minefield.&lt;/p&gt;
 &lt;p&gt;React as a single page application technology is simple.&lt;/p&gt;
@@ -56,9 +81,9 @@
 		<summary>&lt;p&gt;This year I have been working on a React project. I've been enjoying it. I can't help feel that it should be easier to use. It's like a minefield.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/Using-Audiobooks-to-Keep-Up-on-That-Reading-List" />
 		<id>https://glenhallworth.com/posts/Using-Audiobooks-to-Keep-Up-on-That-Reading-List</id>
 		<title>Using Audiobooks to Keep Up on That Reading List</title>
+		<link href="https://glenhallworth.com/posts/Using-Audiobooks-to-Keep-Up-on-That-Reading-List" />
 		<updated>2018-11-05T00:00:00Z</updated>
 		<content>&lt;h1 id="using-audiobooks-to-keep-up-on-that-reading-list"&gt;Using Audiobooks to Keep Up on That Reading List&lt;/h1&gt;
 &lt;p&gt;This year I switched from commuting to work on a train to driving to work. When I was catching the train, I had up 90 minutes to read per day 5 days to a week. Although my commute was shortened driving, I lost this &amp;quot;captive&amp;quot; time which allowed me to read frequently and often.&lt;/p&gt;
@@ -78,9 +103,9 @@
 		<summary>&lt;p&gt;This year I switched from commuting to work on a train to driving to work. When I was catching the train, I had up 90 minutes to read per day 5 days to a week. Although my commute was shortened driving, I lost this "captive" time which allowed me to read frequently and often.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/From-The-Trenches-5-Lessions-of-a-Successful-Project" />
 		<id>https://glenhallworth.com/posts/From-The-Trenches-5-Lessions-of-a-Successful-Project</id>
 		<title>From the Trenches - 5 Lessons of a Successful Project</title>
+		<link href="https://glenhallworth.com/posts/From-The-Trenches-5-Lessions-of-a-Successful-Project" />
 		<updated>2018-09-29T00:00:00Z</updated>
 		<content>&lt;p&gt;I have been working on building an enterprise application to replace Access databases, Excel and much paper. The organisation is well entrenched in their processes, using this system for several years. They had outgrown their current systems, limiting their ability to innovate and join the digital revolution. I joined after a previous team had tried and failed to replace the system, costing the company money in the process. These are just five lessons that helped us succeed.&lt;/p&gt;
 &lt;h2 id="coaching-agile"&gt;Coaching Agile&lt;/h2&gt;
@@ -108,27 +133,9 @@
 		<summary>&lt;p&gt;I have been working on building an enterprise application to replace Access databases, Excel and much paper. The organisation is well entrenched in their processes, using this system for several years. They had outgrown their current systems, limiting their ability to innovate and join the digital revolution. I joined after a previous team had tried and failed to replace the system, costing the company money in the process. These are just five lessons that helped us succeed.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free" />
-		<id>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</id>
-		<title>Extracting Images from PDF File For Free</title>
-		<updated>2018-09-04T00:00:00Z</updated>
-		<content>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
-&lt;li&gt;Select the image and copy&lt;/li&gt;
-&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
-&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
-&lt;li&gt;Save (dat money)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
-</content>
-		<summary>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</summary>
-	</entry>
-	<entry>
-		<link href="https://glenhallworth.com/posts/Using-Sass-with-RazorLight" />
 		<id>https://glenhallworth.com/posts/Using-Sass-with-RazorLight</id>
 		<title>Using Sass with RazorLight</title>
+		<link href="https://glenhallworth.com/posts/Using-Sass-with-RazorLight" />
 		<updated>2018-09-04T00:00:00Z</updated>
 		<content>&lt;h1 id="using-sass-with-razorlight"&gt;Using Sass with RazorLight&lt;/h1&gt;
 &lt;p&gt;I've been using &lt;a href="https://github.com/toddams/RazorLight"&gt;RazorLight&lt;/a&gt; to generate HTML for PDF reports. It works pretty well supporting .NET Standard 2.0.&lt;/p&gt;
@@ -159,9 +166,27 @@
 		<summary>&lt;p&gt;I've been using &lt;a href="https://github.com/toddams/RazorLight"&gt;RazorLight&lt;/a&gt; to generate HTML for PDF reports. It works pretty well supporting .NET Standard 2.0.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/How-To-Automate-Your-Code-Nazi" />
+		<id>https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free</id>
+		<title>Extracting Images from PDF File For Free</title>
+		<link href="https://glenhallworth.com/posts/Extracting-Images-from-PDF-File-For-Free" />
+		<updated>2018-09-04T00:00:00Z</updated>
+		<content>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Open the PDF file and select the page the image is on&lt;/li&gt;
+&lt;li&gt;Select the image and copy&lt;/li&gt;
+&lt;li&gt;Open a new Inkscape page, paste the image&lt;/li&gt;
+&lt;li&gt;Edit -&amp;gt; Resize Page to Select or Shift + Ctrl + R&lt;/li&gt;
+&lt;li&gt;Save (dat money)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="images/Extracting-Images-from-PDF-File-For-Free/savedatmoney.gif" class="img-fluid" alt="savedatmoney" /&gt;&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;Had this problem a while back when I needed a logo SVG in a PDF brand guidelines document. I ended up asking one of the UX designers who had a Adobe Creative Cloud subscription. This is how to extract it for free on your own.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
 		<id>https://glenhallworth.com/posts/How-To-Automate-Your-Code-Nazi</id>
 		<title>How To Automate Your Code Nazi</title>
+		<link href="https://glenhallworth.com/posts/How-To-Automate-Your-Code-Nazi" />
 		<updated>2018-09-03T00:00:00Z</updated>
 		<content>&lt;p&gt;Do you have a colleague who doesn't follow your naming convention?&lt;/p&gt;
 &lt;p&gt;Are you sick of pointing out obvious mistakes in pull requests?&lt;/p&gt;
@@ -207,9 +232,9 @@
 		<summary>&lt;p&gt;Do you have a colleague who doesn't follow your naming convention?&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app" />
 		<id>https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app</id>
 		<title>appsettings.json in .NET Core Console Apps</title>
+		<link href="https://glenhallworth.com/posts/appsettings-in-dotnet-core-console-app" />
 		<updated>2018-07-03T00:00:00Z</updated>
 		<content>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-json"&gt;{
@@ -269,9 +294,9 @@
 		<summary>&lt;p&gt;When creating a .NET Core console application, it's handy to have Web API style appsettings.json to configure the application.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/Home-Automation-Lighting" />
 		<id>https://glenhallworth.com/posts/Home-Automation-Lighting</id>
 		<title>Home Automation - Lighting</title>
+		<link href="https://glenhallworth.com/posts/Home-Automation-Lighting" />
 		<updated>2018-07-03T00:00:00Z</updated>
 		<content>&lt;p&gt;Lighting is a practical first step into the area of home automation. I went with &lt;a href="https://www2.meethue.com/en-us"&gt;Philips Hue&lt;/a&gt; for two main reasons:&lt;/p&gt;
 &lt;ul&gt;
@@ -347,9 +372,9 @@
 		<summary>&lt;p&gt;Lighting is a practical first step into the area of home automation. I went with &lt;a href="https://www2.meethue.com/en-us"&gt;Philips Hue&lt;/a&gt; for two main reasons:&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/Windows-Service-in-2018" />
 		<id>https://glenhallworth.com/posts/Windows-Service-in-2018</id>
 		<title>Windows Service in 2018</title>
+		<link href="https://glenhallworth.com/posts/Windows-Service-in-2018" />
 		<updated>2018-07-02T00:00:00Z</updated>
 		<content>&lt;h1 id="windows-service-in-2018"&gt;Windows Service in 2018&lt;/h1&gt;
 &lt;p&gt;Most people don't write Windows services anymore. We have the cloud. You can write WebJobs or Functions instead. However in the rare case you have to, say a client with an on-premise server room because their internet connection is awful and a need for background jobs, then this is how I did it.&lt;/p&gt;
@@ -460,14 +485,14 @@
             });
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
-&lt;p&gt;I have a Windows service that is easy to develop, easy to deploy and easy to add additional jobs to which can be scheduled as required and can be resilient to faults. It is an easy upgrade to .NET Core once Topshelf releases .NET Core version (you can try the preview now). All the sample code which ties all these excellent packages together found at &lt;a href="https://github.com/glenhallworth/WindowsService."&gt;https://github.com/glenhallworth/WindowsService.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I have a Windows service that is easy to develop, easy to deploy and easy to add additional jobs to which can be scheduled as required and can be resilient to faults. It is an easy upgrade to .NET Core once Topshelf releases .NET Core version (you can try the preview now). All the sample code which ties all these excellent packages together found at &lt;a href="https://github.com/glenhallworth/WindowsService"&gt;https://github.com/glenhallworth/WindowsService&lt;/a&gt;.&lt;/p&gt;
 </content>
 		<summary>&lt;p&gt;Most people don't write Windows services anymore. We have the cloud. You can write WebJobs or Functions instead. However in the rare case you have to, say a client with an on-premise server room because their internet connection is awful and a need for background jobs, then this is how I did it.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/Downloading-And-Opening-PDF-File-With-Cordova" />
 		<id>https://glenhallworth.com/posts/Downloading-And-Opening-PDF-File-With-Cordova</id>
 		<title>Downloading and Opening PDF File in Angular Cordova Project</title>
+		<link href="https://glenhallworth.com/posts/Downloading-And-Opening-PDF-File-With-Cordova" />
 		<updated>2018-01-27T00:00:00Z</updated>
 		<content>&lt;p&gt;Rough sample code with opening a PDF file (or any file really) using Cordova.&lt;/p&gt;
 &lt;h3 id="plugins"&gt;Plugins&lt;/h3&gt;
@@ -548,9 +573,9 @@ export class DocumentService {
 		<summary>&lt;p&gt;Rough sample code with opening a PDF file (or any file really) using Cordova.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/Telerik-AppBuilder-Alternatives" />
 		<id>https://glenhallworth.com/posts/Telerik-AppBuilder-Alternatives</id>
 		<title>Telerik AppBuilder Alternatives</title>
+		<link href="https://glenhallworth.com/posts/Telerik-AppBuilder-Alternatives" />
 		<updated>2017-12-21T00:00:00Z</updated>
 		<content>&lt;p&gt;&lt;a href="https://docs.telerik.com/platform/appbuilder/"&gt;Telerik AppBuilder&lt;/a&gt; is being &lt;a href="https://www.telerik.com/platform-next-level"&gt;retired on 10th May, 2018.&lt;/a&gt; It was an easy way to compile Cordova apps for iOS and Android packages without a Mac OS machine. With the Visual Studio plugin, AppBuilder provided a low-friction way to build cross-platform apps. A new platform is required to continue creating these apps due to the impending retirement. We need a tool that allows developers to initiate a build on a windows machine and receive an iOS package in return.&lt;/p&gt;
 &lt;h2 id="convert-to-cordova"&gt;Convert to Cordova&lt;/h2&gt;
@@ -634,9 +659,9 @@ export class DocumentService {
 		<summary>&lt;p&gt;&lt;a href="https://docs.telerik.com/platform/appbuilder/"&gt;Telerik AppBuilder&lt;/a&gt; is being &lt;a href="https://www.telerik.com/platform-next-level"&gt;retired on 10th May, 2018.&lt;/a&gt; It was an easy way to compile Cordova apps for iOS and Android packages without a Mac OS machine. With the Visual Studio plugin, AppBuilder provided a low-friction way to build cross-platform apps. A new platform is required to continue creating these apps due to the impending retirement. We need a tool that allows developers to initiate a build on a windows machine and receive an iOS package in return.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/Retrieving-EsriArcGIS-Maps-Token-in-Dotnet-Core" />
 		<id>https://glenhallworth.com/posts/Retrieving-EsriArcGIS-Maps-Token-in-Dotnet-Core</id>
 		<title>Retrieving Esri/ArcGIS Maps Token in Dotnet Core</title>
+		<link href="https://glenhallworth.com/posts/Retrieving-EsriArcGIS-Maps-Token-in-Dotnet-Core" />
 		<updated>2017-12-18T00:00:00Z</updated>
 		<content>&lt;p&gt;&lt;a href="http://www.esri.com/data/streetmap"&gt;Esri&lt;/a&gt; has a premium service which requires adding a token to REST API requests for services like batch geocoding. The service has a few gotchas. The sample code is:&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-csharp"&gt;    public class EsriTokenResponse
@@ -694,12 +719,12 @@ export class DocumentService {
 		<summary>&lt;p&gt;&lt;a href="http://www.esri.com/data/streetmap"&gt;Esri&lt;/a&gt; has a premium service which requires adding a token to REST API requests for services like batch geocoding. The service has a few gotchas. The sample code is:&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/Dotnet-Core-Templates-To-Hit-The-Ground-Running" />
 		<id>https://glenhallworth.com/posts/Dotnet-Core-Templates-To-Hit-The-Ground-Running</id>
 		<title>Dotnet Core Templates To Hit The Ground Running</title>
+		<link href="https://glenhallworth.com/posts/Dotnet-Core-Templates-To-Hit-The-Ground-Running" />
 		<updated>2017-11-17T00:00:00Z</updated>
 		<content>&lt;p&gt;The problem with starting a new project is there is a lot of boilerplate work to get started. You need to setup project structure, source control, build and release pipelines, dependency injection and logging before you write a line of business code. Dotnet Core 2.0 supports custom templates meaningless boilerplate code to hit the ground running.&lt;/p&gt;
-&lt;p&gt;To test creating custom templates I built one for a common app type - C# Web API backend for a single page application. It can be found &lt;a href="https://github.com/glenhallworth/WebApiWithSpa."&gt;https://github.com/glenhallworth/WebApiWithSpa.&lt;/a&gt; I've made it generic including several libraries setup how I like and have left the flexible pieces to be added; such as authentication.&lt;/p&gt;
+&lt;p&gt;To test creating custom templates I built one for a common app type - C# Web API backend for a single page application. It can be found &lt;a href="https://github.com/glenhallworth/WebApiWithSpa"&gt;https://github.com/glenhallworth/WebApiWithSpa&lt;/a&gt;. I've made it generic including several libraries setup how I like and have left the flexible pieces to be added; such as authentication.&lt;/p&gt;
 &lt;p&gt;The templates are distributed using NuGet so it's incredibly easy to use. To get the above template up and running its just two commands:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Install the template from NuGet: dotnet new -i WebApiWithSpa.Template.CSharp&lt;/li&gt;
@@ -732,9 +757,53 @@ export class DocumentService {
 		<summary>&lt;p&gt;The problem with starting a new project is there is a lot of boilerplate work to get started. You need to setup project structure, source control, build and release pipelines, dependency injection and logging before you write a line of business code. Dotnet Core 2.0 supports custom templates meaningless boilerplate code to hit the ground running.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
-		<link href="https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-and-send-via-email-using-Puppeteer-and-Nodemailer.js" />
+		<id>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</id>
+		<title>How to save a webpage as PDF file using Puppeteer.js</title>
+		<link href="https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js" />
+		<updated>2017-10-06T00:00:00Z</updated>
+		<content>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
+
+class Webpage {
+  static async generatePDF(url) {
+    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
+    const page = await browser.newPage();
+    await page.goto(url, {
+      waitUntil: &amp;quot;networkidle&amp;quot;,
+      networkIdleTimeout: 5000
+    }); // Adjust network idle as required.
+    const pdfConfig = {
+      path: &amp;quot;url.pdf&amp;quot;, // Saves pdf to disk.
+      format: &amp;quot;A4&amp;quot;,
+      printBackground: true,
+      margin: {
+        // Word's default A4 margins
+        top: &amp;quot;2.54cm&amp;quot;,
+        bottom: &amp;quot;2.54cm&amp;quot;,
+        left: &amp;quot;2.54cm&amp;quot;,
+        right: &amp;quot;2.54cm&amp;quot;
+      }
+    };
+    await page.emulateMedia(&amp;quot;screen&amp;quot;);
+    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
+
+    await browser.close();
+
+    return pdf;
+  }
+}
+
+(async () =&amp;gt; {
+  const url =
+    &amp;quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&amp;quot;;
+  const buffer = await Webpage.generatePDF(url);
+})();
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+	<entry>
 		<id>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-and-send-via-email-using-Puppeteer-and-Nodemailer.js</id>
 		<title>How to save a webpage as PDF file and send via email using Puppeteer and Nodemailer.js</title>
+		<link href="https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-and-send-via-email-using-Puppeteer-and-Nodemailer.js" />
 		<updated>2017-10-06T00:00:00Z</updated>
 		<content>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
 const nodemailer = require(&amp;quot;nodemailer&amp;quot;);
@@ -814,50 +883,6 @@ class Email {
     &amp;quot;Alice in Wonderland.pdf&amp;quot;,
     buffer
   );
-})();
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-	</entry>
-	<entry>
-		<link href="https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js" />
-		<id>https://glenhallworth.com/posts/How-to-save-a-webpage-as-PDF-file-using-Puppeteer.js</id>
-		<title>How to save a webpage as PDF file using Puppeteer.js</title>
-		<updated>2017-10-06T00:00:00Z</updated>
-		<content>&lt;pre&gt;&lt;code class="language-javascript"&gt;const puppeteer = require(&amp;quot;puppeteer&amp;quot;);
-
-class Webpage {
-  static async generatePDF(url) {
-    const browser = await puppeteer.launch({ headless: true }); // Puppeteer can only generate pdf in headless mode.
-    const page = await browser.newPage();
-    await page.goto(url, {
-      waitUntil: &amp;quot;networkidle&amp;quot;,
-      networkIdleTimeout: 5000
-    }); // Adjust network idle as required.
-    const pdfConfig = {
-      path: &amp;quot;url.pdf&amp;quot;, // Saves pdf to disk.
-      format: &amp;quot;A4&amp;quot;,
-      printBackground: true,
-      margin: {
-        // Word's default A4 margins
-        top: &amp;quot;2.54cm&amp;quot;,
-        bottom: &amp;quot;2.54cm&amp;quot;,
-        left: &amp;quot;2.54cm&amp;quot;,
-        right: &amp;quot;2.54cm&amp;quot;
-      }
-    };
-    await page.emulateMedia(&amp;quot;screen&amp;quot;);
-    const pdf = await page.pdf(pdfConfig); // Return the pdf buffer. Useful for saving the file not to disk.
-
-    await browser.close();
-
-    return pdf;
-  }
-}
-
-(async () =&amp;gt; {
-  const url =
-    &amp;quot;https://ia601405.us.archive.org/18/items/alicesadventures19033gut/19033-h/19033-h.htm&amp;quot;;
-  const buffer = await Webpage.generatePDF(url);
 })();
 &lt;/code&gt;&lt;/pre&gt;
 </content>
